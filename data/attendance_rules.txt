@@ -1,0 +1,11 @@
+🏫 Attendance Rules
+
+1. Minimum Attendance:
+The university mandates an absolute minimum attendance of 75% in every individual course to be eligible to appear for the End Semester Examination.
+
+2. Consequences of Shortfall:
+Students with attendance between 65% and 75% may be allowed to sit for exams only upon paying a condonation fee and submitting valid medical documentation.
+Students with attendance strictly below 65% will receive an 'FA' (Fail due to Attendance) grade and must repeat the course entirely in the next available semester.
+
+3. Official Leave:
+Students participating in university-approved hackathons, sports events, or cultural fests will receive an attendance waiver not exceeding 10% of total classes.

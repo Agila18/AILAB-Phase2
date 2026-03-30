@@ -1,0 +1,16 @@
+📊 Grading System
+
+1. Grade Ranges:
+The university follows a 10-point absolute grading scale.
+O (Outstanding) : 90-100 marks (10 grade points)
+A+ (Excellent) : 80-89 marks (9 grade points)
+A (Very Good) : 70-79 marks (8 grade points)
+B+ (Good) : 60-69 marks (7 grade points)
+B (Average) : 50-59 marks (6 grade points)
+C (Pass) : 40-49 marks (5 grade points)
+F (Fail) : Below 40 marks (0 grade points)
+
+2. CGPA Calculation:
+The Semester Grade Point Average (SGPA) is calculated by dividing the total credit points earned by the total credits registered in that semester.
+The Cumulative Grade Point Average (CGPA) is the weighted average of all SGPA earned across all completed semesters.
+A minimum CGPA of 5.0 is required for graduation.
