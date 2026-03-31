@@ -1,43 +1,41 @@
 """
-👨‍💻 Person 2: Text Chunker (Splitting)
-Responsibility: Split cleaned text into smaller, manageable chunks.
-
-CRITICAL REQUIREMENT:
-Takes the cleaned documents and splits them into chunks.
-Output MUST maintain the standard format:
-[
-  {
-    "text": "Chunk text...",
-    "source": "filename.pdf",
-    "page": 1
-  }
-]
-
-INNOVATION OPPORTUNITIES:
-- Implement semantic chunking instead of just fixed-size.
-- Ensure sentence boundaries are not broken.
-- Experiment with overlapping boundaries to keep context.
+Chunking module for ingestion pipeline.
 """
 
-# from langchain.text_splitter import RecursiveCharacterTextSplitter
+from __future__ import annotations
 
-def split_into_chunks(docs: list[dict], chunk_size: int = 1000, chunk_overlap: int = 200) -> list[dict]:
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+
+def split_into_chunks(
+    docs: list[dict],
+    chunk_size: int = 1000,
+    chunk_overlap: int = 200,
+) -> list[dict]:
     """
-    Splits document text into manageable chunks.
-    
-    Args:
-        docs (list[dict]): Cleaned documents.
-        chunk_size (int): Max size of a chunk.
-        chunk_overlap (int): Overlap between chunks.
-        
-    Returns:
-        list[dict]: Chunked documents.
+    Split cleaned docs into overlapping chunks while preserving metadata.
     """
-    chunks = []
-    
-    # TODO: Implement chunking logic here 
-    # 1. Initialize your text splitter
-    # 2. Split doc['text'] 
-    # 3. Re-pack the split text into the required dictionary format retaining source and page.
-    
+    splitter = RecursiveCharacterTextSplitter(
+        chunk_size=chunk_size,
+        chunk_overlap=chunk_overlap,
+        separators=["\n\n", "\n", ". ", " ", ""],
+    )
+
+    chunks: list[dict] = []
+    for doc in docs:
+        text = doc.get("text", "")
+        if not text:
+            continue
+        parts = splitter.split_text(text)
+        for part in parts:
+            normalized = part.strip()
+            if not normalized:
+                continue
+            chunks.append(
+                {
+                    "text": normalized,
+                    "source": doc.get("source", "unknown"),
+                    "page": doc.get("page", 1),
+                }
+            )
     return chunks

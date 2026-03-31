@@ -1,44 +1,39 @@
 """
-👨‍💻 Person 2: Text Cleaner
-Responsibility: Clean the extracted text.
-
-CRITICAL REQUIREMENT:
-Takes the standard list of dictionaries from the loader and returns a 
-cleaned version of the SAME format.
-[
-  {
-    "text": "Cleaned text...",
-    "source": "filename.pdf",
-    "page": 1
-  }
-]
-
-INNOVATION OPPORTUNITIES:
-- Remove redundant whitespaces, special hidden characters.
-- Fix broken hyphenations (e.g., "demo- \nstration" -> "demonstration").
-- Remove standard headers/footers or boilerplate text.
+Text cleaning helpers for ingestion pipeline.
 """
+
+from __future__ import annotations
+
+import re
+
+
+_MULTI_SPACE = re.compile(r"[ \t]+")
+_MULTI_NEWLINES = re.compile(r"\n{3,}")
+_ZERO_WIDTH = re.compile(r"[\u200b\u200c\u200d\ufeff]")
+
+
+def _normalize_text(text: str) -> str:
+    cleaned = _ZERO_WIDTH.sub("", text or "")
+    cleaned = cleaned.replace("\r\n", "\n").replace("\r", "\n")
+    cleaned = _MULTI_SPACE.sub(" ", cleaned)
+    cleaned = _MULTI_NEWLINES.sub("\n\n", cleaned)
+    return cleaned.strip()
+
 
 def clean_text(docs: list[dict]) -> list[dict]:
     """
-    Cleans the text content of the documents.
-    
-    Args:
-        docs (list[dict]): The output from loader.py
-        
-    Returns:
-        list[dict]: Cleaned documents, preserving 'source' and 'page'.
+    Normalize text while preserving ingestion schema.
     """
-    cleaned_docs = []
-    
-    # TODO: Implement cleaning logic here.
-    # 1. Iterate through docs
-    # 2. Apply regex or string replacement on doc['text']
-    # 3. Add to cleaned_docs
-    
-    # Example snippet:
-    # for d in docs:
-    #     clean_tgt = d['text'].strip().replace('\n\n', '\n')
-    #     cleaned_docs.append({"text": clean_tgt, "source": d['source'], "page": d['page']})
-    
+    cleaned_docs: list[dict] = []
+    for doc in docs:
+        text = _normalize_text(doc.get("text", ""))
+        if not text:
+            continue
+        cleaned_docs.append(
+            {
+                "text": text,
+                "source": doc.get("source", "unknown"),
+                "page": doc.get("page", 1),
+            }
+        )
     return cleaned_docs

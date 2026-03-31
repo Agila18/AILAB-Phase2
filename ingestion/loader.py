@@ -1,45 +1,97 @@
 """
-👨‍💻 Person 1: Document Loader
-Responsibility: Load text from PDF, DOCX, TXT files.
+Document loading utilities for ingestion.
 
-CRITICAL REQUIREMENT:
-Output MUST be a list of dictionaries with this exact format:
+Output contract:
 [
   {
-    "text": "Extracted text content...",
-    "source": "filename.pdf",
-    "page": 1  # or section name, or None if TXT
+    "text": "...",
+    "source": "filename.ext",
+    "page": 1
   }
 ]
-
-INNOVATION OPPORTUNITIES:
-- Identify tables or images (OCR) in PDFs.
-- Use advanced loaders like unstructured.io.
-- Add metadata like document creation date.
-- Handle exceptions and malformed files gracefully.
 """
 
+from __future__ import annotations
+
 import os
-# from langchain_community.document_loaders import PyPDFLoader, Docx2txtLoader, TextLoader
+from html.parser import HTMLParser
+from pathlib import Path
+
+from langchain_community.document_loaders import (
+    Docx2txtLoader,
+    PyPDFLoader,
+    TextLoader,
+)
+
+
+SUPPORTED_EXTENSIONS = {".txt", ".pdf", ".docx", ".html", ".htm"}
+
+
+class _SimpleHTMLTextExtractor(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.parts: list[str] = []
+
+    def handle_data(self, data: str) -> None:
+        if data and data.strip():
+            self.parts.append(data.strip())
+
+    def get_text(self) -> str:
+        return "\n".join(self.parts)
+
+
+def _load_one_file(path: Path) -> list[dict]:
+    suffix = path.suffix.lower()
+    if suffix == ".txt":
+        loader = TextLoader(str(path), encoding="utf-8")
+    elif suffix == ".pdf":
+        loader = PyPDFLoader(str(path))
+    elif suffix == ".docx":
+        loader = Docx2txtLoader(str(path))
+    elif suffix in {".html", ".htm"}:
+        html_text = path.read_text(encoding="utf-8", errors="ignore")
+        parser = _SimpleHTMLTextExtractor()
+        parser.feed(html_text)
+        return [
+            {
+                "text": parser.get_text(),
+                "source": path.name,
+                "page": 1,
+            }
+        ]
+    else:
+        return []
+
+    results: list[dict] = []
+    for idx, doc in enumerate(loader.load()):
+        source_name = os.path.basename(doc.metadata.get("source", str(path)))
+        # PDF loaders usually provide page in metadata; other formats may not.
+        page = int(doc.metadata.get("page", idx + 1))
+        results.append(
+            {
+                "text": doc.page_content or "",
+                "source": source_name,
+                "page": page,
+            }
+        )
+    return results
+
 
 def load_documents(data_dir: str) -> list[dict]:
     """
-    Loads documents from the given directory and returns them in the standard format.
-    
-    Args:
-        data_dir (str): Path to the directory containing input files.
-        
-    Returns:
-        list[dict]: List of document dictionaries containing text, source, and page.
+    Load all supported documents from the input directory.
     """
-    docs = []
-    
-    # TODO: Implement loading logic here.
-    # 1. Iterate over files in data_dir
-    # 2. Use the appropriate loader based on the file extension (.pdf, .docx, .txt)
-    # 3. Transform the loader's output into the uniquely required dictionary format.
-    
-    # Example snippet:
-    # docs.append({"text": "dummy text", "source": "test.pdf", "page": 1})
-    
-    return docs
+    directory = Path(data_dir)
+    if not directory.exists() or not directory.is_dir():
+        return []
+
+    documents: list[dict] = []
+    for path in sorted(directory.glob("*")):
+        if not path.is_file() or path.suffix.lower() not in SUPPORTED_EXTENSIONS:
+            continue
+        try:
+            documents.extend(_load_one_file(path))
+        except Exception as exc:
+            # Continue loading other files even when one is malformed.
+            print(f"[loader] Skipping {path.name}: {exc}")
+    return documents
