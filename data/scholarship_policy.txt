@@ -1,14 +1,84 @@
-💰 Scholarship Policy
+Scholarship and Financial Aid Policy - Coimbatore Institute of Technology (CIT), Coimbatore
 
-1. Types of Scholarships:
-a. Merit-based Scholarship: For top-performing students in the Dean's list.
-b. Need-based Financial Aid: Designed for students from economically weaker backgrounds.
-c. Sports Scholarship: Awarded to students representing the university at national or international sporting events.
+1. Overview:
+CIT facilitates more than 24 government and private scholarship schemes to support students financially. The institute is committed to ensuring that deserving students receive financial assistance to pursue their education without financial burden.
 
-2. Eligibility Criteria:
-Merit scholarships require a minimum CGPA of 8.5 with no active academic backlogs.
-Sports scholarships require a legitimate certification of participation and a minimum CGPA of 6.0.
+2. Government-Sponsored Scholarship Schemes:
+a. Community/Welfare Schemes:
+- Adi Dravidar Welfare Scholarship: For SC/ST students
+- Backward Class (BC) Scholarship: For BC/MBC students
+- Minority Scholarship: For students belonging to minority communities
+- Farmer Social Security Scholarship: For children of farmers
 
-3. Income Limits:
-To qualify for Need-based Financial Aid, the combined annual family income must not exceed $30,000.
-Tax returns or official income certificates from the government must be submitted during application.
+b. Merit and Regional Awards:
+- Chief Minister's Scholarship: State-level merit scholarship
+- Arignar Anna Award: For academic excellence
+- Interstate Scholarships: For students from Pondicherry, Andaman & Nicobar Islands, and northeastern states
+
+c. Special Category Scholarships:
+- AICTE Pragathi Scholarship: Specifically for women engineering students to promote gender equity in technical education
+- AICTE Saksham Scholarship: For differently-abled students pursuing technical education
+- Occupational Scholarships: For children of teachers, defense personnel, and ex-servicemen
+
+3. Fee Concessions:
+Full tuition fee concession is given to students belonging to Scheduled Caste (SC), Scheduled Tribe (ST), and converts to Christianity, regardless of their annual income, for government-aided courses.
+BC/MBC students with family income below the prescribed limit are eligible for partial fee concessions.
+
+4. Central Government Scholarships:
+- PM Special Scholarship Scheme for students from Jammu & Kashmir
+- Central Armed Police Forces Scholarships
+- Railway Ministry Scholarship Schemes
+
+5. National Scholarship Portal (NSP) Schemes:
+- Central Sector Scholarships for students with parental income below Rs. 8.8 lakhs per annum
+- AICTE Pragathi Scholarship for girls in technical education
+- AICTE Saksham Scholarship for differently-abled students in technical education
+- Ishan Uday Scholarship for students from northeastern states
+
+6. Private and Alumni Scholarships:
+- Tamil Nadu Educational Trust Scholarship
+- ONGC Scholarship
+- Siragugal Scholarship Scheme
+- Multiple alumni batch-based charitable trusts (from 1967 to 2017 batches)
+- CIT Endowment Fund Scholarship
+- Other industry-sponsored scholarships from companies visiting for placements
+
+7. Income Limits for Scholarships:
+Income limits vary by scheme, generally ranging from Rs. 2.5 lakhs to Rs. 8.8 lakhs annual parental income depending on the specific scholarship category and government regulations.
+
+5. Application Process:
+Students wishing to apply for a scholarship must submit a duly completed application to the Office of the Principal.
+Applications must be filed within 30 days from the date the institute reopens or from the student's official date of admission, whichever is applicable.
+Applicants must attach all required documents and certificates that support their eligibility for the specific scholarship category.
+Incomplete applications or applications submitted after the deadline will be rejected.
+
+6. Eligibility Conditions:
+A student is eligible to receive only one scholarship or fee concession at a time. If a student qualifies for multiple scholarships, the one with the highest financial benefit will be awarded.
+Students must maintain the minimum university-mandated attendance of 75% to continue receiving scholarship benefits.
+Students must maintain satisfactory academic performance as determined by the scholarship guidelines.
+
+7. Disciplinary Conduct Requirements:
+Scholarships are granted based on trust and responsibility.
+Any form of misconduct, including involvement in ragging or participation in strikes, may result in immediate cancellation of financial assistance.
+Students must maintain good conduct and discipline throughout the scholarship period.
+Violation of college rules may lead to withdrawal of scholarship benefits.
+
+8. Renewal of Scholarships:
+Most scholarships are renewed annually based on continued eligibility.
+Students must re-apply each year with updated documentation.
+Academic performance and attendance are reviewed before renewal.
+
+9. Support and Assistance:
+The Principal's Office provides personalized assistance to students in identifying and applying for suitable scholarship schemes.
+Administrative staff help match students with the most appropriate financial aid options based on their category, income, and academic performance.
+Information about new scholarship schemes is regularly communicated to students through department notice boards and the college website.
+
+10. Documents Required:
+- Community/Caste Certificate
+- Income Certificate of parents/guardians
+- Aadhaar Card
+- Bank Account Details (student's own account)
+- Previous semester mark sheets
+- Admission receipt and fee payment details
+- Medical certificates (if applicable for disability-based scholarships)
+- Any other documents as specified by the particular scholarship scheme

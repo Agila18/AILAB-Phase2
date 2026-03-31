@@ -1,26 +1,22 @@
 """
-👨‍💻 Person 3: Embeddings Generator
+Person 3: Embeddings Generator
 Responsibility: Convert text chunks into vector embeddings.
 
-CRITICAL REQUIREMENT:
-Provide a function that returns an embedding function supported by LangChain and ChromaDB.
-🚨 REQUIRES OLLAMA: You must have Ollama installed and `nomic-embed-text` downloaded (`ollama pull nomic-embed-text`).
+Provides a factory function that returns an OllamaEmbeddings object
+for use by the vector store and retriever.
 
-INNOVATION OPPORTUNITIES:
-- Use local embeddings via Ollama for full offline support.
-- Try different standard models (e.g., BAAI/bge-m3, sentence-transformers/all-MiniLM-L6-v2) for speed/accuracy.
-- Add hardware acceleration (CUDA/Metal).
+Requires Ollama running locally with nomic-embed-text pulled.
 """
 
-# from langchain_community.embeddings import OllamaEmbeddings
-# from core.config import EMBEDDING_MODEL
+from langchain_ollama import OllamaEmbeddings
+from core.config import EMBEDDING_MODEL
+
 
 def get_embedding_function():
     """
     Returns the embedding function to be used by the Vector DB.
+
+    Returns:
+        OllamaEmbeddings: Configured embedding object using nomic-embed-text.
     """
-    
-    # TODO: Configure and return your chosen Ollama embedding sequence.
-    # e.g., return OllamaEmbeddings(model=EMBEDDING_MODEL)
-    
-    pass
+    return OllamaEmbeddings(model=EMBEDDING_MODEL)

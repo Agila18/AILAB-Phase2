@@ -1,11 +1,28 @@
-🏫 Attendance Rules
+Attendance Rules - Coimbatore Institute of Technology (CIT), Coimbatore
 
-1. Minimum Attendance:
-The university mandates an absolute minimum attendance of 75% in every individual course to be eligible to appear for the End Semester Examination.
+1. Minimum Attendance Requirement:
+CIT mandates an absolute minimum attendance of 75% in every individual course (theory, drawing, and practical classes separately) to be eligible to appear for the End Semester Examination. Attendance is tracked separately for theory lectures, laboratory practicals, and drawing classes.
 
-2. Consequences of Shortfall:
-Students with attendance between 65% and 75% may be allowed to sit for exams only upon paying a condonation fee and submitting valid medical documentation.
+2. Consequences of Attendance Shortfall:
+Students with attendance between 65% and 75% may be allowed to sit for exams only upon paying a condonation fee and submitting valid medical documentation or other genuine reasons approved by the Head of Department.
 Students with attendance strictly below 65% will receive an 'FA' (Fail due to Attendance) grade and must repeat the course entirely in the next available semester.
 
-3. Official Leave:
-Students participating in university-approved hackathons, sports events, or cultural fests will receive an attendance waiver not exceeding 10% of total classes.
+3. Official Leave and Attendance Waiver:
+Students participating in college-approved events such as hackathons, sports events, cultural fests, technical symposiums (Interface, Technovation, Cyber Fest), or IEEE/professional body activities will receive an attendance waiver not exceeding 10% of total classes.
+Students representing CIT at inter-college or university-level competitions may receive additional attendance relaxation with prior approval from the Principal.
+
+4. Medical Leave:
+Students who miss classes due to medical reasons must submit a medical certificate from a registered medical practitioner within 7 days of resuming classes.
+Extended medical leave (more than 2 weeks) requires approval from the Head of Department and the Principal.
+
+5. Industrial Training Attendance:
+Four weeks of industrial training is compulsory for all students. This training is mandatory for eligibility for the award of the degree by the university (in practice since 2009). Students must maintain 100% attendance during industrial training unless excused by the training coordinator.
+
+6. Continuous Assessment and Regularity:
+Continuous assessment in laboratory practicals, workshop practice, and engineering drawing has been introduced under the Autonomous scheme since 2001. This system inculcates a sense of responsibility and regularity among students. Regular attendance is a prerequisite for continuous internal assessment marks.
+
+7. Scholarship and Financial Aid Condition:
+Students receiving scholarships or financial aid must maintain the minimum university-mandated attendance of 75%. Failure to maintain attendance may result in cancellation of scholarship benefits.
+
+8. Monitoring and Reporting:
+Attendance is recorded by faculty for each class session. Periodic attendance reports are generated and shared with students and parents/guardians. Students falling below 80% attendance at any point during the semester will receive a warning notification from the department.

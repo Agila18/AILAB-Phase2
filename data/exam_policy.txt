@@ -1,14 +1,59 @@
-📄 Exam Policy
+Examination Policy - Coimbatore Institute of Technology (CIT), Coimbatore
 
-1. Exam Types:
-The university conducts two main types of examinations per semester: Midterm Examinations and End Semester Examinations.
-Midterms are usually held in the 8th week of the semester, while End Semester Exams are held in the 16th and 17th weeks.
+1. Examination Structure:
+CIT conducts two types of examinations each semester:
+- Two Mid-term Examinations (Internal Assessments) conducted during the semester
+- One End Semester Examination (Term-end Examination)
+The final result of the semester is evaluated by combining the mid-term examination results and the end-semester examination results.
 
-2. Passing Criteria:
-A student must secure a minimum of 40% marks overall across continuous evaluations, midterms, and end-semester exams to pass a course.
-Additionally, passing the end-semester exam separately with a minimum of 35% is mandatory.
+2. Examination Schedule:
+Odd Semester examinations are conducted in the month of November-December.
+Even Semester examinations are conducted in the month of April-May.
+The academic session begins with the Odd semester in August and ends in December, while the Even semester begins in January.
+The examination timetable is uploaded on the CIT website prior to the commencement of examinations.
 
-3. Revaluation Rules:
-Students who are not satisfied with their grades can apply for revaluation within 7 days of the result declaration.
-A non-refundable fee of $50 per subject applies for revaluation requests.
-Only End Semester Exam answer scripts are eligible for revaluation.
+3. Question Paper Setting:
+For Undergraduate (UG) programmes, all question papers are set by both external and internal examiners to maintain quality and fairness.
+For Postgraduate (PG) programmes, the college has complete autonomy with internal question setting and valuation.
+
+4. Valuation Process:
+Answer scripts for UG programmes are evaluated by both internal and external examiners.
+Students have the option to go through their valued answer scripts for transparency in the evaluation process.
+If a student is not satisfied with the evaluation, they may apply for revaluation.
+
+5. Passing Criteria:
+Students must secure minimum marks in both internal assessment and end-semester examination separately to pass a course.
+The passing grade is determined based on the combined performance in continuous assessment and end-semester examination.
+
+6. Revaluation:
+Students who are unsatisfied with their results may apply for revaluation of their end-semester answer scripts.
+Revaluation requests must be submitted within the stipulated time frame announced by the Controller of Examinations.
+A revaluation fee must be paid along with the application.
+
+7. Supplementary Examinations:
+Supplementary examinations are conducted for outgoing batches (final year students) who have arrear subjects.
+Students who fail in any subject may appear for the arrear examination in subsequent semesters.
+
+8. Continuous Internal Assessment:
+Internal assessment includes mid-term tests, assignments, quizzes, seminars, and lab performance.
+Continuous assessment in laboratory practicals, workshop practice, and engineering drawing has been part of the autonomous scheme since 2001.
+Internal assessment marks contribute to the final grade along with end-semester examination marks.
+
+9. Result Declaration:
+CIT Coimbatore results for UG/PG courses are declared within 30-35 days after the examination.
+The Odd semester examination result is declared in the month of January.
+The Even semester examination result is announced in the month of June.
+Results are published on the official CIT website.
+
+10. Examination Misconduct:
+Any form of malpractice during examinations (copying, use of unauthorized materials, impersonation) is strictly prohibited.
+Students found guilty of malpractice will face severe penalties including cancellation of the examination, suspension, or expulsion depending on the severity of the offense.
+
+11. Eligibility to Appear for Examinations:
+Students must have a minimum of 75% attendance in each course to be eligible for the end-semester examination.
+Students must have completed all required internal assessments and submitted all assignments.
+Students must have paid all due fees and fines before appearing for examinations.
+
+12. Mini Project Evaluation:
+A mini project of 2 credits is offered to students in the V and VI semesters.
+Mini projects are evaluated through presentations, reports, and viva voce by internal and external examiners.

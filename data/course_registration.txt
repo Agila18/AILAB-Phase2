@@ -1,10 +1,68 @@
-🎓 Course Registration
+Course Registration - Coimbatore Institute of Technology (CIT), Coimbatore
 
-1. Add/Drop Courses:
-The Add/Drop period is strictly active during the first two weeks of the semester.
-Students can drop an elective course without any academic penalty during this window.
-Any course drop after week two will reflect as a 'W' (Withdrawn) grade on the official transcript.
+1. Choice Based Credit System (CBCS):
+CIT follows the Choice Based Credit System (CBCS) introduced in 2015, which gives students flexibility in selecting elective courses based on their interests and career goals. The credit system was first introduced to all programmes in 2001.
 
-2. Credit Limits:
-A full-time undergraduate student must register for a minimum of 15 credits and a maximum of 24 credits per semester.
-Overloading credits beyond 24 is only permitted for seniors (4th-year students) with a minimum CGPA of 8.0, and requires approval from the Dean of Academic Affairs.
+2. Course Categories:
+Courses at CIT are broadly categorized as:
+- Core Courses: Mandatory courses specific to the student's department and programme. These form the foundation of the degree.
+- Professional Electives: Department-specific elective courses that allow students to specialize in areas of interest within their discipline.
+- Open Electives: Courses from other departments that students can choose to broaden their knowledge base.
+- Mandatory Courses: Non-credit courses like "Science of Creativity and Professional Ethics" (offered since 1987), Environmental Science, and Constitution of India.
+- Laboratory Courses: Hands-on practical courses associated with theory subjects.
+- Project Courses: Mini projects (2 credits in V and VI semesters) and final year projects.
+
+3. Registration Process:
+Students must register for courses at the beginning of each semester during the designated registration period.
+Registration is done through the academic office with guidance from the faculty advisor.
+Students must consult with their academic advisors before selecting elective courses.
+Course registration must be completed within the first two weeks of the semester.
+
+4. Add/Drop Period:
+The Add/Drop period is active during the first two weeks of the semester.
+Students can add or drop elective courses during this window without any academic penalty.
+After the Add/Drop period, course changes are generally not permitted except under exceptional circumstances approved by the Head of Department.
+
+5. Credit Load:
+Each semester has a specified credit load (typically 20-25 credits per semester).
+Students should not register for courses exceeding the maximum credit limit without special permission.
+Students who wish to take additional courses beyond the normal load must obtain approval from their academic advisor and the Head of Department.
+
+6. Elective Course Selection:
+Introduction of elective courses as and when required to suit the needs of industry has been a key feature of CIT's autonomous system.
+Elective courses are updated periodically to keep pace with the latest trends in technology, especially in the IT sector.
+Students are given the option to study German or French as an alternative to English in the second semester.
+The Board of Studies reviews and updates the elective course offerings based on industry feedback and academic trends.
+
+7. Industrial Training:
+Four weeks of industrial training is compulsory for all students and is a prerequisite for the award of the degree (mandatory since 2009).
+Students must register for industrial training in the designated semester.
+Industrial training carries credits and is evaluated based on the training report and viva voce.
+
+8. Mini Project:
+A mini project of 2 credits is offered to students in the V and VI semesters.
+Students must register for the mini project and select a guide from the department faculty.
+Mini projects provide hands-on experience in applying theoretical knowledge to practical problems.
+
+9. Course Withdrawal:
+Students who wish to withdraw from a course after the Add/Drop period may apply for a 'W' (Withdrawal) grade.
+Withdrawal requests must be submitted before a specified deadline (usually mid-semester).
+A maximum of 2 course withdrawals is typically allowed per semester.
+Withdrawal does not carry any grade penalty but the course must be completed in a subsequent semester.
+
+10. Backlog/Arrear Courses:
+Students who have failed or have arrear courses must re-register for those courses in subsequent semesters.
+Arrear courses must be cleared to meet the minimum credit requirements for the degree.
+Students with arrears should prioritize clearing them before taking additional elective courses.
+
+11. Syllabus Revision:
+Syllabi at CIT undergo thorough revision every four years or as needed to keep the curriculum current and relevant.
+The Curriculum Development Cell works with the Board of Studies to update course content based on industry requirements and academic developments.
+
+12. Programme Duration:
+BE/BTech programmes: 4 years (8 semesters)
+ME/MTech programmes: 2 years (4 semesters)
+MCA programme: 2 years (4 semesters)
+MBA programme: 2 years (4 semesters)
+Integrated M.Sc. programmes: 5 years (10 semesters)
+Ph.D. programmes: Minimum 3 years

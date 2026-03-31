@@ -1,16 +1,56 @@
-📊 Grading System
+Grading System - Coimbatore Institute of Technology (CIT), Coimbatore
 
-1. Grade Ranges:
-The university follows a 10-point absolute grading scale.
-O (Outstanding) : 90-100 marks (10 grade points)
-A+ (Excellent) : 80-89 marks (9 grade points)
-A (Very Good) : 70-79 marks (8 grade points)
-B+ (Good) : 60-69 marks (7 grade points)
-B (Average) : 50-59 marks (6 grade points)
-C (Pass) : 40-49 marks (5 grade points)
-F (Fail) : Below 40 marks (0 grade points)
+1. Credit System:
+CIT introduced the credit system to all programmes since 2001. The Choice Based Credit System (CBCS) has been followed from 2015, allowing students more flexibility in choosing elective courses.
 
-2. CGPA Calculation:
-The Semester Grade Point Average (SGPA) is calculated by dividing the total credit points earned by the total credits registered in that semester.
-The Cumulative Grade Point Average (CGPA) is the weighted average of all SGPA earned across all completed semesters.
-A minimum CGPA of 5.0 is required for graduation.
+2. Grade-Based Evaluation:
+Under the autonomous scheme, grades are awarded instead of marks for a more realistic and comprehensive evaluation. This system provides a standardized way to assess student performance across different courses and departments.
+
+3. Grade Scale:
+The following grade points are used in the CIT grading system (aligned with Anna University autonomous regulations):
+- S (Superior): 10 grade points - awarded for outstanding performance (90-100%)
+- A (Excellent): 9 grade points - awarded for excellent performance (80-89%)
+- B (Very Good): 8 grade points - awarded for very good performance (70-79%)
+- C (Good): 7 grade points - awarded for good performance (60-69%)
+- D (Average): 6 grade points - awarded for average performance (55-59%)
+- E (Satisfactory): 5 grade points - awarded for satisfactory performance (50-54%)
+- U (Unsatisfactory/Fail): 0 grade points - student has failed the course and must re-appear
+- FA (Fail due to Attendance): 0 grade points - student must repeat the course due to attendance shortage
+- W (Withdrawal): No grade points - course withdrawn with permission before the deadline
+- I (Incomplete): Temporary grade - must be cleared within the stipulated time
+
+4. SGPA Calculation:
+The Semester Grade Point Average (SGPA) is calculated using the formula:
+SGPA = Sum of (Credit of each course x Grade Point obtained) / Total Credits in the semester
+SGPA = (C1*G1 + C2*G2 + C3*G3 + ... + Cn*Gn) / (C1 + C2 + C3 + ... + Cn)
+Where Ci = Credit of course i, Gi = Grade point obtained in course i.
+
+5. CGPA Calculation:
+The Cumulative Grade Point Average (CGPA) is calculated across all semesters completed:
+CGPA = Sum of (Credit of each course across all semesters x Grade Point obtained) / Total Credits across all semesters
+CGPA provides an overall measure of academic performance throughout the programme.
+
+6. Continuous Assessment:
+Continuous assessment is a key component of the grading system. It includes:
+- Mid-term examination marks
+- Assignment and quiz marks
+- Laboratory performance and continuous assessment in practicals
+- Seminar and presentation marks
+- Mini project evaluation (for V and VI semester students)
+The continuous assessment component typically contributes 40-50% of the final grade, with the end-semester examination contributing the remaining 50-60%.
+
+7. Classification of Results:
+Based on CGPA, students are classified as follows:
+- First Class with Distinction: CGPA of 8.5 and above
+- First Class: CGPA of 6.5 to 8.49
+- Second Class: CGPA of 5.5 to 6.49
+- Pass: CGPA of 5.0 to 5.49
+
+8. Improvement of Grades:
+Students who wish to improve their grades may re-appear for the end-semester examination in subsequent semesters. The better of the two grades (original or improved) will be considered for CGPA calculation.
+
+9. Arrear Examinations:
+Students who fail a course (U grade) must appear for supplementary/arrear examinations. Arrear examinations are conducted along with the regular semester examinations. There is no limit on the number of attempts for clearing arrears, but students must clear all arrears to be eligible for the degree.
+
+10. Credit Requirements:
+Students must earn the minimum required credits as specified in their programme curriculum to be eligible for the award of the degree. The total credit requirement varies by programme (typically 160-180 credits for a 4-year BE/BTech programme).

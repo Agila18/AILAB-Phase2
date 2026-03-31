@@ -1,13 +1,141 @@
-💼 Placement Policy
+Placement Process and Rules - Coimbatore Institute of Technology (CIT), Coimbatore
 
-1. Eligibility for Placements:
-Students must have a minimum CGPA of 6.5 to register for campus placements.
-Students with more than 2 active backlogs are not allowed to sit for pre-placement talks or interviews.
+1. About the Placement Cell:
+The Placement Cell at Coimbatore Institute of Technology is directed by a Professor-ranked staff member and is entrusted with the task of securing placements for graduating students. The cell maintains robust partnerships with national and multinational industrial establishments, facilitating pre-placement presentations, campus interviews, and recruitment activities. Student representatives from each department are selected to oversee and coordinate placement activities. Monthly review meetings are conducted for placement planning, and general-body meetings are held for final-year students at the start of each academic year.
 
-2. Internship Rules:
-A mandatory 8-week summer internship must be completed at the end of the third academic year.
-Internships must be approved by the placement cell prior to commencement.
+Placement Cell Contact:
+Phone: +91-422-2574071, 2574072
+Mobile: +91 90035 00822, +91 95855 94322
+Email: placement@cit.edu.in
+Fax: +91-422-2575020
+Address: Civil Aerodrome Post, Coimbatore, India - 641014
 
-3. Placement Process:
-Once a student secures a job offer from a company during campus placements, they are immediately deregistered from the placement process (One Student, One Job policy).
-Exceptions are made only if the subsequent company offers a compensation package that is at least 1.5x higher than the secured offer (Dream Company status).
+Placement Cell Leadership:
+- Dr. A. Rajeswari - Placement Officer and Principal
+- Dr. R. Maheswari - Deputy Placement Officer, Department of Humanities
+- Dr. P. Muthu Subramanian - Deputy Placement Officer, Department of ECE
+- Dr. A. Saravanan - Deputy Placement Officer, Department of Computing
+- Dr. S. Thilaga - Deputy Placement Officer, Department of MBA
+- Mr. R. Vivek Kumar - Training and Placement Officer
+- Col. Jacob G Podipara - Deputy Placement Officer, Department of Civil Engineering
+
+2. Placement Infrastructure:
+CIT provides state-of-the-art infrastructure for the placement process including dedicated rooms for group discussions, written tests, and interviews. A communication lab is available for aptitude and skill enhancement training. A placement library with aptitude and technical reference materials supports student preparation. Campus recruitment process information is displayed to students to aid career planning.
+
+3. Training and Career Support:
+The Placement Cell provides comprehensive pre-placement training to students aligned with industry trends, including:
+- Aptitude and reasoning skills training
+- Group discussion and personal interview preparation
+- Technical skills enhancement workshops
+- Communication and soft skills development through the communication lab
+- Resume building and mock interview sessions
+Pre-placement activities are coordinated for sophomore and junior students well before the final year.
+The cell also supports students in preparing for competitive exams including GATE, TOEFL, GRE, CAT, and GMAT.
+Self-employment promotion is also supported with guidance on government financial assistance for entrepreneurship.
+
+4. Placement Process at CIT:
+The campus recruitment process follows these stages:
+Step 1 - Pre-Placement Talk (PPT): Companies visit campus and conduct presentations about their organization, job roles, work culture, and compensation packages.
+Step 2 - Written Test / Online Assessment: Companies conduct aptitude tests, technical assessments, and coding challenges to shortlist candidates.
+Step 3 - Group Discussion (GD): Shortlisted candidates participate in group discussions to assess communication, teamwork, and analytical thinking.
+Step 4 - Technical Interview: Candidates are assessed on domain knowledge, problem-solving skills, and technical expertise relevant to the job role.
+Step 5 - HR Interview: Final round to evaluate communication skills, personality, cultural fit, and salary expectations.
+Step 6 - Offer Letter: Selected candidates receive official offer letters from the recruiting company.
+
+Several reputed companies compete to be the "Day One" company each academic year, reflecting the strong demand for CIT graduates.
+
+5. Placement Statistics and Highlights:
+
+B.E. / B.Tech. Placements:
+- Highest Package (2025-26): Rs. 58 Lakhs Per Annum
+- Highest Package (2023-24): Rs. 52 Lakhs Per Annum (D.E. Shaw India)
+- Highest Package (2022-23): Rs. 36 Lakhs Per Annum (D.E. Shaw India)
+- Average Package: Rs. 4-5 Lakhs Per Annum
+- Placement records have been maintained consistently from 2005-06 through 2024-25.
+
+M.Sc. Programme Placements:
+- Highest Package: Rs. 58 Lakhs Per Annum
+- KLA Corporation Internship Stipend: Rs. 75,000 Per Month with job offer of Rs. 29 Lakhs Per Annum
+- Students intern at Microsoft Research India and universities abroad (UCF, ASU, UBC, NUS, Ontario Tech, Athabasca University, University of Malaya)
+
+MCA Placements:
+- Highest Package: Rs. 14 Lakhs Per Annum
+
+MBA Placements:
+- Highest Package: Rs. 12 Lakhs Per Annum
+
+6. Recruiting Companies (From Official CIT Brochures):
+
+Top-Tier Recruiters:
+Amazon, D.E. Shaw & Co, Soliton, KLA, Oracle, Thorogood, Deloitte, EXL, Accenture, Infosys, IBM, Zoho, EY (Ernst & Young), CaratLane, Toshiba
+
+IT and Technology Companies:
+MiQ, embedUR, Rootquotient, Konnectify, Justo Global, LSEG, Cognizant, SuperAGI, Yubi, SurveySparrow, Ninjacart, Saturam, OptiSol, Tata Technologies, Informatica, Incture, Flex, Tekizma
+
+Engineering and Manufacturing Companies:
+Ascendion, HI Mando, Smartail, Vandewiele Savio, Propel, Axcess.io, Datazoic, Ignitarium, Savills, Izeon Innovative, Geleation, NMTronics, Satyukt, WNS Vuram, Gulf Asia, Ford, Wasco, Flowserve, L&T Technology Services, Ohmium
+
+Finance and Consulting:
+DTCC, IDFC First Bank, Mu Sigma, Capgemini, Checkpoint, McDermott, HashedIn, SLB (Schlumberger), EffiGO, Infominds, Everstage, HyperVerge, Base, Panora, Aqfer, Sporfy, Intellectyx, Technip Energies, Tessolve, Wissen Technology, HARTS, Mobicip, TEAL (A Tata Enterprise), Shoba, Energo Group, Quinbay
+
+MBA Recruiters:
+Brillio, Berger Paints, Asian Paints, City Union Bank, DMart, Roots Adding Value, Reliance Retail, OptiSol, Naukri, ICICI Bank, Indigo Paints, Veritas Finance, Vilvah Store, WhiteOak Capital Management, Characterr
+
+MCA Recruiters:
+Oracle, Zoho, Infosys, Accenture, LSEG, EXL, Yubi, EY, NGP, Cognizant, Tata Technologies, Tekizma, Informatica, Incture, Flex
+
+Additional Recruiters:
+Genau Extrusions, Shaachi, Buckman, SPAN, NGP, CMS, Filesure, CUMI, RDC Concrete, Impelox, Delphi-TVS Technologies, Simpolo, Rabwin, Infinium, Timbertruss, URC Building Values, Aarbee, FedEx, Alstom
+
+7. Placement Rules and Policies:
+- Students must register with the Placement Cell to participate in campus recruitment drives.
+- Professional dress code must be maintained during all placement-related activities.
+- Students must carry their college ID card and updated resume copies during placement drives.
+- Students must attend all scheduled placement activities (PPTs, tests, interviews) once registered. Failure to attend without prior notice may result in debarment from future placement drives.
+- Students must maintain minimum required attendance and academic standing to be eligible for placements.
+- Students must have completed all mandatory industrial training requirements.
+
+8. Internship Programmes:
+CIT facilitates internship opportunities with leading industries as part of the curriculum:
+- B.E./B.Tech students: Four weeks of compulsory industrial training for eligibility for the degree award (mandatory since 2009).
+- M.Sc. Integrated Programme students: Two 6-month internships during the 7th and 10th semesters in industries, institutions of eminence, and R&D laboratories.
+- Internship companies include: EY, Justo Global, CaratLane, OptiSol, SPAN, Konnectify, Shaachi, Buckman, NGP.
+- International internship opportunities available at universities abroad including UCF, ASU, UBC (Canada), NUS (Singapore), Ontario Tech, Athabasca University, and University of Malaya.
+
+9. Higher Studies Support:
+The Placement Cell also guides students interested in higher studies:
+- GATE (Graduate Aptitude Test in Engineering) preparation for M.Tech admissions
+- GRE and TOEFL preparation for M.S./Ph.D. programmes abroad
+- CAT and GMAT preparation for MBA aspirants
+- University application process guidance for programmes abroad
+CIT has international collaborations with Taylors University, Asia Pacific University of Technology and Innovation, Western Norway University of Applied Sciences (HVL), University of Jaffna (Sri Lanka), University Malaya (Malaysia), Telekom University Bandung (Indonesia), Swinburne University of Technology (Sarawak/Melbourne), and the British Council, facilitating credit transfer, semester abroad opportunities, and joint research initiatives.
+
+10. Reasons for CIT's Placement Success:
+CIT attributes its strong placement record to:
+- High quality teaching with emphasis on fundamentals and concepts
+- Quality infrastructure and modern learning methods
+- Exposure to national and international conferences and seminars
+- Regular return of reputed organizations year after year, indicating sustained employer confidence
+- Industry aligned curricula and syllabi ensuring career-ready graduates
+- Rich alumni network serving in leadership positions across the globe, mentoring current students
+- 6 Centres of Excellence in Industrial Automation, 5G Technologies, Internet of Things (IoT), E-Mobility, Material Characterization and Synthesis, and Cyber Security
+
+11. Notable Alumni in Industry:
+- Er. N. Chandrasekaran (1976 batch, B.Sc. App. Sc.) - Chairman, TATA Sons, India
+- Er. Sathish C Dhanasekaran (1994 batch, B.E. ECE) - President & CEO, Keysight Technologies, USA
+- Er. Jahangir Mohammed (1991 batch, B.E. ECE) - Founder & CEO, Twin Health, USA
+- Mr. Josh Foulger (1992 batch, B.E. Mech.) - President, ZETWORK
+- Mr. Anand Selvakesari (1989 batch, B.E. Mech.) - Chief Operating Officer, Citigroup Inc
+- Mr. Sampath (1995 batch, B.E. ECE) - Managing Director, EY Cloud Data Modernization, New York
+- Ms. Aarthi Anbalagan (2009 batch, B.Tech IT) - Senior Software Engineer, Microsoft
+- Mr. Prabhu Loganathan (2000 batch, MCA) - Vice President, Qualitest
+- Mr. L. Jayakumar (2023 batch, MBA) - Business Consultant, Tata Consultancy Services
+
+12. Contact for Placement Enquiries:
+Placement Cell, Coimbatore Institute of Technology
+Civil Aerodrome Post, Avinashi Road, Coimbatore - 641014, Tamil Nadu, India
+Phone: +91-422-2574071, 2574072
+Mobile: +91 90035 00822, +91 95855 94322
+Email: placement@cit.edu.in
+Website: www.cit.edu.in
+LinkedIn: linkedin.com/school/coimbatore-institute-of-technology/

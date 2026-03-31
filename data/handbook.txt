@@ -1,16 +1,110 @@
-📘 Student Handbook
+Student Handbook - Coimbatore Institute of Technology (CIT), Coimbatore
 
-1. General Rules:
+1. About CIT:
+Coimbatore Institute of Technology (CIT) was established in 1956 by the V. Rangaswamy Naidu Educational Trust (VRET). It is a government-aided autonomous engineering college located on Avinashi Road, Civil Aerodrome Post, Coimbatore-641014, Tamil Nadu, India. The college is affiliated to Anna University, Chennai, and is recognized by the All India Council for Technical Education (AICTE). CIT has been an autonomous institution since 1987, granted by the University Grants Commission (UGC). The institution is accredited by the National Assessment and Accreditation Council (NAAC) with 'A' Grade and by the National Board of Accreditation (NBA). CIT's motto is "Nature in the service of man."
+
+2. History:
+CIT was founded by Prof. R. Venkataswamy Naidu and Prof. P.R. Ramakrishnan in 1956. The college was initially affiliated with Madras University from 1956 to 1980, then moved to Bharathiar University, and later joined Anna University in 2001. CIT achieved autonomous status in 1987, making it one of the earliest autonomous engineering colleges in Tamil Nadu.
+
+3. Campus:
+The CIT campus spans 69 acres and is located near the Coimbatore International Airport (approximately 2.3 km away). The campus houses 14 departments offering undergraduate, postgraduate, and doctoral programs.
+
+4. Leadership:
+Chairman: S. Rajiv Rangasami
+Principal: A. Rajeswari
+President: K. Divya Mohana Rajiv
+
+5. Governance Structure:
+CIT operates through statutory bodies including:
+- Governing Council
+- Academic Council
+- Finance Committee
+- Board of Studies
+Non-statutory bodies include the Planning and Evaluation Committee and Curriculum Development Cell.
+
+6. General Rules:
 All students must carry their ID cards at all times within the campus premises.
 Smoking, alcohol consumption, and any form of substance abuse are strictly prohibited on campus.
 Students are expected to dress appropriately and maintain proper decorum in classrooms and labs.
+Mobile phones must be switched off during lectures and laboratory sessions.
 
-2. Code of Conduct:
+7. Code of Conduct:
 Any form of ragging, bullying, or harassment is a punishable offense and may result in immediate expulsion.
-Vandalizing university property will lead to strict disciplinary actions including heavy fines.
+Vandalizing college property will lead to strict disciplinary actions including heavy fines.
 Academic integrity is paramount; any form of plagiarism or cheating will face a zero-tolerance policy.
+Students must maintain discipline and decorum during college events, symposiums, and cultural programs.
 
-3. Academic Structure:
-The academic year is divided into two regular semesters (Fall and Spring) and an optional Summer term.
-Each semester consists of 15 weeks of teaching followed by examinations.
-Students must consult with their academic advisors before registering for any core or elective courses.
+8. Academic Structure:
+The academic year is divided into two regular semesters: Odd Semester (August to December) and Even Semester (January to May).
+Each semester consists of teaching weeks followed by end-semester examinations.
+CIT follows a Choice Based Credit System (CBCS) introduced in 2015.
+Grades are awarded instead of marks for a more realistic and transparent evaluation system.
+Students must consult with their academic advisors before registering for elective courses.
+
+9. Departments:
+CIT has 14 departments offering programs in:
+- Civil Engineering
+- Mechanical Engineering
+- Electrical and Electronics Engineering
+- Electronics and Communication Engineering
+- Computer Science and Engineering
+- Information Technology
+- Chemical Engineering
+- Production Engineering
+- Automobile Engineering
+- Physics
+- Mathematics
+- Chemistry
+- English
+- Management Studies
+
+10. Programs Offered:
+CIT offers a total of 34 programmes:
+- 9 Undergraduate (UG) programmes (BE/BTech)
+- 12 Postgraduate (PG) programmes (ME/MTech/MCA/MBA)
+- 5-year Integrated M.Sc. degrees
+- M.S. and Ph.D. research programmes
+Total fees range from Rs. 80,410 to Rs. 7,40,000 depending on course level, structure, and duration.
+
+11. Rankings:
+According to the National Institutional Ranking Framework (NIRF) 2024, CIT is ranked in the 101-150 band in the engineering ranking.
+
+12. Campus Facilities:
+- Advanced laboratories and smart classrooms with projectors
+- Innovation labs and seminar halls
+- Spacious library with digital access to e-books and journals
+- Central computing center with high-speed internet
+- Indoor and outdoor sports facilities (cricket, basketball, football, hockey, tennis, volleyball, badminton, tennikoit)
+- Cafeteria and canteen
+- 24/7 ATM service on campus
+- CCTV surveillance across campus
+- Stationery shop and gymnasium
+
+13. Student Organizations:
+The student union comprises 20 clubs including:
+- Arts Club, Dramatics Club, Tamil Club, Film Club
+- Karate Club, Music Club, Photography Club, Sports Club
+Professional bodies like IEEE and the Indian Institute of Chemical Engineers have active student chapters.
+
+14. Major Events:
+- Interface: Inter-collegiate technical symposium held in February
+- Technovation: National symposium by chemical, civil, and mechanical engineering students in September
+- Cyber Fest: National technical symposium by computer applications students in January
+
+15. Notable Alumni:
+- Natarajan Chandrasekaran (1976 batch) - Chairman of Tata Sons
+- K. Krithivasan (1985 batch) - CEO and Managing Director of TCS
+- Subbiah Arunan - Project Director of Mars Orbiter Mission (Mangalyaan)
+- R. Prabhu (1968 batch) - Former Union Minister
+- Karthik Krishnan (1995 batch) - Global CEO of Britannica Group
+- Venkat Panchapakesan (1988 batch) - Senior VP of Engineering at YouTube/Google
+
+16. Academic Innovations:
+- A course called "Science of Creativity and Professional Ethics" has been part of the curriculum since the inception of the Autonomous scheme in 1987 for character building and overall development.
+- Students are given the option to study German or French as an alternative to English in the second semester.
+- Elective courses are introduced as and when required to suit the needs of industry, especially in the IT sector.
+
+17. Contact:
+Address: Coimbatore Institute of Technology, Civil Aerodrome Post, Avinashi Road, Coimbatore - 641014, Tamil Nadu, India
+Website: cit.edu.in
+Nearest Airport: Coimbatore International Airport (2.3 km)
