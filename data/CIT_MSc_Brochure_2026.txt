@@ -1,73 +1,316 @@
-CIT 5 YEAR INTEGRATED M.Sc. PROGRAMMES BROCHURE
-Coimbatore Institute of Technology
-A Government Aided Autonomous Institution, Affiliated to Anna University
-Civil Aerodrome (PO), Coimbatore - 641 014
+TITLE: CIT 5-Year Integrated M.Sc. Programmes Brochure
+INSTITUTION: Coimbatore Institute of Technology (CIT), Coimbatore
 
-DEPARTMENT OF COMPUTING:
-The Department of Computing offers 5-year integrated M.Sc. Programmes in emerging domains of software and digital technologies. The Department has 43 experienced faculty members, of which 36 are holding Ph.Ds. The state-of-the-art infrastructure facilitates maximized learning outcomes.
+================================================================================
+SECTION: INSTITUTION DETAILS
+================================================================================
+Institution Name: Coimbatore Institute of Technology (CIT)
+Type: Government Aided Autonomous Institution
+Affiliation: Anna University, Chennai
 
-HIGHLIGHTS:
-- Two 6-month internships during 7th and 10th semesters of the programme in industries, institutions of eminence and R&D laboratories
-- International collaborations with universities, facilitating training, credit transfer, semester abroad, and internships
-- Visiting and adjunct faculty from industries and premier academic institutions
-- Industry aligned curriculum with advanced specializations
-- Hackathons preparing the students for problem solving with industry collaborations and sponsorship
-- Exceptional alumni support
+Address:
+- Civil Aerodrome (PO), Coimbatore - 641014
 
-M.Sc. SOFTWARE SYSTEMS (Since 1998):
-- Blend of core Computing Courses, Applied Technologies and Research
-- Skill Development on problem-solving and communication
-- Specializations: Quantum Computing, Cloud Computing, Full Stack, IoT, AI, Data Analytics
-- Seamless Progression and Lifelong Learning
+Programme Type:
+- 5-Year Integrated M.Sc. Programmes
 
-M.Sc. DATA SCIENCE (Since 2016):
-- Curriculum Blended with Mathematics, Statistics and Computer Science
-- Expertise in Analytical Solution
-- Life-long learning and Research to create better Profession
-- Preparing Industry Ready Data Scientists / Analysts
+Keywords: CIT MSc integrated, CIT computing programs, CIT courses
 
-M.Sc. DECISION AND COMPUTING SCIENCES (Since 2017):
-- Curriculum integrates Technology and Management
-- Ideal for Science & Commerce Students
-- Specializations: Software, Business Analytics, AI & ML, Decision Intelligence
-- Preparing Industry-Ready Decision Scientists
+================================================================================
+SECTION: DEPARTMENT OF COMPUTING - OVERVIEW
+================================================================================
 
-M.Sc. ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING (Since 2019):
-- Strong foundations in Mathematics, Statistics, and Computing for AI & ML excellence
-- Nurturing industry-ready talent for a global future
-- Empowering innovators and future tech leaders
-- Cultivating Future-Ready Skills: Think analytically, code smartly, solve creatively
+Department:
+- Department of Computing
 
-PLACEMENTS AND INTERNSHIPS:
-Highest Package: Rs. 58 Lakhs per annum
-KLA Corporation Internship: Rs. 75,000 Per Month with Job offer of Rs. 29 Lakhs Per Annum
+Programs Offered:
+- 5-Year Integrated M.Sc. Programmes in software and digital technologies
 
-Placement Recruiters: D.E. Shaw & Co, Thorogood, Amazon, Deloitte, Oracle, KLA, EXL, IBM, Infosys, Rootquotient, Zoho, Soliton, SurveySparrow, LSEG, Accenture, SuperAGI, Yubi, Konnectify.
+Faculty Strength:
+- Total Faculty: 43
+- Ph.D Holders: 36
 
-Internship Companies: EY, Justo Global, CaratLane, OptiSol, SPAN, Konnectify, Shaachi, Buckman, NGP.
+Infrastructure:
+- State-of-the-art infrastructure for enhanced learning outcomes
 
-Internships at Universities Abroad: UCF, ASU, UBC, NUS, Ontario Tech, Athabasca University, University of Malaya.
+Keywords: department of computing CIT, faculty CIT computing, infrastructure CIT
 
-Microsoft Research India internship: K.S.R. Deepika, MSc. AIML, 2022 Batch.
+================================================================================
+SECTION: PROGRAMME HIGHLIGHTS
+================================================================================
+
+Key Features:
+- Two 6-month internships during:
+  - 7th semester
+  - 10th semester
+
+Internship Locations:
+- Industries
+- Institutions of eminence
+- R&D laboratories
+
+Academic Advantages:
+- International collaborations
+- Credit transfer options
+- Semester abroad opportunities
+- Internship opportunities abroad
+
+Faculty Support:
+- Visiting faculty from industry
+- Adjunct faculty from premier institutions
+
+Learning Approach:
+- Industry-aligned curriculum
+- Advanced specializations
+- Hackathons with industry sponsorship
+
+Support System:
+- Strong alumni network
+
+Keywords: CIT MSc highlights, internships CIT, semester abroad CIT
+
+================================================================================
+SECTION: M.Sc. SOFTWARE SYSTEMS
+================================================================================
+
+Programme:
+- M.Sc. Software Systems
+- Since: 1998
+
+Focus:
+- Core computing courses
+- Applied technologies
+- Research-oriented learning
+
+Skill Development:
+- Problem-solving skills
+- Communication skills
+
+Specializations:
+- Quantum Computing
+- Cloud Computing
+- Full Stack Development
+- Internet of Things (IoT)
+- Artificial Intelligence
+- Data Analytics
+
+Outcome:
+- Lifelong learning and seamless progression
+
+Keywords: MSc software systems CIT, cloud computing CIT, full stack CIT
+
+================================================================================
+SECTION: M.Sc. DATA SCIENCE
+================================================================================
+
+Programme:
+- M.Sc. Data Science
+- Since: 2016
+
+Focus:
+- Integration of Mathematics, Statistics, Computer Science
+
+Skills:
+- Analytical solution development
+- Research orientation
+
+Outcome:
+- Industry-ready Data Scientists and Analysts
+
+Keywords: MSc data science CIT, analytics CIT, data science course
+
+================================================================================
+SECTION: M.Sc. DECISION AND COMPUTING SCIENCES
+================================================================================
+
+Programme:
+- M.Sc. Decision and Computing Sciences
+- Since: 2017
+
+Focus:
+- Integration of technology and management
+
+Suitable For:
+- Science students
+- Commerce students
+
+Specializations:
+- Software Systems
+- Business Analytics
+- Artificial Intelligence & Machine Learning
+- Decision Intelligence
+
+Outcome:
+- Industry-ready decision scientists
+
+Keywords: MSc decision sciences CIT, business analytics CIT
+
+================================================================================
+SECTION: M.Sc. ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING
+================================================================================
+
+Programme:
+- M.Sc. Artificial Intelligence and Machine Learning
+- Since: 2019
+
+Focus:
+- Strong foundation in Mathematics, Statistics, and Computing
+
+Objectives:
+- Develop industry-ready AI professionals
+- Encourage innovation and leadership
+
+Skill Development:
+- Analytical thinking
+- Programming skills
+- Creative problem solving
+
+Keywords: MSc AI ML CIT, artificial intelligence course CIT
+
+================================================================================
+SECTION: PLACEMENTS AND INTERNSHIPS
+================================================================================
+
+Highest Package:
+- Rs. 58 Lakhs per annum
+
+Special Internship:
+- KLA Corporation Internship:
+  - Stipend: Rs. 75,000 per month
+  - Job Offer: Rs. 29 Lakhs per annum
+
+--------------------------------------------------
+
+Placement Recruiters:
+- D.E. Shaw & Co
+- Thorogood
+- Amazon
+- Deloitte
+- Oracle
+- KLA
+- EXL
+- IBM
+- Infosys
+- Rootquotient
+- Zoho
+- Soliton
+- SurveySparrow
+- LSEG
+- Accenture
+- SuperAGI
+- Yubi
+- Konnectify
+
+--------------------------------------------------
+
+Internship Companies:
+- EY
+- Justo Global
+- CaratLane
+- OptiSol
+- SPAN
+- Konnectify
+- Shaachi
+- Buckman
+- NGP
+
+--------------------------------------------------
+
+International Internship Universities:
+- UCF
+- ASU
+- UBC
+- NUS
+- Ontario Tech
+- Athabasca University
+- University of Malaya
+
+--------------------------------------------------
+
+Special Mention:
+- Microsoft Research India Internship:
+  - Student: K.S.R. Deepika
+  - Programme: MSc AIML
+  - Batch: 2022
+
+--------------------------------------------------
 
 Notable Student Placements at KLA:
-- L.B. Rithya, MSc. SS, 2021 Batch
-- R. Tarunika, MSc. DS, 2021 Batch
-- R. Vaisaali Priyankaa, MSc. DCS, 2022 Batch
-- V. Bhooshitha, MSc. AIML, 2022 Batch
+- L.B. Rithya (MSc Software Systems, 2021 Batch)
+- R. Tarunika (MSc Data Science, 2021 Batch)
+- R. Vaisaali Priyankaa (MSc Decision and Computing Sciences, 2022 Batch)
+- V. Bhooshitha (MSc AI & ML, 2022 Batch)
 
-ADMISSION ELIGIBILITY:
+Keywords: MSc placements CIT, internship CIT, KLA internship CIT
 
-M.Sc. Software Systems, Data Science, AI & ML:
-A Pass in HSC/equivalent exam with Mathematics, Physics and Chemistry as the subjects of study. Candidates (other than SC/ST) with an aggregate of 75% and above in Mathematics, Physics, and (Chemistry or Computer Science) only need to apply.
+================================================================================
+SECTION: ADMISSION ELIGIBILITY
+================================================================================
 
-M.Sc. Decision and Computing Sciences:
-Option 1: A Pass in HSC/equivalent exam with Mathematics, Physics and Chemistry. Candidates (other than SC/ST) with 75% aggregate in Mathematics, Physics, and (Chemistry or Computer Science) only need to apply.
-Option 2: A Pass in HSC/equivalent exam with one subject from Category A and 2 subjects from Category B.
-CATEGORY A: Mathematics / Applied Mathematics / Statistics / Business Mathematics / Business Mathematics & Statistics.
-CATEGORY B: Commerce / Economics / Accountancy / Computer Science.
-Candidates (other than SC/ST) with 75% aggregate in the three subjects only need to apply.
+Eligibility for:
+- M.Sc. Software Systems
+- M.Sc. Data Science
+- M.Sc. AI & ML
 
-CONTACT FOR ADMISSION:
-Mr. K. Dhandapani, Admission Coordinator - 94883 16334
-Website: www.cit.edu.in
+Requirements:
+- Pass in HSC/equivalent examination
+- Subjects: Mathematics, Physics, Chemistry
+
+Minimum Marks:
+- 75% aggregate in Mathematics, Physics, and (Chemistry or Computer Science)
+- Applicable for candidates other than SC/ST
+
+--------------------------------------------------
+
+Eligibility for:
+- M.Sc. Decision and Computing Sciences
+
+Option 1:
+- HSC with Mathematics, Physics, Chemistry
+- 75% aggregate required (for non-SC/ST)
+
+Option 2:
+- One subject from Category A
+- Two subjects from Category B
+
+Category A:
+- Mathematics
+- Applied Mathematics
+- Statistics
+- Business Mathematics
+- Business Mathematics & Statistics
+
+Category B:
+- Commerce
+- Economics
+- Accountancy
+- Computer Science
+
+Minimum Marks:
+- 75% aggregate (for non-SC/ST)
+
+Keywords: MSc eligibility CIT, admission criteria CIT, marks requirement CIT
+
+================================================================================
+SECTION: ADMISSION CONTACT DETAILS
+================================================================================
+
+Admission Coordinator:
+- Name: Mr. K. Dhandapani
+- Phone: +91 94883 16334
+
+Website:
+- www.cit.edu.in
+
+Keywords: CIT admission contact MSc, apply CIT integrated course
+
+================================================================================
+GLOBAL KEYWORDS
+================================================================================
+
+- CIT MSc integrated courses
+- CIT computing department
+- CIT AI ML data science programs
+- CIT placements MSc
+- CIT internships abroad
+- CIT eligibility MSc

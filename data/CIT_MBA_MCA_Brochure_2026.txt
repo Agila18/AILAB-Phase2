@@ -1,57 +1,260 @@
-CIT MBA MCA ADMISSION BROCHURE
-Two Year Full Time PG Programmes
-Coimbatore Institute of Technology
-A Government Aided Autonomous Institution, Affiliated to Anna University
-Civil Aerodrome (PO), Coimbatore - 641 014
+TITLE: CIT MBA & MCA Admission Brochure
+INSTITUTION: Coimbatore Institute of Technology (CIT), Coimbatore
 
-DEPARTMENT OF MANAGEMENT STUDIES:
-Established in 2021. Offers a 2 year MBA programme developing management professionals with multi-disciplinary skills essential to compete in the global business.
-Annual Intake: 60
+================================================================================
+SECTION: INSTITUTION DETAILS
+================================================================================
+Institution Name: Coimbatore Institute of Technology (CIT)
+Type: Government Aided Autonomous Institution
+Affiliation: Anna University, Chennai
 
-MBA Mission: Develop MBA graduates with new-age management perspectives, skills and business strategies with ethical implications. Empower the MBA graduates with techno-managerial skills to optimize resources, leverage technology and business intelligence.
+Address:
+- Civil Aerodrome (PO), Coimbatore - 641014
 
-MBA Vision: The Department endeavors to be a School of Management to nurture highly capable, engaged and ethical leaders with a flair to create dynamic, positive changes in the world of Business and Society.
+Programme Type:
+- Two Year Full-Time Postgraduate Programmes (MBA & MCA)
 
-MBA Specializations Offered:
+Keywords: CIT MBA MCA admission, PG courses CIT, autonomous college CIT
+
+================================================================================
+SECTION: MBA PROGRAMME - OVERVIEW
+================================================================================
+Department: Department of Management Studies
+Established: 2021
+
+Programme:
+- Master of Business Administration (MBA)
+- Duration: 2 Years (Full Time)
+
+Annual Intake:
+- 60 Students
+
+Objective:
+- Develop management professionals with multidisciplinary and global business skills
+
+Keywords: MBA CIT, management studies CIT, MBA intake CIT
+
+================================================================================
+SECTION: MBA VISION AND MISSION
+================================================================================
+
+Mission:
+- Develop graduates with modern management perspectives
+- Build skills in business strategy and ethical decision-making
+- Enable techno-managerial expertise using data and technology
+
+Vision:
+- To become a leading School of Management
+- Develop ethical, capable, and innovative leaders
+- Create positive impact in business and society
+
+Keywords: MBA mission CIT, MBA vision CIT, management education goals
+
+================================================================================
+SECTION: MBA SPECIALIZATIONS
+================================================================================
+
+Specializations Offered:
 - Financial Management
 - Marketing Management
 - Human Resource Management
 - Operations Management
 - Information Systems Management
-Integrated with Digital Technologies, Data Analytics and AI.
 
-MBA Distinctions: Adjunct Faculty, Industry Driven Curricula and Syllabi, Learning through Management Games, Out Bound Training, Fostering Innovation and Entrepreneurship.
+Integration:
+- Digital Technologies
+- Data Analytics
+- Artificial Intelligence
 
-MBA Notable Alumni:
-- Mr. Krupasankar Udayasankar (2025 batch MBA) - Founder & CEO, KS GLOBALS
-- Mr. L. Jayakumar (2023 batch MBA) - Business Consultant, Tata Consultancy Services
-- Ms. S. Shneka (2024 batch MBA) - Executive PMO MDO, Jayem Automotives Pvt. Ltd.
+Keywords: MBA specializations CIT, finance marketing HR MBA
 
-DEPARTMENT OF COMPUTER APPLICATIONS:
-Established in 1994. Offers 2 year MCA Programme developing Software Professionals to meet the demands of the IT Industries. Accredited by NBA.
-Annual Intake: 45
+================================================================================
+SECTION: MBA DISTINCT FEATURES
+================================================================================
 
-MCA Mission: Provide an environment for students to gain expertise in theoretical foundations of computer applications with emphasis on strong practical training. Offer students a quality learning process in a research oriented environment with industrial collaboration. Develop intellectual curiosity and a commitment to lifelong learning.
+Key Features:
+- Adjunct Faculty from Industry
+- Industry-Driven Curriculum and Syllabus
+- Learning through Management Games
+- Outbound Training Programs
+- Focus on Innovation and Entrepreneurship
 
-MCA Vision: To groom students with diverse backgrounds into competitive software professionals and pioneering leaders in offering innovative solutions to dynamic global challenges.
+Keywords: MBA features CIT, industry curriculum MBA
 
-MCA Key Domains: Full Stack Development, Data Analytics, Artificial Intelligence, DevOps, Cloud Computing, Cyber Security.
+================================================================================
+SECTION: MBA NOTABLE ALUMNI
+================================================================================
 
-MCA Distinctions: Accredited by NBA, Industry Driven Curricula and Syllabi, One Credit Courses handled by Industry Experts, New Elective Courses aligning with emerging technological advancements, Extensive Alumni Support.
+- Mr. Krupasankar Udayasankar (2025 batch)
+  Role: Founder & CEO
+  Organization: KS GLOBALS
 
-MCA Notable Alumni:
-- Mr. Prabhu Loganathan (2000 batch MCA) - Vice President, Qualitest
-- Mr. Vijay Padmanabhan Abijit (2010 batch MCA) - Technical Consultant, Scarborough, Ontario, Canada
-- Ms. Vidhya Selvaraj (2014 batch MCA) - Sr. Data & Analytics Consultant, Thorogood Associates
+- Mr. L. Jayakumar (2023 batch)
+  Role: Business Consultant
+  Organization: Tata Consultancy Services
 
-PLACEMENTS AND INTERNSHIPS:
-MCA Highest Package: Rs. 14 Lakhs per annum
-MBA Highest Package: Rs. 12 Lakhs per annum
+- Ms. S. Shneka (2024 batch)
+  Role: Executive PMO MDO
+  Organization: Jayem Automotives Pvt. Ltd.
 
-MCA Recruiters: Oracle, Zoho, Infosys, Accenture, LSEG, EXL, Yubi, EY, NGP, Cognizant, Tata Technologies, Tekizma, Informatica, Incture, Flex.
-MBA Recruiters: Brillio, Berger Paints, Asian Paints, City Union Bank, DMart, Roots Adding Value, Reliance Retail, OptiSol, Naukri, ICICI Bank, Indigo Paints, Veritas Finance, Vilvah Store, WhiteOak Capital Management, Characterr.
+Keywords: MBA alumni CIT, MBA placements alumni
 
-CONTACT FOR ADMISSION:
-Mr. K. DHANDAPANI, Admission Coordinator - 94883 16334
-Website: www.cit.edu.in
-LinkedIn: linkedin.com/school/coimbatore-institute-of-technology/
+================================================================================
+SECTION: MCA PROGRAMME - OVERVIEW
+================================================================================
+
+Department: Department of Computer Applications
+Established: 1994
+
+Programme:
+- Master of Computer Applications (MCA)
+- Duration: 2 Years (Full Time)
+
+Accreditation:
+- NBA Accredited
+
+Annual Intake:
+- 45 Students
+
+Objective:
+- Develop software professionals for IT industry demands
+
+Keywords: MCA CIT, computer applications CIT, MCA intake CIT
+
+================================================================================
+SECTION: MCA VISION AND MISSION
+================================================================================
+
+Mission:
+- Provide strong theoretical and practical foundation
+- Promote research-oriented learning
+- Encourage industrial collaboration
+- Develop lifelong learning mindset
+
+Vision:
+- Transform students into competitive software professionals
+- Build innovative leaders for global challenges
+
+Keywords: MCA mission CIT, MCA vision CIT, software education
+
+================================================================================
+SECTION: MCA KEY DOMAINS
+================================================================================
+
+Core Areas:
+- Full Stack Development
+- Data Analytics
+- Artificial Intelligence
+- DevOps
+- Cloud Computing
+- Cyber Security
+
+Keywords: MCA domains CIT, full stack CIT, AI MCA
+
+================================================================================
+SECTION: MCA DISTINCT FEATURES
+================================================================================
+
+Key Features:
+- NBA Accredited Programme
+- Industry-Driven Curriculum
+- One Credit Courses by Industry Experts
+- Emerging Technology Electives
+- Strong Alumni Support Network
+
+Keywords: MCA features CIT, industry courses MCA
+
+================================================================================
+SECTION: MCA NOTABLE ALUMNI
+================================================================================
+
+- Mr. Prabhu Loganathan (2000 batch)
+  Role: Vice President
+  Organization: Qualitest
+
+- Mr. Vijay Padmanabhan Abijit (2010 batch)
+  Role: Technical Consultant
+  Location: Scarborough, Ontario, Canada
+
+- Ms. Vidhya Selvaraj (2014 batch)
+  Role: Senior Data & Analytics Consultant
+  Organization: Thorogood Associates
+
+Keywords: MCA alumni CIT, software professionals CIT
+
+================================================================================
+SECTION: PLACEMENTS AND INTERNSHIPS
+================================================================================
+
+Highest Packages:
+- MCA: Rs. 14 Lakhs per annum
+- MBA: Rs. 12 Lakhs per annum
+
+--------------------------------------------------
+
+MCA Recruiters:
+- Oracle
+- Zoho
+- Infosys
+- Accenture
+- LSEG
+- EXL
+- Yubi
+- EY
+- NGP
+- Cognizant
+- Tata Technologies
+- Tekizma
+- Informatica
+- Incture
+- Flex
+
+--------------------------------------------------
+
+MBA Recruiters:
+- Brillio
+- Berger Paints
+- Asian Paints
+- City Union Bank
+- DMart
+- Roots Adding Value
+- Reliance Retail
+- OptiSol
+- Naukri
+- ICICI Bank
+- Indigo Paints
+- Veritas Finance
+- Vilvah Store
+- WhiteOak Capital Management
+- Characterr
+
+Keywords: MBA placements CIT, MCA placements CIT, recruiters CIT
+
+================================================================================
+SECTION: ADMISSION CONTACT DETAILS
+================================================================================
+
+Admission Coordinator:
+- Name: Mr. K. Dhandapani
+- Phone: +91 94883 16334
+
+Official Website:
+- www.cit.edu.in
+
+LinkedIn:
+- linkedin.com/school/coimbatore-institute-of-technology/
+
+Keywords: CIT admission contact MBA MCA, apply CIT PG
+
+================================================================================
+GLOBAL KEYWORDS
+================================================================================
+
+- CIT MBA MCA admission
+- CIT PG programmes details
+- CIT MBA specializations
+- CIT MCA domains
+- CIT placements MBA MCA
+- CIT alumni MBA MCA
+- CIT management studies department
+- CIT computer applications department

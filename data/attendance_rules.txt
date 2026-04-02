@@ -1,28 +1,168 @@
-Attendance Rules - Coimbatore Institute of Technology (CIT), Coimbatore
+TITLE: Attendance and Hostel Regulations
+INSTITUTION: Coimbatore Institute of Technology (CIT), Coimbatore
 
-1. Minimum Attendance Requirement:
-CIT mandates an absolute minimum attendance of 75% in every individual course (theory, drawing, and practical classes separately) to be eligible to appear for the End Semester Examination. Attendance is tracked separately for theory lectures, laboratory practicals, and drawing classes.
+SECTION: Overview
+- This document outlines the academic attendance requirements and hostel regulations for students.
+- The policies are designed to ensure discipline, safety, academic consistency, and responsible student behavior.
 
-2. Consequences of Attendance Shortfall:
-Students with attendance between 65% and 75% may be allowed to sit for exams only upon paying a condonation fee and submitting valid medical documentation or other genuine reasons approved by the Head of Department.
-Students with attendance strictly below 65% will receive an 'FA' (Fail due to Attendance) grade and must repeat the course entirely in the next available semester.
+--------------------------------------------------
 
-3. Official Leave and Attendance Waiver:
-Students participating in college-approved events such as hackathons, sports events, cultural fests, technical symposiums (Interface, Technovation, Cyber Fest), or IEEE/professional body activities will receive an attendance waiver not exceeding 10% of total classes.
-Students representing CIT at inter-college or university-level competitions may receive additional attendance relaxation with prior approval from the Principal.
+SECTION: Academic Attendance Policy
 
-4. Medical Leave:
-Students who miss classes due to medical reasons must submit a medical certificate from a registered medical practitioner within 7 days of resuming classes.
-Extended medical leave (more than 2 weeks) requires approval from the Head of Department and the Principal.
+MINIMUM REQUIREMENT:
+- Students must maintain at least 75% attendance in each course.
+- Attendance is mandatory for:
+  - Theory classes
+  - Laboratory sessions
+  - Practical and workshop classes
 
-5. Industrial Training Attendance:
-Four weeks of industrial training is compulsory for all students. This training is mandatory for eligibility for the award of the degree by the university (in practice since 2009). Students must maintain 100% attendance during industrial training unless excused by the training coordinator.
+IMPORTANCE:
+- Ensures continuous learning
+- Helps in internal assessment performance
+- Maintains academic discipline
 
-6. Continuous Assessment and Regularity:
-Continuous assessment in laboratory practicals, workshop practice, and engineering drawing has been introduced under the Autonomous scheme since 2001. This system inculcates a sense of responsibility and regularity among students. Regular attendance is a prerequisite for continuous internal assessment marks.
+EXAM ELIGIBILITY:
+- Students below the required attendance may not be permitted to appear for End Semester Examinations.
 
-7. Scholarship and Financial Aid Condition:
-Students receiving scholarships or financial aid must maintain the minimum university-mandated attendance of 75%. Failure to maintain attendance may result in cancellation of scholarship benefits.
+--------------------------------------------------
 
-8. Monitoring and Reporting:
-Attendance is recorded by faculty for each class session. Periodic attendance reports are generated and shared with students and parents/guardians. Students falling below 80% attendance at any point during the semester will receive a warning notification from the department.
+SECTION: Attendance Monitoring System
+
+- Attendance is recorded daily by faculty members.
+- Attendance records are:
+  - Digitally maintained
+  - Periodically reviewed
+
+WARNING SYSTEM:
+- Students with low attendance may receive:
+  - Warning notifications
+  - Academic counseling
+
+--------------------------------------------------
+
+SECTION: Hostel Overview
+
+- CIT provides separate hostel facilities for boys and girls.
+- Hostels are supervised by:
+  - Wardens
+  - Residential Tutors
+- The hostel environment focuses on:
+  - Safety
+  - Discipline
+  - Academic support
+
+--------------------------------------------------
+
+SECTION: Daily Hostel Attendance
+
+- Hostel attendance is taken every day.
+- Students must be present in the hostel during designated hours.
+
+TIMINGS:
+- Entry and exit timings are strictly followed.
+- Late entry is monitored and recorded.
+
+--------------------------------------------------
+
+SECTION: Leave and Permission Rules
+
+PRIOR PERMISSION:
+- Students must obtain permission before:
+  - Leaving hostel premises
+  - Staying outside overnight
+  - Returning late
+
+APPROVAL AUTHORITIES:
+- Residential Tutor
+- Hostel Warden
+
+PROCESS:
+1. Submit leave request
+2. Provide valid reason
+3. Get approval before leaving
+
+--------------------------------------------------
+
+SECTION: Unauthorized Absence
+
+- If a student is absent without permission:
+  - Parents/guardians are informed immediately
+  - The incident is recorded
+
+REPEATED VIOLATIONS:
+- May lead to:
+  - Warning notices
+  - Restriction of hostel privileges
+  - Disciplinary committee action
+
+--------------------------------------------------
+
+SECTION: Late Entry Guidelines
+
+- Students returning late must:
+  - Inform the Residential Tutor in advance
+  - Provide a valid reason
+
+UNAPPROVED LATE ENTRY:
+- Considered a rule violation
+- May result in disciplinary action
+
+--------------------------------------------------
+
+SECTION: Safety and Security Measures
+
+- Hostels are equipped with:
+  - Controlled entry/exit points
+  - Security personnel
+  - Visitor monitoring system
+
+VISITOR RULES:
+- Visitors allowed only during permitted hours
+- Entry must be recorded
+
+--------------------------------------------------
+
+SECTION: Student Responsibilities
+
+- Maintain discipline inside hostel
+- Follow timing regulations
+- Respect wardens and staff
+- Avoid unauthorized absence
+
+--------------------------------------------------
+
+SECTION: Disciplinary Actions
+
+Minor Violations:
+- Warning issued
+- Counseling
+
+Moderate Violations:
+- Parent notification
+- Restriction of movement
+
+Major Violations:
+- Hostel suspension
+- Institutional disciplinary action
+
+--------------------------------------------------
+
+SECTION: Integration with Academic System
+
+- Hostel discipline supports academic performance.
+- Regular attendance in hostel contributes to:
+  - Better study habits
+  - Improved academic outcomes
+
+--------------------------------------------------
+
+SECTION: Keywords (for RAG Optimization)
+
+- CIT attendance policy
+- hostel rules Coimbatore Institute of Technology
+- minimum attendance 75 CIT
+- hostel permission rules CIT
+- late entry hostel rules
+- student discipline CIT
+- residential tutor responsibilities
+- hostel attendance system

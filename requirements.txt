@@ -1,9 +1,12 @@
 streamlit
 langchain
+langchain-core
 langchain-text-splitters
 langchain-community
+langchain-ollama
 langchain-chroma
 chromadb
 python-docx
 pypdf
 ollama
+rank-bm25

@@ -1,84 +1,114 @@
-Scholarship and Financial Aid Policy - Coimbatore Institute of Technology (CIT), Coimbatore
+DOCUMENT: CIT_SCHOLARSHIP_FINANCIAL_AID_POLICY
+INSTITUTION: Coimbatore Institute of Technology
+LOCATION: Coimbatore, Tamil Nadu, India
 
-1. Overview:
-CIT facilitates more than 24 government and private scholarship schemes to support students financially. The institute is committed to ensuring that deserving students receive financial assistance to pursue their education without financial burden.
+SECTION: OVERVIEW
+KEYWORDS: scholarships CIT, financial aid, student funding, assistance schemes
+- CIT facilitates more than 24 government and private scholarship schemes
+- Objective: reduce financial burden for deserving students
+- Covers government, central, private, alumni, and institutional aid
 
-2. Government-Sponsored Scholarship Schemes:
-a. Community/Welfare Schemes:
-- Adi Dravidar Welfare Scholarship: For SC/ST students
-- Backward Class (BC) Scholarship: For BC/MBC students
-- Minority Scholarship: For students belonging to minority communities
-- Farmer Social Security Scholarship: For children of farmers
+SECTION: GOVERNMENT_SCHOLARSHIPS_COMMUNITY_WELFARE
+KEYWORDS: SC ST scholarship, BC MBC scholarship, minority scholarship, farmer scheme
+- Adi Dravidar Welfare Scholarship → SC/ST students
+- Backward Class (BC) Scholarship → BC/MBC students
+- Minority Scholarship → minority community students
+- Farmer Social Security Scholarship → children of farmers
 
-b. Merit and Regional Awards:
-- Chief Minister's Scholarship: State-level merit scholarship
-- Arignar Anna Award: For academic excellence
-- Interstate Scholarships: For students from Pondicherry, Andaman & Nicobar Islands, and northeastern states
+SECTION: GOVERNMENT_SCHOLARSHIPS_MERIT_REGIONAL
+KEYWORDS: merit scholarship Tamil Nadu, Anna award, interstate scholarship
+- Chief Minister’s Scholarship → state-level merit
+- Arignar Anna Award → academic excellence
+- Interstate Scholarships → Pondicherry, Andaman & Nicobar, Northeast students
 
-c. Special Category Scholarships:
-- AICTE Pragathi Scholarship: Specifically for women engineering students to promote gender equity in technical education
-- AICTE Saksham Scholarship: For differently-abled students pursuing technical education
-- Occupational Scholarships: For children of teachers, defense personnel, and ex-servicemen
+SECTION: GOVERNMENT_SCHOLARSHIPS_SPECIAL_CATEGORY
+KEYWORDS: AICTE Pragathi, Saksham scholarship, women engineering, disability scholarship
+- AICTE Pragathi Scholarship → women in technical education
+- AICTE Saksham Scholarship → differently-abled students
+- Occupational Scholarships → children of teachers, defense personnel, ex-servicemen
 
-3. Fee Concessions:
-Full tuition fee concession is given to students belonging to Scheduled Caste (SC), Scheduled Tribe (ST), and converts to Christianity, regardless of their annual income, for government-aided courses.
-BC/MBC students with family income below the prescribed limit are eligible for partial fee concessions.
+SECTION: FEE_CONCESSIONS
+KEYWORDS: tuition fee concession, SC ST fee waiver, BC MBC fee reduction
+- Full tuition fee concession:
+  - SC / ST students
+  - Converts to Christianity
+  - Applicable for government-aided courses
+- Partial fee concession:
+  - BC/MBC students with income below prescribed limit
 
-4. Central Government Scholarships:
-- PM Special Scholarship Scheme for students from Jammu & Kashmir
+SECTION: CENTRAL_GOVERNMENT_SCHEMES
+KEYWORDS: central scholarship India, J&K scheme, CAPF scholarship
+- PM Special Scholarship Scheme → Jammu & Kashmir students
 - Central Armed Police Forces Scholarships
 - Railway Ministry Scholarship Schemes
 
-5. National Scholarship Portal (NSP) Schemes:
-- Central Sector Scholarships for students with parental income below Rs. 8.8 lakhs per annum
-- AICTE Pragathi Scholarship for girls in technical education
-- AICTE Saksham Scholarship for differently-abled students in technical education
-- Ishan Uday Scholarship for students from northeastern states
+SECTION: NATIONAL_SCHOLARSHIP_PORTAL_SCHEMES
+KEYWORDS: NSP scholarships, income based scholarship India
+- Central Sector Scholarship → income < Rs. 8.8 lakhs
+- AICTE Pragathi → girls
+- AICTE Saksham → differently-abled
+- Ishan Uday Scholarship → Northeast students
 
-6. Private and Alumni Scholarships:
+SECTION: PRIVATE_AND_ALUMNI_SCHOLARSHIPS
+KEYWORDS: CIT alumni scholarship, NGO scholarship, private funding
 - Tamil Nadu Educational Trust Scholarship
 - ONGC Scholarship
 - Siragugal Scholarship Scheme
-- Multiple alumni batch-based charitable trusts (from 1967 to 2017 batches)
+- Alumni Trust Scholarships (1967–2017 batches)
 - CIT Endowment Fund Scholarship
-- Other industry-sponsored scholarships from companies visiting for placements
+- Industry-sponsored scholarships (via recruiters)
 
-7. Income Limits for Scholarships:
-Income limits vary by scheme, generally ranging from Rs. 2.5 lakhs to Rs. 8.8 lakhs annual parental income depending on the specific scholarship category and government regulations.
+SECTION: INCOME_LIMITS
+KEYWORDS: scholarship income eligibility, parental income criteria
+- Income limits vary: Rs. 2.5 lakhs to Rs. 8.8 lakhs per annum
+- Depends on scheme and government norms
 
-5. Application Process:
-Students wishing to apply for a scholarship must submit a duly completed application to the Office of the Principal.
-Applications must be filed within 30 days from the date the institute reopens or from the student's official date of admission, whichever is applicable.
-Applicants must attach all required documents and certificates that support their eligibility for the specific scholarship category.
-Incomplete applications or applications submitted after the deadline will be rejected.
+SECTION: APPLICATION_PROCESS
+KEYWORDS: how to apply scholarship CIT, deadline, submission process
+- Submit application to Principal’s Office
+- Deadline:
+  - Within 30 days of reopening OR
+  - Within 30 days of admission
+- Must include all required supporting documents
+- Late or incomplete applications → rejected
 
-6. Eligibility Conditions:
-A student is eligible to receive only one scholarship or fee concession at a time. If a student qualifies for multiple scholarships, the one with the highest financial benefit will be awarded.
-Students must maintain the minimum university-mandated attendance of 75% to continue receiving scholarship benefits.
-Students must maintain satisfactory academic performance as determined by the scholarship guidelines.
+SECTION: ELIGIBILITY_CONDITIONS
+KEYWORDS: scholarship eligibility rules, attendance requirement
+- Only ONE scholarship/concession allowed at a time
+- Highest benefit scheme will be awarded
+- Minimum attendance: 75%
+- Must maintain satisfactory academic performance
 
-7. Disciplinary Conduct Requirements:
-Scholarships are granted based on trust and responsibility.
-Any form of misconduct, including involvement in ragging or participation in strikes, may result in immediate cancellation of financial assistance.
-Students must maintain good conduct and discipline throughout the scholarship period.
-Violation of college rules may lead to withdrawal of scholarship benefits.
+SECTION: DISCIPLINARY_REQUIREMENTS
+KEYWORDS: scholarship cancellation rules, misconduct impact
+- Scholarships based on trust and discipline
+- Cancellation if:
+  - Ragging involvement
+  - Participation in strikes
+  - Violation of college rules
+- Students must maintain good conduct
 
-8. Renewal of Scholarships:
-Most scholarships are renewed annually based on continued eligibility.
-Students must re-apply each year with updated documentation.
-Academic performance and attendance are reviewed before renewal.
+SECTION: SCHOLARSHIP_RENEWAL
+KEYWORDS: renewal process, annual scholarship continuation
+- Renewed annually based on eligibility
+- Re-application required every year
+- Performance + attendance reviewed before renewal
 
-9. Support and Assistance:
-The Principal's Office provides personalized assistance to students in identifying and applying for suitable scholarship schemes.
-Administrative staff help match students with the most appropriate financial aid options based on their category, income, and academic performance.
-Information about new scholarship schemes is regularly communicated to students through department notice boards and the college website.
+SECTION: SUPPORT_AND_GUIDANCE
+KEYWORDS: scholarship help CIT, advisory support
+- Principal’s Office provides guidance
+- Helps match students with suitable schemes
+- Updates shared via:
+  - Notice boards
+  - College website
 
-10. Documents Required:
-- Community/Caste Certificate
-- Income Certificate of parents/guardians
+SECTION: REQUIRED_DOCUMENTS
+KEYWORDS: scholarship documents checklist
+- Community / Caste Certificate
+- Income Certificate
 - Aadhaar Card
-- Bank Account Details (student's own account)
-- Previous semester mark sheets
-- Admission receipt and fee payment details
-- Medical certificates (if applicable for disability-based scholarships)
-- Any other documents as specified by the particular scholarship scheme
+- Bank Account Details (student)
+- Previous mark sheets
+- Admission receipt & fee payment proof
+- Medical certificate (if applicable)
+- Scheme-specific documents (if required)

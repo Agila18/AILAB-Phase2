@@ -1,94 +1,214 @@
-Hostel Rules and Campus Life - Coimbatore Institute of Technology (CIT), Coimbatore
+TITLE: CIT Hostel Rules and Campus Life
 
-1. Campus Overview:
-CIT is spread across a 69-acre campus located on Avinashi Road, Civil Aerodrome Post, Coimbatore-641014, Tamil Nadu. The campus is approximately 2.3 km from Coimbatore International Airport. The institution was established in 1956 by the V. Rangaswamy Naidu Educational Trust (VRET) and has been a government-aided autonomous institution affiliated to Anna University since 1987.
+SECTION: Institution Overview
+Institution: Coimbatore Institute of Technology (CIT)
+Location: Avinashi Road, Civil Aerodrome Post, Coimbatore - 641014, Tamil Nadu
+Campus Area: 69 acres
+Established: 1956
+Founded By: V. Rangaswamy Naidu Educational Trust (VRET)
+Autonomous Status: Since 1987
+Affiliation: Anna University
+Nearby Landmark: Coimbatore International Airport (2.3 km)
 
-2. Hostel Facilities:
-CIT provides on-campus hostel accommodation for both boys and girls.
-The college has 3 hostels for girls and 2 hostels for boys.
-There are separate hostels for first-year and final-year girl students to ensure a comfortable environment for freshers.
+Keywords: CIT overview, campus details, location, affiliation, history
 
-3. Room Configuration:
-Two-sharing, three-sharing, and four-sharing rooms are available based on availability and preference.
-In the first-year girls hostel, each room contains 4 chambers (4-sharing arrangement).
-In the remaining hostels, rooms are generally two-sharing (2 students per room).
-Each room is equipped with: a study table, bed, almirah (wardrobe), and ceiling fan for every student.
-Washrooms and bathrooms are separated to maintain good hygiene standards.
-Hostel rooms are spacious and clean with adequate ventilation.
+---
 
-4. Hostel Fees:
-Hostel fees: Approximately Rs. 28,000 to Rs. 30,000 per annum.
-Mess fees: Approximately Rs. 1,500 per month (subject to periodic revision).
-Fees must be paid at the beginning of each academic year as specified by the hostel administration.
+SECTION: Hostel Facilities
+Hostel Availability: On-campus accommodation for boys and girls
+Number of Hostels:
+- Girls Hostels: 3
+- Boys Hostels: 2
+Special Arrangement:
+- Separate hostel for first-year girls
+- Separate hostel for final-year girls
 
-5. Hostel Amenities:
-Free internet access (Wi-Fi) available for all hostellers.
-24/7 ATM service available on campus.
-Hygienic food served in the hostel mess.
-CCTV surveillance installed inside the hostel premises for security.
-Stationery shop available within the hostel area.
-Gymnasium and fitness center accessible to all hostellers.
-Basketball and badminton courts within the hostel premises.
-Sports grounds for outdoor activities including cricket, football, hockey, tennis, and volleyball.
-Cafeteria available for snacks and beverages outside mess hours.
+Keywords: hostel availability, boys hostel, girls hostel, accommodation
 
-6. Hostel Timings and Rules:
-Hostel residents must observe curfew hours as specified by the hostel administration.
-Students must register their entry and exit with the hostel warden.
-Late entry requires prior permission from the warden.
-Students must obtain written permission from the hostel warden before leaving the hostel for overnight stays.
-Parents or guardians must provide consent for students to leave the hostel premises for weekends or holidays.
-A leave register must be signed before departing and upon return to the hostel.
+---
 
-7. General Hostel Rules:
-Students must maintain cleanliness and hygiene in their rooms and common areas.
-Cooking inside hostel rooms is strictly prohibited.
-Use of electrical appliances (heaters, irons, induction cooktops, etc.) in rooms is restricted. Students must use common facilities provided by the hostel.
-Playing loud music or creating noise disturbances, especially during study hours, is not allowed.
-Visitors must register at the hostel reception and are allowed only during designated visiting hours.
-Students must not damage hostel property. Any damage to hostel furniture, fittings, or equipment will be charged to the responsible student.
-Students must carry their hostel ID cards at all times within the hostel premises.
+SECTION: Room Configuration
+Room Types:
+- Two-sharing
+- Three-sharing
+- Four-sharing
 
-8. Mess and Dining:
-The hostel mess provides breakfast, lunch, evening snacks, and dinner.
-Meal timings are fixed and displayed in the mess hall. Students must follow mess timings.
-Food will not be served outside designated hours except for medical emergencies.
-Vegetarian and non-vegetarian options are available.
-Feedback on food quality can be submitted to the mess committee.
-The mess committee includes student representatives who work with the administration to maintain food quality.
+First-Year Girls Hostel:
+- 4 chambers per room (4-sharing)
 
-9. Anti-Ragging and Discipline:
-Ragging in any form is strictly prohibited inside the hostel premises and across the entire CIT campus. Ragging is a criminal offense under UGC regulations and the Tamil Nadu Prohibition of Ragging Act.
-Any form of bullying, harassment, or intimidation will result in immediate disciplinary action, including expulsion from the hostel and potentially from the college.
-Consumption of alcohol, smoking, and use of any prohibited substances is strictly banned in the hostel and on campus.
-The Anti-Ragging Committee is chaired by the Principal, Dr. A. Rajeswari. The committee includes a police officer (Ms. Srilekha, Police Officer, Peelamedu), legal advisor (Mrs. N. Thangamani, Advocate), the Dean of Student Affairs (Dr. P. Vinayagam, Professor of Civil Engineering), and faculty members from various departments.
-The Anti-Ragging Squad includes faculty heads and three student union leaders (Chairperson, Secretary, and Joint Secretary).
-Anti-Ragging Helpline: +91 94883 16334
+Other Hostels:
+- Typically 2 students per room
+
+Room Facilities:
+- Study table
+- Bed
+- Almirah (wardrobe)
+- Ceiling fan
+
+Hygiene:
+- Separate washrooms and bathrooms
+- Clean and ventilated rooms
+
+Keywords: room type, hostel rooms, facilities, sharing
+
+---
+
+SECTION: Hostel Fees
+Hostel Fees: Rs. 28,000 to Rs. 30,000 per year
+Mess Fees: Rs. 1,500 per month (approx.)
+Payment Time: Beginning of academic year
+
+Keywords: hostel fees, mess fees, payment
+
+---
+
+SECTION: Hostel Amenities
+- Free Wi-Fi
+- 24/7 ATM facility
+- Hygienic mess food
+- CCTV surveillance
+- Stationery shop
+- Gymnasium and fitness center
+- Basketball and badminton courts
+- Outdoor sports: cricket, football, hockey, tennis, volleyball
+- Cafeteria for snacks
+
+Keywords: amenities, WiFi, gym, sports, facilities
+
+---
+
+SECTION: Hostel Timings and Movement Rules
+- Curfew hours must be followed
+- Entry and exit must be registered
+- Late entry requires permission
+- Overnight leave requires:
+  - Written permission from warden
+  - Parent/guardian consent
+- Leave register must be signed before leaving and after returning
+
+Keywords: hostel timing, curfew, leave rules, warden
+
+---
+
+SECTION: General Hostel Rules
+- Maintain cleanliness and hygiene
+- Cooking in rooms is prohibited
+- Electrical appliances are restricted
+- No loud music or noise during study hours
+- Visitors allowed only during designated hours
+- Visitors must register at reception
+- Damage to property will be charged
+- Hostel ID card must be carried at all times
+
+Keywords: hostel rules, discipline, visitor rules
+
+---
+
+SECTION: Mess and Dining
+Meals Provided:
+- Breakfast
+- Lunch
+- Evening snacks
+- Dinner
+
+Rules:
+- Fixed meal timings
+- No food outside timings except medical emergencies
+
+Food Options:
+- Vegetarian and non-vegetarian
+
+Feedback:
+- Mess committee with student representatives
+
+Keywords: mess rules, food timing, dining
+
+---
+
+SECTION: Anti-Ragging and Discipline
+- Ragging is strictly prohibited (UGC and Tamil Nadu Act)
+- Punishments:
+  - Hostel expulsion
+  - College expulsion
+
+Prohibited:
+- Bullying
+- Harassment
+- Alcohol, smoking, drugs
+
+Anti-Ragging Committee:
+- Chairperson: Dr. A. Rajeswari (Principal)
+- Police Officer: Ms. Srilekha
+- Legal Advisor: Mrs. N. Thangamani
+- Dean: Dr. P. Vinayagam
+- Faculty members
+
+Anti-Ragging Squad:
+- Faculty heads
+- Student leaders (Chairperson, Secretary, Joint Secretary)
+
+Helpline: +91 94883 16334
 Email: principal.citoffice@cit.edu.in
 
-10. Safety and Security:
-Hostel premises are monitored round the clock by CCTV cameras.
-Security personnel are posted at hostel entrances.
-Fire safety equipment is installed in all hostel buildings.
-Emergency contact numbers of the warden and security are displayed prominently in every hostel block.
+Keywords: ragging rules, anti ragging, discipline
 
-11. Dress Code on Campus:
-Boys: Formal pants with shirts and formal shoes are required during college hours. Jeans are prohibited.
-Girls: Churidar with a long top and a dupatta is mandatory for a formal appearance.
-Students must maintain a neat and presentable appearance at all times on campus.
+---
 
-12. Campus Life - Class Hours and Schedule:
-I Year students: 8:30 AM to 4:00 PM
-II to Final Year students: 9:00 AM to 4:45 PM
-Part-Time BE students: 6:00 PM to 9:00 PM
-Late arrivals and early departures must be approved by the class advisor or concerned faculty.
+SECTION: Safety and Security
+- CCTV monitoring 24/7
+- Security personnel at entrances
+- Fire safety equipment installed
+- Emergency contacts displayed
+
+Keywords: safety, security, CCTV
+
+---
+
+SECTION: Dress Code
+Boys:
+- Formal pants, shirts, formal shoes
+- Jeans not allowed
+
+Girls:
+- Churidar with long top and dupatta
+
+General:
+- Neat and presentable appearance required
+
+Keywords: dress code, uniform rules
+
+---
+
+SECTION: Class Hours and Schedule
+I Year:
+- 8:30 AM to 4:00 PM
+
+II to Final Year:
+- 9:00 AM to 4:45 PM
+
+Part-Time BE:
+- 6:00 PM to 9:00 PM
+
+Permission Required:
+- Late arrival
+- Early departure
 
 Break Timings:
-I Year: Morning break 10:20 AM to 10:35 AM; Lunch break 12:25 PM to 1:30 PM
-II to Final Year: Morning break 10:50 AM to 11:05 AM; Lunch break 12:55 PM to 2:00 PM
 
-13. Campus Life - Student Clubs and Activities:
-CIT has a vibrant student life with numerous clubs and cells:
+I Year:
+- Morning: 10:20 AM to 10:35 AM
+- Lunch: 12:25 PM to 1:30 PM
+
+II to Final Year:
+- Morning: 10:50 AM to 11:05 AM
+- Lunch: 12:55 PM to 2:00 PM
+
+Keywords: class timing, break timing, schedule
+
+---
+
+SECTION: Student Clubs and Activities
+Clubs:
 - Japan Horizons Club
 - Career Guidance and Counselling Cell
 - CLAP Cell
@@ -96,73 +216,99 @@ CIT has a vibrant student life with numerous clubs and cells:
 - Women Empowerment Cell
 - Kalam Knowledge Club
 - Yoga Club
-- NSS (National Service Scheme)
-- RSP (Road Safety Patrol)
+- NSS
+- RSP
 - Rotaract Club
-- YRC (Youth Red Cross)
+- YRC
 - Fit India Club
 - Space Club
 - Photographic Club
 - Cyber Club
 - Music Club
 - Literary Club
-- YHAI (Youth Hostels Association of India)
+- YHAI
 - Martial Arts Club
 - Film Club
 - Arts Club
-- Muthamizh Mandram (Tamil Literary Club)
-- Dramatix (Drama Club)
-- UBA (Unnat Bharat Abhiyan)
-- EBSB (Ek Bharat Shreshtha Bharat)
+- Muthamizh Mandram
+- Dramatix
+- UBA
+- EBSB
 - Nature Club
 - GDS Club
-- FOSS Club (Free and Open Source Software)
+- FOSS Club
 - Quiz Club
 - Datalytics Club
 - Swachh Bharat Club
 
-14. Campus Life - Major Events and Festivals:
-- Interface: Inter-collegiate technical symposium held in February
-- Technovation: National symposium organized by Chemical, Civil, and Mechanical Engineering students in September
-- Cyber Fest: National technical symposium organized by Computer Applications students in January
-Students can participate in hackathons with industry collaborations and sponsorship from companies like KLA Corporation.
+Keywords: clubs, student activities, extracurricular
 
-15. Campus Life - Professional Bodies and Memberships:
-CIT students can join active chapters of:
+---
+
+SECTION: Major Events and Festivals
+- Interface: Inter-collegiate technical symposium (February)
+- Technovation: National symposium (September)
+- Cyber Fest: Technical symposium (January)
+
+Industry Hackathons supported by companies like KLA Corporation
+
+Keywords: events, symposium, hackathon
+
+---
+
+SECTION: Professional Bodies and Memberships
 - Institution of Engineers (India)
-- The Institution of Electronics and Telecommunication Engineers
+- Institution of Electronics and Telecommunication Engineers
 - IEEE Students Chapter
 - SWAYAM-NPTEL Local Chapter
 
-16. Campus Life - International Exposure:
-CIT has foreign collaborations with:
-- Taylors University, Malaysia
-- Asia Pacific University of Technology and Innovation, Malaysia
-- Western Norway University of Applied Sciences (HVL), Norway
-- University of Jaffna, Sri Lanka
-- University Malaya, Malaysia
-- Telekom University Bandung, Indonesia
-- Swinburne University of Technology, Sarawak/Melbourne
-- LA Academia, French Reunion Island
-- Indo Universal Collaboration for Engineering Education (IUCEE)
-- National Institute of Technical Teachers Training and Research
+Keywords: professional bodies, memberships
+
+---
+
+SECTION: International Exposure
+Collaborations with:
+- Taylors University (Malaysia)
+- Asia Pacific University (Malaysia)
+- Western Norway University (Norway)
+- University of Jaffna (Sri Lanka)
+- University Malaya (Malaysia)
+- Telekom University Bandung (Indonesia)
+- Swinburne University
+- LA Academia (French Reunion Island)
+- IUCEE
+- NITTTR
 - British Council
-- Tamil Nadu Agriculture University, Coimbatore
+- Tamil Nadu Agricultural University
 
-Key areas of international collaboration include credit transfer, student exchange, semester-abroad opportunities, joint research and publications, faculty and researcher mobility, joint certification courses, and hackathons.
+Key Areas:
+- Credit transfer
+- Student exchange
+- Semester abroad
+- Joint research
+- Faculty mobility
+- Certification programs
+- Hackathons
 
-17. Campus Life - Centres of Excellence:
-CIT has 6 Centres of Excellence with dedicated labs:
+Keywords: international collaboration, exchange, global exposure
+
+---
+
+SECTION: Centres of Excellence
 - Industrial Automation Lab
 - 5G Networks Lab
-- Internet of Things (IoT) Lab
+- IoT Lab
 - E-Mobility Centre
-- Material Characterization and Synthesis Lab
+- Material Characterization Lab
 - Cyber Security Centre
-Additionally, CIT houses The Malaviya Mission Teacher Training Centre under the Pandit Madan Mohan Malaviya National Mission Scheme, MHRD, Government of India.
+- Malaviya Mission Teacher Training Centre
 
-18. Campus Life - Sports and Recreation:
-CIT provides extensive sports facilities on its 69-acre campus:
+Keywords: labs, centres of excellence
+
+---
+
+SECTION: Sports and Recreation
+Facilities:
 - Cricket ground
 - Basketball court
 - Football ground
@@ -171,24 +317,51 @@ CIT provides extensive sports facilities on its 69-acre campus:
 - Volleyball court
 - Badminton court
 - Tennikoit court
-- Gymnasium and fitness centre
-Students regularly participate in inter-college, university-level, and national-level sports competitions.
+- Gymnasium
 
-19. Campus Life - Library:
-The Central Library is spread across 13,881 sq. ft. and houses approximately 1,00,000 volumes including journals, books, and research project reports. It provides digital access to e-books and online journals through subscriptions. The library has a quiet study environment with dedicated reading halls. Students must remain quiet at all times inside the library, handle all books and resources with care, and return borrowed books on time to avoid fines.
+Keywords: sports, recreation
 
-20. Campus Life - Transport:
-College bus service is available from various parts of Coimbatore city and surrounding areas.
-Designated parking areas are provided for two-wheelers and four-wheelers.
-Helmets must be worn by all students riding motorcycles or scooters on campus.
-Maximum two riders per bike; additional passengers are strictly forbidden.
-Students using college transport must remain seated during travel and maintain discipline.
+---
 
-21. Contact Information:
-Coimbatore Institute of Technology
-Civil Aerodrome Post, Avinashi Road
-Coimbatore - 641014, Tamil Nadu, India
+SECTION: Library
+Area: 13,881 sq. ft.
+Collection: ~1,00,000 volumes
+
+Facilities:
+- Digital access to e-books and journals
+- Quiet study environment
+
+Rules:
+- Maintain silence
+- Handle books carefully
+- Return books on time
+
+Keywords: library, books, digital access
+
+---
+
+SECTION: Transport
+- Bus service across Coimbatore
+- Designated parking available
+
+Rules:
+- Helmet mandatory
+- Max two riders per bike
+- Follow traffic rules
+- Discipline in buses required
+
+Keywords: transport, bus, parking rules
+
+---
+
+SECTION: Contact Information
+Institution: Coimbatore Institute of Technology
+Address: Civil Aerodrome Post, Avinashi Road, Coimbatore - 641014
 Phone: +91-422-2574071, 2574072
 Website: www.cit.edu.in
 LinkedIn: linkedin.com/school/coimbatore-institute-of-technology/
-Admission Coordinator: Mr. K. Dhandapani - 94883 16334
+
+Admission Coordinator: Mr. K. Dhandapani
+Phone: +91 94883 16334
+
+Keywords: contact, admission, phone, website

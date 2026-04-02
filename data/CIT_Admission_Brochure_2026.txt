@@ -1,24 +1,59 @@
-CIT ADMISSION BROCHURE - B.E. / B.Tech.
-Coimbatore Institute of Technology
-A Government Aided Autonomous Institution, Affiliated to Anna University
-Civil Aerodrome (PO), Coimbatore - 641 014
-70 Years of Excellence in Education
+TITLE: CIT Admission Brochure - B.E. / B.Tech.
+INSTITUTION: Coimbatore Institute of Technology (CIT), Coimbatore
 
-THE INSTITUTION:
-Coimbatore Institute of Technology (CIT), established in 1956 is a reputed and much sought after higher education institution of Tamil Nadu. CIT is an autonomous institution since 1987, and is affiliated to Anna University, Chennai. The industry aligned curricula and syllabi ensure bright career opportunities for the students. CIT has got a very rich Alumni Connect, serving in great positions across the globe in multiple sectors, mentoring and motivating the current students.
+================================================================================
+SECTION: INSTITUTION PROFILE
+================================================================================
+Institution Name: Coimbatore Institute of Technology (CIT)
+Type: Government Aided Autonomous Institution
+Affiliation: Anna University, Chennai
+Established Year: 1956
+Autonomous Status: Since 1987
 
-MISSION: To impart high quality education and training to its students to make them World-Class Engineers with a foresight to the changes and problems, and pioneers to offer innovative solutions to benefit the nation and the world at large.
+Address:
+- Civil Aerodrome (PO), Coimbatore - 641014
 
-VISION: The Institute strives to inculcate a sound knowledge in engineering along with realized social responsibilities to enable its students to combat the current and impending challenges faced by our country and to extend their expertise to the global arena.
+Reputation:
+- One of the most reputed institutions in Tamil Nadu
+- Industry-aligned curriculum ensuring strong career opportunities
+- Strong alumni network across global sectors
 
-PROGRAMMES AT CIT:
-- 9 UG Programmes (B.E. & B.Tech.)
-- 3 PG Programmes (M.E. / MBA / MCA)
-- 4 M.Sc. Integrated Programmes
+Keywords: CIT overview, CIT institution details, CIT autonomous, Anna University affiliated
+
+================================================================================
+SECTION: VISION AND MISSION
+================================================================================
+
+Vision:
+- To inculcate sound engineering knowledge
+- Develop socially responsible engineers
+- Enable students to address national and global challenges
+
+Mission:
+- To impart high-quality education and training
+- Develop world-class engineers
+- Encourage innovation and problem-solving for societal benefit
+
+Keywords: CIT vision, CIT mission, engineering education goals
+
+================================================================================
+SECTION: PROGRAMMES OVERVIEW
+================================================================================
+
+Program Categories:
+- 9 Undergraduate (UG) Programmes (B.E. / B.Tech.)
+- 3 Postgraduate (PG) Programmes (M.E. / MBA / MCA)
+- 4 Integrated M.Sc. Programmes
 - 6 Centres of Excellence
 - 1 Research Innovation Centre
 
-CENTRES OF EXCELLENCE:
+Keywords: CIT courses list, UG PG programmes CIT, integrated MSc CIT
+
+================================================================================
+SECTION: CENTRES OF EXCELLENCE
+================================================================================
+
+Available Centres:
 - Industrial Automation
 - 5G Technologies
 - Internet of Things (IoT)
@@ -26,80 +61,327 @@ CENTRES OF EXCELLENCE:
 - Material Characterization and Synthesis
 - Cyber Security
 
-UG PROGRAMMES:
-- B.E. Civil Engineering (Accredited by NBA) - Since 1956
-- B.E. Mechanical Engineering (Accredited by NBA) - Since 1956
-- B.E. Electrical and Electronics Engineering (Accredited by NBA) - Since 1956
-- B.E. Electronics and Communication Engineering (Accredited by NBA) - Since 1968
-- B.E. Computer Science & Engineering (Accredited by NBA) - Since 1986
-- B.E. Electronics Engineering (VLSI Design and Technology) - Since 2026 (awaiting approval)
-- B.Tech. Chemical Engineering (Accredited by NBA) - Since 1963
-- B.Tech. Information Technology (Accredited by NBA) - Since 2000
-- B.Tech. Artificial Intelligence and Data Science - Since 2021
-
-PG PROGRAMMES:
-- M.E. Construction Management - Since 2011
-- Master of Computer Applications (Accredited by NBA) - Since 1994
-- Master of Business Administration - Since 2021
-
-5 YEAR INTEGRATED PROGRAMMES:
-- M.Sc. Software Systems - Since 1998
-- M.Sc. Data Science - Since 2016
-- M.Sc. Decision and Computing Sciences - Since 2017
-- M.Sc. Artificial Intelligence and Machine Learning - Since 2019
-
-CIT CLUBS:
-Japan Horizons Club, Career Guidance and Counselling Cell, CLAP Cell, Entrepreneurship Development Cell, Women Empowerment Cell, Kalam Knowledge Club, Yoga Club, NSS, RSP, Rotaract Club, YRC, Fit India, Space Club, Photographic Club, Cyber Club, Music Club, Literary Club, YHAI, Martial Arts Club, Film Club, Arts Club, Muthamizh Mandram, Dramatix, UBA, EBSB, Nature Club, GDS Club, FOSS Club, Quiz Club, Datalytics Club, Swachh Bharat Club.
-
-PLACEMENTS AND INTERNSHIPS:
-Highest Package: Rs. 58 Lakhs Per Annum
-
-Recruiters (Page 4-5 of Brochure):
-Amazon, D.E. Shaw & Co, Soliton, KLA, Oracle, Thorogood, Deloitte, EXL, Accenture, Infosys, IBM, Zoho, EY, CaratLane, Toshiba, MiQ, embedUR, Rootquotient, Konnectify, Justo Global, LSEG, Cognizant, SuperAGI, Yubi, SurveySparrow, Ninjacart, Saturam, Brakes India, OptiSol, Genau Extrusions, Shaachi, Buckman, SPAN, NGP, CMS, Filesure, CUMI, Tata Technologies, RDC Concrete, Impelox, Delphi-TVS Technologies, Simpolo, Rabwin, Infinium, Timbertruss, URC Building Values, Aarbee, FedEx, Alstom, Ascendion, HI Mando, Smartail, Vandewiele Savio, Propel, Axcess.io, Datazoic, Ignitarium, Savills, Izeon Innovative, Flex, Geleation, NMTronics, Satyukt, WNS Vuram, TGK, Gulf Asia, Ford, Wasco, Flowserve, L&T Technology Services, AIM, Ohmium, Incture, C5i, Linumiz, Capgemini, Checkpoint, McDermott, HashedIn, SLB, DTCC, EffiGO, Infominds, Everstage, Informatica, HyperVerge, OptiSol, Base, Panora, Aqfer, Sporfy, Intellectyx, Technip Energies, Tessolve, Wissen Technology, HARTS, Mobicip, Mu Sigma, IDFC First Bank, TEAL (A Tata Enterprise), Shoba, Energo Group, Quinbay.
-
-MEMBERSHIPS IN PROFESSIONAL BODIES:
-- Institution of Engineers (India)
-- The Institution of Electronics and Telecommunication Engineers
-- IEEE Students Chapter
-- SWAYAM-NPTEL Local Chapter
-
-FOREIGN COLLABORATIONS:
-Taylors University, Asia Pacific University of Technology and Innovation, Western Norway University of Applied Sciences (HVL) Norway, University of Jaffna Sri Lanka, University Malaya Malaysia, Telekom University Bandung Indonesia, Swinburne University of Technology Sarawak/Melbourne, LA Academia French Reunion Island, Indo Universal Collaboration for Engineering Education, National Institute of Technical Teachers' Training and Research, British Council, Tamil Nadu Agriculture University Coimbatore.
-
-Key Areas of International Collaboration:
-- Credit Transfer and Smooth Academic Progression
-- Promotion of Student Exchange and Global Exposure
-- Short-term Semester-Abroad opportunities
-- Joint Research initiatives and Publications
-- Support for Faculty and Researcher Mobility
-- Joint Programs, Certification Courses, Hackathons, and Projects
-- Enhancement of Global Competencies and a Culture of Innovation
-
-NOTABLE ALUMNI:
-- Padma Bhushan Dr. N. Balakrishnan (1972 batch, B.E. Hons ECE) - Honorary Professor, Indian Institute of Science, Bangalore
-- Padma Shri Er. Subbaiah Arunan (1984 batch, B.E. Mech) - Project Director, ISRO, Bangalore
-- Er. N. Chandrasekaran (1976 batch, B.Sc. App. Sc.) - Chairman, TATA Sons, India
-- Er. Sathish C Dhanasekaran (1994 batch, B.E. ECE) - President & CEO, Keysight Technologies, USA
-- Er. Jahangir Mohammed (1991 batch, B.E. ECE) - Founder & CEO, Twin Health, US
-- Mr. Josh Foulger (1992 batch, B.E. Mech.) - President, ZETWORK
-- Mr. R.K. Ramamoorthy (1989 batch, B.E. Mech.) - Commander IAF's TETTRA, India
-- Mr. Anand Selvakesari (1989 batch, B.E. Mech.) - Chief Operating Officer, Citigroup Inc
-- Mr. Sampath (1995 batch, B.E. ECE) - Managing Director, EY Cloud Data Modernization, New York
-- Mr. M.K. Aravind Kumar (2011 batch, MSc SE) - IAS Officer, Punjab
-- Mr. Arvind (2014 batch, B.E. Mech.) - IPS Officer, Madurai
-- Ms. C.S. Ramya (2013 batch, B.E. EEE) - IAS Officer, Tamil Nadu
-- Ms. Aarthi Anbalagan (2009 batch, B.Tech IT) - Senior Software Engineer, Microsoft
-- Mr. Karupaiya Chu (2024 batch, BE CSE) - Data Engineer, D.E. Shaw
-- Mr. K. Thiyanesan (2025 batch, MSc SS) - Technical Lead, VDT EduTantr Ventures Pvt. Ltd.
-
-CENTRES OF EXCELLENCE LABS:
+Associated Labs:
 - Internet of Things (IoT) Lab
 - 5G Networks Lab
 - Material Characterization and Synthesis Lab
 - Industrial Automation Lab
-- The Malaviya Mission Teacher Training Centre (Pandit Madan Mohan Malaviya National Mission Scheme, MHRD, Govt. of India)
+- Malaviya Mission Teacher Training Centre (MHRD Scheme)
 
-CONTACT FOR ADMISSION:
-Mr. K. DHANDAPANI, Admission Coordinator - 94883 16334
-Website: www.cit.edu.in
-LinkedIn: linkedin.com/school/coimbatore-institute-of-technology/
+Keywords: CIT labs, centres of excellence CIT, IoT lab CIT, 5G lab
+
+================================================================================
+SECTION: UNDERGRADUATE PROGRAMMES (UG)
+================================================================================
+
+B.E. Civil Engineering
+- Accreditation: NBA
+- Since: 1956
+
+B.E. Mechanical Engineering
+- Accreditation: NBA
+- Since: 1956
+
+B.E. Electrical and Electronics Engineering
+- Accreditation: NBA
+- Since: 1956
+
+B.E. Electronics and Communication Engineering
+- Accreditation: NBA
+- Since: 1968
+
+B.E. Computer Science and Engineering
+- Accreditation: NBA
+- Since: 1986
+
+B.E. Electronics Engineering (VLSI Design and Technology)
+- Since: 2026
+- Status: Awaiting approval
+
+B.Tech. Chemical Engineering
+- Accreditation: NBA
+- Since: 1963
+
+B.Tech. Information Technology
+- Accreditation: NBA
+- Since: 2000
+
+B.Tech. Artificial Intelligence and Data Science
+- Since: 2021
+
+Keywords: CIT UG courses, B.E courses CIT, B.Tech CIT, AI DS course CIT
+
+================================================================================
+SECTION: POSTGRADUATE PROGRAMMES (PG)
+================================================================================
+
+M.E. Construction Management
+- Since: 2011
+
+Master of Computer Applications (MCA)
+- Accreditation: NBA
+- Since: 1994
+
+Master of Business Administration (MBA)
+- Since: 2021
+
+Keywords: CIT PG courses, MCA CIT, MBA CIT, ME CIT
+
+================================================================================
+SECTION: INTEGRATED M.Sc. PROGRAMMES (5 YEARS)
+================================================================================
+
+M.Sc. Software Systems
+- Since: 1998
+
+M.Sc. Data Science
+- Since: 2016
+
+M.Sc. Decision and Computing Sciences
+- Since: 2017
+
+M.Sc. Artificial Intelligence and Machine Learning
+- Since: 2019
+
+Keywords: integrated MSc CIT, software systems CIT, data science CIT
+
+================================================================================
+SECTION: STUDENT CLUBS AND ACTIVITIES
+================================================================================
+
+Clubs:
+- Japan Horizons Club
+- Career Guidance and Counselling Cell
+- CLAP Cell
+- Entrepreneurship Development Cell
+- Women Empowerment Cell
+- Kalam Knowledge Club
+- Yoga Club
+- NSS
+- RSP
+- Rotaract Club
+- YRC
+- Fit India
+- Space Club
+- Photographic Club
+- Cyber Club
+- Music Club
+- Literary Club
+- YHAI
+- Martial Arts Club
+- Film Club
+- Arts Club
+- Muthamizh Mandram
+- Dramatix
+- UBA
+- EBSB
+- Nature Club
+- GDS Club
+- FOSS Club
+- Quiz Club
+- Datalytics Club
+- Swachh Bharat Club
+
+Keywords: CIT clubs, student activities CIT, extracurricular CIT
+
+================================================================================
+SECTION: PLACEMENTS AND INTERNSHIPS
+================================================================================
+
+Highest Package:
+- Rs. 58 Lakhs Per Annum
+
+Major Recruiters:
+- Amazon
+- D.E. Shaw & Co
+- Soliton
+- KLA
+- Oracle
+- Thorogood
+- Deloitte
+- EXL
+- Accenture
+- Infosys
+- IBM
+- Zoho
+- EY
+- CaratLane
+- Toshiba
+- MiQ
+- embedUR
+- Rootquotient
+- Konnectify
+- Justo Global
+- LSEG
+- Cognizant
+- SuperAGI
+- Yubi
+- SurveySparrow
+- Ninjacart
+- Saturam
+- Brakes India
+- OptiSol
+- Genau Extrusions
+- Shaachi
+- Buckman
+- SPAN
+- NGP
+- CMS
+- Filesure
+- CUMI
+- Tata Technologies
+- RDC Concrete
+- Impelox
+- Delphi-TVS Technologies
+- Simpolo
+- Rabwin
+- Infinium
+- Timbertruss
+- URC Building Values
+- Aarbee
+- FedEx
+- Alstom
+- Ascendion
+- HI Mando
+- Smartail
+- Vandewiele Savio
+- Propel
+- Axcess.io
+- Datazoic
+- Ignitarium
+- Savills
+- Izeon Innovative
+- Flex
+- Geleation
+- NMTronics
+- Satyukt
+- WNS Vuram
+- TGK
+- Gulf Asia
+- Ford
+- Wasco
+- Flowserve
+- L&T Technology Services
+- AIM
+- Ohmium
+- Incture
+- C5i
+- Linumiz
+- Capgemini
+- Checkpoint
+- McDermott
+- HashedIn
+- SLB
+- DTCC
+- EffiGO
+- Infominds
+- Everstage
+- Informatica
+- HyperVerge
+- Base
+- Panora
+- Aqfer
+- Sporfy
+- Intellectyx
+- Technip Energies
+- Tessolve
+- Wissen Technology
+- HARTS
+- Mobicip
+- Mu Sigma
+- IDFC First Bank
+- TEAL (A Tata Enterprise)
+- Shoba
+- Energo Group
+- Quinbay
+
+Keywords: CIT placements, highest package CIT, recruiters CIT
+
+================================================================================
+SECTION: PROFESSIONAL MEMBERSHIPS
+================================================================================
+
+- Institution of Engineers (India)
+- Institution of Electronics and Telecommunication Engineers
+- IEEE Students Chapter
+- SWAYAM-NPTEL Local Chapter
+
+Keywords: CIT memberships, IEEE CIT, professional bodies CIT
+
+================================================================================
+SECTION: FOREIGN COLLABORATIONS
+================================================================================
+
+Partner Institutions:
+- Taylors University
+- Asia Pacific University of Technology and Innovation
+- Western Norway University of Applied Sciences (HVL), Norway
+- University of Jaffna, Sri Lanka
+- University Malaya, Malaysia
+- Telekom University Bandung, Indonesia
+- Swinburne University of Technology (Sarawak / Melbourne)
+- LA Academia (French Reunion Island)
+- Indo Universal Collaboration for Engineering Education
+- National Institute of Technical Teachers' Training and Research
+- British Council
+- Tamil Nadu Agricultural University, Coimbatore
+
+Key Collaboration Areas:
+- Credit Transfer
+- Student Exchange Programs
+- Semester Abroad Opportunities
+- Joint Research and Publications
+- Faculty Mobility
+- Certification Programs and Hackathons
+- Innovation and Global Competency Development
+
+Keywords: CIT international collaboration, foreign universities CIT
+
+================================================================================
+SECTION: NOTABLE ALUMNI
+================================================================================
+
+- Dr. N. Balakrishnan (Padma Bhushan) – IISc Bangalore
+- Er. Subbaiah Arunan (Padma Shri) – ISRO
+- Er. N. Chandrasekaran – Chairman, Tata Sons
+- Er. Sathish C Dhanasekaran – CEO, Keysight Technologies
+- Er. Jahangir Mohammed – CEO, Twin Health
+- Mr. Josh Foulger – President, Zetwork
+- Mr. R.K. Ramamoorthy – Indian Air Force
+- Mr. Anand Selvakesari – COO, Citigroup
+- Mr. Sampath – EY Cloud Data Modernization
+- Mr. M.K. Aravind Kumar – IAS Officer
+- Mr. Arvind – IPS Officer
+- Ms. C.S. Ramya – IAS Officer
+- Ms. Aarthi Anbalagan – Microsoft
+- Mr. Karupaiya Chu – Data Engineer, D.E. Shaw
+- Mr. K. Thiyanesan – Technical Lead
+
+Keywords: CIT alumni, famous alumni CIT, achievers CIT
+
+================================================================================
+SECTION: ADMISSION CONTACT DETAILS
+================================================================================
+
+Admission Coordinator:
+- Name: Mr. K. Dhandapani
+- Phone: +91 94883 16334
+
+Official Website:
+- www.cit.edu.in
+
+LinkedIn:
+- linkedin.com/school/coimbatore-institute-of-technology/
+
+Keywords: CIT admission contact, apply CIT, admission coordinator CIT
+
+================================================================================
+GLOBAL KEYWORDS
+================================================================================
+
+- CIT admission brochure
+- CIT courses and placements
+- CIT UG PG programs
+- CIT clubs and labs
+- CIT recruiters list
+- CIT alumni achievements

@@ -1,12 +1,24 @@
-Infrastructure and Facilities - Coimbatore Institute of Technology (CIT), Coimbatore
+TITLE: CIT Infrastructure and Facilities
 
-1. Campus Overview:
-CIT is located on a 69-acre campus on Avinashi Road, Civil Aerodrome Post, Coimbatore-641014.
-The campus is approximately 2.3 km from Coimbatore International Airport.
-The campus houses 14 departments, hostels, sports facilities, and various support infrastructure.
+SECTION: Campus Overview
+Institution: Coimbatore Institute of Technology (CIT)
+Location: Avinashi Road, Civil Aerodrome Post, Coimbatore - 641014, Tamil Nadu
+Campus Area: 69 acres
+Nearby Landmark: Coimbatore International Airport (2.3 km)
+Campus Components:
+- 14 academic departments
+- Hostels
+- Sports facilities
+- Support infrastructure
 
-2. Laboratories:
-CIT has advanced laboratories across all departments equipped with the latest instruments:
+Keywords: campus overview, CIT location, infrastructure, campus size
+
+---
+
+SECTION: Laboratories
+CIT provides advanced laboratories across departments equipped with modern instruments.
+
+Laboratories:
 - Civil Engineering Laboratory
 - Chemistry Laboratory
 - Computer Laboratory
@@ -25,43 +37,97 @@ CIT has advanced laboratories across all departments equipped with the latest in
 - VLSI Design Laboratory
 - MCA Laboratory
 - Communication Systems Laboratory
+
 Each department has dedicated lab facilities for practical sessions and research.
 
-3. Research Centres:
-CIT has advanced research centres in cutting-edge fields:
+Keywords: labs, laboratory facilities, engineering labs, practical learning
+
+---
+
+SECTION: Research Centres
+Research Centres:
 - Artificial Intelligence Research Centre
 - Renewable Energy Research Centre
 - Materials Science Research Centre
 - Big Data Analytics Research Centre
-Faculty and students actively publish research papers in national and international journals and conferences.
 
-4. Library:
-The Central Library is spread across 13,881 sq. ft.
-The library has approximately 1,00,000 volumes including journals, books, and research project reports.
-Educational CD-ROMs and audio-video cassettes are available.
-Digital access to e-books and online journals through subscriptions.
-The library provides a quiet study environment with dedicated reading halls.
-Library services include reference services, inter-library loan, and photocopying facilities.
+Activities:
+- Faculty and students publish research papers
+- Participation in national and international journals and conferences
 
-5. Classrooms:
-Smart classrooms equipped with LCD projectors and audio-visual aids.
-Well-ventilated classrooms with adequate seating capacity.
-Seminar halls for guest lectures, workshops, and presentations.
-Large auditoriums for cultural programmes, convocation, and major events.
+Keywords: research centres, AI research, publications, innovation
 
-6. Computing Facilities:
-Central Computing Centre with high-speed internet connectivity.
-Wi-Fi coverage across the campus including hostels.
-Computer labs with modern systems and licensed software.
-Access to online learning platforms and digital resources.
+---
 
-7. E-Learning Centre:
-CIT has a dedicated E-Learning Centre for digital and online education.
-The centre supports blended learning approaches and virtual classroom sessions.
-Students can access recorded lectures, study materials, and online courses.
+SECTION: Library
+Library Area: 13,881 sq. ft.
+Collection: Approximately 1,00,000 volumes
 
-8. Sports Facilities:
-CIT provides extensive indoor and outdoor sports facilities:
+Resources:
+- Books
+- Journals
+- Research project reports
+- Educational CD-ROMs
+- Audio-video cassettes
+
+Digital Access:
+- E-books
+- Online journals (subscription-based)
+
+Facilities:
+- Quiet study environment
+- Dedicated reading halls
+
+Services:
+- Reference services
+- Inter-library loan
+- Photocopying
+
+Keywords: library, books, digital library, journals
+
+---
+
+SECTION: Classrooms and Auditoriums
+Facilities:
+- Smart classrooms with LCD projectors
+- Audio-visual teaching aids
+- Well-ventilated classrooms
+- Adequate seating capacity
+
+Additional Spaces:
+- Seminar halls for lectures and workshops
+- Auditoriums for cultural events, convocation, and major programs
+
+Keywords: classrooms, smart class, seminar hall, auditorium
+
+---
+
+SECTION: Computing Facilities
+- Central Computing Centre with high-speed internet
+- Campus-wide Wi-Fi including hostels
+- Computer labs with modern systems
+- Licensed software access
+- Online learning platforms and digital resources
+
+Keywords: computing, WiFi, computer lab, internet
+
+---
+
+SECTION: E-Learning Centre
+- Dedicated E-Learning Centre for digital education
+- Supports blended learning and virtual classrooms
+
+Access:
+- Recorded lectures
+- Study materials
+- Online courses
+
+Keywords: e-learning, online learning, digital education
+
+---
+
+SECTION: Sports Facilities
+Indoor and Outdoor Facilities:
 - Cricket ground
 - Basketball court
 - Football ground
@@ -71,47 +137,116 @@ CIT provides extensive indoor and outdoor sports facilities:
 - Badminton court
 - Tennikoit court
 - Gymnasium and fitness centre
-Students can participate in inter-college, university-level, and national-level competitions.
 
-9. Hostel Accommodation:
-3 hostels for girls and 2 hostels for boys.
-Rooms with 2-sharing and 4-sharing configurations.
-Each room equipped with study table, bed, almirah, and fan.
-Hostel mess provides hygienic meals (breakfast, lunch, snacks, dinner).
-Wi-Fi, CCTV surveillance, gymnasium, and sports facilities within hostel premises.
-Hostel fees: Rs. 28,000 to Rs. 30,000 per annum.
+Participation:
+- Inter-college competitions
+- University-level competitions
+- National-level competitions
 
-10. Other Campus Facilities:
-- 24/7 ATM service on campus
-- Cafeteria and canteen serving snacks, beverages, and meals
-- Stationery shop for academic supplies
-- Medical/first-aid facility on campus
-- CCTV surveillance across the campus for security
-- Dedicated parking areas for students and staff
-- Fire safety equipment installed in all buildings
-- Rainwater harvesting system on campus
-- Green campus initiatives with extensive tree plantation
+Keywords: sports, playground, gym, athletics
 
-11. Innovation and Entrepreneurship:
-Innovation labs for students to work on creative projects and startups.
-CIT supports students in participating in national-level hackathons and innovation challenges.
-The college encourages entrepreneurial activities and provides mentorship for student startups.
+---
 
-12. Professional Bodies and Clubs:
-Active student chapters of professional bodies:
+SECTION: Hostel Accommodation
+Hostels:
+- 3 hostels for girls
+- 2 hostels for boys
+
+Room Types:
+- 2-sharing
+- 4-sharing
+
+Room Facilities:
+- Study table
+- Bed
+- Almirah
+- Fan
+
+Hostel Features:
+- Mess providing breakfast, lunch, snacks, dinner
+- Wi-Fi access
+- CCTV surveillance
+- Gym and sports facilities
+
+Fees:
+- Rs. 28,000 to Rs. 30,000 per annum
+
+Keywords: hostel, accommodation, mess, hostel facilities
+
+---
+
+SECTION: Other Campus Facilities
+- 24/7 ATM service
+- Cafeteria and canteen
+- Stationery shop
+- Medical/first-aid facility
+- CCTV surveillance across campus
+- Dedicated parking areas
+- Fire safety equipment in all buildings
+- Rainwater harvesting system
+- Green campus initiatives with tree plantation
+
+Keywords: campus facilities, ATM, canteen, safety, environment
+
+---
+
+SECTION: Innovation and Entrepreneurship
+- Innovation labs for student projects and startups
+- Participation in national-level hackathons
+- Support for innovation challenges
+
+Support:
+- Mentorship for student startups
+- Encouragement for entrepreneurial activities
+
+Keywords: innovation, startup, entrepreneurship, hackathon
+
+---
+
+SECTION: Professional Bodies and Clubs
+Professional Bodies:
 - IEEE (Institute of Electrical and Electronics Engineers)
 - Indian Institute of Chemical Engineers
-- Other discipline-specific professional bodies
-20 student clubs covering arts, dramatics, Tamil, film, karate, music, photography, and sports.
-Student union organizes cultural and technical events throughout the year.
+- Other discipline-specific bodies
 
-13. Transport:
-College bus service available for students from various parts of Coimbatore city and surrounding areas.
-Dedicated parking areas for two-wheelers and four-wheelers.
-The campus is well-connected by public transport.
+Student Activities:
+- 20 student clubs
 
-14. Placement Infrastructure:
-State-of-the-art facilities for group discussions, tests, and interviews.
-Communication lab for aptitude and soft skills enhancement.
-Dedicated placement library with aptitude and technical reference materials.
-Interview rooms and seminar halls for pre-placement talks.
+Areas Covered:
+- Arts
+- Dramatics
+- Tamil
+- Film
+- Karate
+- Music
+- Photography
+- Sports
+
+Student Union:
+- Organizes cultural and technical events
+
+Keywords: clubs, IEEE, student activities, organizations
+
+---
+
+SECTION: Transport
+- College bus service across Coimbatore and nearby areas
+- Dedicated parking for two-wheelers and four-wheelers
+- Well-connected by public transport
+
+Keywords: transport, bus service, parking
+
+---
+
+SECTION: Placement Infrastructure
+Facilities:
+- Group discussion rooms
+- Test halls
+- Interview rooms
+- Seminar halls for pre-placement talks
+
+Support:
+- Communication lab for aptitude and soft skills
+- Placement library with aptitude and technical materials
+
+Keywords: placements, interview rooms, GD, training infrastructure

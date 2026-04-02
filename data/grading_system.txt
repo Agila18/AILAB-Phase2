@@ -1,56 +1,202 @@
-Grading System - Coimbatore Institute of Technology (CIT), Coimbatore
+TITLE: Grading System - Coimbatore Institute of Technology (CIT)
+INSTITUTION: Coimbatore Institute of Technology (CIT), Coimbatore
 
-1. Credit System:
-CIT introduced the credit system to all programmes since 2001. The Choice Based Credit System (CBCS) has been followed from 2015, allowing students more flexibility in choosing elective courses.
+================================================================================
+SECTION: CREDIT SYSTEM OVERVIEW
+================================================================================
 
-2. Grade-Based Evaluation:
-Under the autonomous scheme, grades are awarded instead of marks for a more realistic and comprehensive evaluation. This system provides a standardized way to assess student performance across different courses and departments.
+System:
+- Credit system introduced for all programmes in 2001
+- Choice Based Credit System (CBCS) implemented from 2015
 
-3. Grade Scale:
-The following grade points are used in the CIT grading system (aligned with Anna University autonomous regulations):
-- S (Superior): 10 grade points - awarded for outstanding performance (90-100%)
-- A (Excellent): 9 grade points - awarded for excellent performance (80-89%)
-- B (Very Good): 8 grade points - awarded for very good performance (70-79%)
-- C (Good): 7 grade points - awarded for good performance (60-69%)
-- D (Average): 6 grade points - awarded for average performance (55-59%)
-- E (Satisfactory): 5 grade points - awarded for satisfactory performance (50-54%)
-- U (Unsatisfactory/Fail): 0 grade points - student has failed the course and must re-appear
-- FA (Fail due to Attendance): 0 grade points - student must repeat the course due to attendance shortage
-- W (Withdrawal): No grade points - course withdrawn with permission before the deadline
-- I (Incomplete): Temporary grade - must be cleared within the stipulated time
+Purpose:
+- Provides flexibility in course selection
+- Supports elective-based learning
 
-4. SGPA Calculation:
-The Semester Grade Point Average (SGPA) is calculated using the formula:
-SGPA = Sum of (Credit of each course x Grade Point obtained) / Total Credits in the semester
-SGPA = (C1*G1 + C2*G2 + C3*G3 + ... + Cn*Gn) / (C1 + C2 + C3 + ... + Cn)
-Where Ci = Credit of course i, Gi = Grade point obtained in course i.
+Keywords: credit system CIT, CBCS CIT, grading system CIT
 
-5. CGPA Calculation:
-The Cumulative Grade Point Average (CGPA) is calculated across all semesters completed:
-CGPA = Sum of (Credit of each course across all semesters x Grade Point obtained) / Total Credits across all semesters
-CGPA provides an overall measure of academic performance throughout the programme.
+================================================================================
+SECTION: GRADE-BASED EVALUATION
+================================================================================
 
-6. Continuous Assessment:
-Continuous assessment is a key component of the grading system. It includes:
-- Mid-term examination marks
-- Assignment and quiz marks
-- Laboratory performance and continuous assessment in practicals
-- Seminar and presentation marks
-- Mini project evaluation (for V and VI semester students)
-The continuous assessment component typically contributes 40-50% of the final grade, with the end-semester examination contributing the remaining 50-60%.
+Evaluation Method:
+- Grades are awarded instead of marks
 
-7. Classification of Results:
-Based on CGPA, students are classified as follows:
-- First Class with Distinction: CGPA of 8.5 and above
-- First Class: CGPA of 6.5 to 8.49
-- Second Class: CGPA of 5.5 to 6.49
-- Pass: CGPA of 5.0 to 5.49
+Purpose:
+- Provides standardized and comprehensive assessment
+- Ensures uniform evaluation across departments
 
-8. Improvement of Grades:
-Students who wish to improve their grades may re-appear for the end-semester examination in subsequent semesters. The better of the two grades (original or improved) will be considered for CGPA calculation.
+Keywords: grade system CIT, marks vs grades CIT
 
-9. Arrear Examinations:
-Students who fail a course (U grade) must appear for supplementary/arrear examinations. Arrear examinations are conducted along with the regular semester examinations. There is no limit on the number of attempts for clearing arrears, but students must clear all arrears to be eligible for the degree.
+================================================================================
+SECTION: GRADE SCALE
+================================================================================
 
-10. Credit Requirements:
-Students must earn the minimum required credits as specified in their programme curriculum to be eligible for the award of the degree. The total credit requirement varies by programme (typically 160-180 credits for a 4-year BE/BTech programme).
+Grade Distribution:
+
+- S (Superior):
+  - Grade Point: 10
+  - Marks Range: 90–100%
+
+- A (Excellent):
+  - Grade Point: 9
+  - Marks Range: 80–89%
+
+- B (Very Good):
+  - Grade Point: 8
+  - Marks Range: 70–79%
+
+- C (Good):
+  - Grade Point: 7
+  - Marks Range: 60–69%
+
+- D (Average):
+  - Grade Point: 6
+  - Marks Range: 55–59%
+
+- E (Satisfactory):
+  - Grade Point: 5
+  - Marks Range: 50–54%
+
+- U (Unsatisfactory / Fail):
+  - Grade Point: 0
+  - Must reappear for exam
+
+- FA (Fail due to Attendance):
+  - Grade Point: 0
+  - Must repeat course
+
+- W (Withdrawal):
+  - No grade points
+  - Course withdrawn before deadline
+
+- I (Incomplete):
+  - Temporary grade
+  - Must be cleared within time
+
+Keywords: grade points CIT, grading scale CIT, S A B C grades
+
+================================================================================
+SECTION: SGPA CALCULATION
+================================================================================
+
+Definition:
+- Semester Grade Point Average (SGPA)
+
+Formula:
+- SGPA = Sum of (Credit × Grade Point) / Total Credits
+
+Expanded Formula:
+- SGPA = (C1×G1 + C2×G2 + ... + Cn×Gn) / (C1 + C2 + ... + Cn)
+
+Where:
+- Ci = Credit of course i
+- Gi = Grade point of course i
+
+Keywords: SGPA formula CIT, semester GPA calculation
+
+================================================================================
+SECTION: CGPA CALCULATION
+================================================================================
+
+Definition:
+- Cumulative Grade Point Average (CGPA)
+
+Formula:
+- CGPA = Total weighted grade points across all semesters / Total credits
+
+Purpose:
+- Measures overall academic performance
+
+Keywords: CGPA CIT, cumulative GPA CIT
+
+================================================================================
+SECTION: CONTINUOUS ASSESSMENT
+================================================================================
+
+Components:
+- Mid-term examinations
+- Assignments
+- Quizzes
+- Laboratory performance
+- Seminar and presentations
+- Mini project evaluation
+
+Weightage:
+- Internal Assessment: 40–50%
+- End Semester Exam: 50–60%
+
+Keywords: internal marks CIT, continuous evaluation CIT
+
+================================================================================
+SECTION: CLASSIFICATION OF RESULTS
+================================================================================
+
+Based on CGPA:
+
+- First Class with Distinction:
+  - CGPA ≥ 8.5
+
+- First Class:
+  - CGPA: 6.5 – 8.49
+
+- Second Class:
+  - CGPA: 5.5 – 6.49
+
+- Pass:
+  - CGPA: 5.0 – 5.49
+
+Keywords: class distinction CIT, CGPA classification CIT
+
+================================================================================
+SECTION: IMPROVEMENT OF GRADES
+================================================================================
+
+Rules:
+- Students can reappear for end-semester exams
+- Better grade will be considered for CGPA
+
+Purpose:
+- Improve academic performance
+
+Keywords: grade improvement CIT, reattempt exam CIT
+
+================================================================================
+SECTION: ARREAR EXAMINATIONS
+================================================================================
+
+Conditions:
+- U grade indicates failure
+- Must reappear in arrear exams
+
+Rules:
+- Conducted along with regular exams
+- No limit on attempts
+- Must clear all arrears to graduate
+
+Keywords: arrear exam CIT, backlog clearing CIT
+
+================================================================================
+SECTION: CREDIT REQUIREMENTS
+================================================================================
+
+Requirement:
+- Must earn minimum credits as per programme
+
+Typical Credits:
+- B.E / B.Tech: 160–180 credits
+
+Condition:
+- Required for degree completion
+
+Keywords: credit requirement CIT, total credits CIT
+
+================================================================================
+GLOBAL KEYWORDS
+================================================================================
+
+- CIT grading system
+- CIT SGPA CGPA calculation
+- CIT grade scale S A B C
+- CIT arrear and improvement
+- CIT credit system rules

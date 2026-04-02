@@ -35,7 +35,7 @@ def store_chunks(chunks: list[dict], embedding_function, persist_directory: str 
         documents=doc_objects,
         embedding=embedding_function,
         persist_directory=persist_directory,
-        collection_name="cit_rag",
+        collection_name="student_docs",
     )
 
     return vector_db

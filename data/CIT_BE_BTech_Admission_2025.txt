@@ -1,66 +1,253 @@
-COIMBATORE INSTITUTE OF TECHNOLOGY
-Government Aided Autonomous Institution Affiliated to Anna University, Chennai
-COIMBATORE-641014
+TITLE: CIT First Year B.E / B.Tech Admission Guidelines 2025-26
+INSTITUTION: Coimbatore Institute of Technology (CIT), Coimbatore
 
-ADMISSION TO THE FIRST YEAR OF THE B.E/B.TECH. DEGREE COURSE
+================================================================================
+SECTION: INSTITUTION DETAILS
+================================================================================
+Institution Name: Coimbatore Institute of Technology (CIT)
+Type: Government Aided Autonomous Institution
+Affiliation: Anna University, Chennai
 
-First year B.E / B.Tech admission is valid and final only after the establishment of complete eligibility by the actual verification of all certificates in original and subject to the approval of the Directorate of Technical Education and the Anna University. You should be present with all your original certificates and fees for admission by 9.30a.m/11.00a.m/2.00p.m at the Main Building Conference Hall of the Institute.
+Address:
+- Coimbatore - 641014
 
-FEES AND DEPOSITS:
-Fees and Deposits payable at the time of admission.
-The Students should remit the fees only by UPI payment/ Debit, Credit Cards/ Internet Banking.
+Keywords: CIT address, CIT affiliation, Anna University CIT
 
-B.E/B.Tech. Aided courses:
-Tuition & other Fees: Rs. 33,350/- per year
+================================================================================
+SECTION: ADMISSION OVERVIEW
+================================================================================
+Programme: First Year B.E / B.Tech Admission
+Academic Year: 2025-26
 
-The Students are requested to complete the admission procedure on or before the deadline mentioned in the allotment order issued by TNEA 2025. No extension of time for admission will be granted under any circumstances.
+Admission Validity:
+- Admission is valid only after verification of original certificates
+- Subject to approval by:
+  - Directorate of Technical Education (DOTE)
+  - Anna University
 
-DOCUMENTS REQUIRED IN ORIGINAL AT THE TIME OF ADMISSION:
-1. Intimation of allotment from Tamilnadu Engineering Admissions, Chennai.
-2. 10th, +1, +2 Mark sheets.
-3. Transfer Certificate and Conduct Certificate (From the Head of the Educational Institution in which the candidates last studied).
-4. Original Community Certificate with Gopuram seal (For candidates other than OC).
-5. Certificate of Physical Fitness.
-6. Student's particulars form (Affix one passport size photo of student, Father & Mother in appropriate space).
+Reporting Instructions:
+- Candidates must report at:
+  - Main Building Conference Hall
+- Time Slots:
+  - 9:30 AM
+  - 11:00 AM
+  - 2:00 PM
 
-All the applicants are informed that the original certificates produced at the time of admission will be retained in the institute and will not be returned till the completion of the course under any circumstances whatsoever. To meet any need for the certificates for scholarships, Education loans, application to other institutions etc., the students are advised to take at least Ten(10) photo copies of allotment order, 10th mark sheet, +1 mark sheet, +2 mark sheet & Community Certificate, First Graduate Certificate, Joint Declaration form, get them attested and produce the same during admission.
+Requirements:
+- Bring all original certificates
+- Pay fees at the time of admission
 
-IMPORTANT NOTE:
-The candidates should ensure that correct marks are furnished by him/her in the application form. The candidates are informed that if, after proper scrutiny of his / her marks, it is found that the marks furnished by him / her in the application form are not correct, then:
-1. He/She will forfeit the admission no matter at what stage of the course he/she is at that time.
-2. He/She will be debarred from pursuing the studies for a period of three years.
-3. Legal action will be initiated against him/her for furnishing wrong marks.
+Keywords: CIT admission process, BE admission CIT, reporting time CIT
 
-I YEAR B.E / B.Tech ADMISSION 2025-26 CHECK LIST (I, II, III BUNCH):
-1. Allotment order from TNEA, Chennai
-2. Community Certificate
-3. +2 Mark sheet, +1 Mark sheet, 10th Mark sheet
-4. Transfer Certificate
-5. Photocopy of Aadhaar card
-6. Original First Graduate Certificate (if applicable)
-7. Original joint declaration of First Graduate in the prescribed format duly signed by the student and his/her parent/Guardian
+================================================================================
+SECTION: FEES AND PAYMENT MODE
+================================================================================
+
+Applicable For:
+- B.E / B.Tech Aided Courses
+
+Fees:
+- Tuition & Other Fees: Rs. 33,350 per year
+
+Payment Modes:
+- UPI
+- Debit Card
+- Credit Card
+- Internet Banking
+
+Important Instruction:
+- Fees must be paid during admission
+
+Keywords: CIT fees, BE fees CIT, payment mode CIT
+
+================================================================================
+SECTION: ADMISSION DEADLINE
+================================================================================
+- Admission must be completed before the deadline mentioned in:
+  - TNEA 2025 Allotment Order
+
+Important Rule:
+- No extension of time will be granted under any circumstances
+
+Keywords: admission deadline CIT, TNEA deadline, no extension rule
+
+================================================================================
+SECTION: DOCUMENTS REQUIRED (ORIGINALS)
+================================================================================
+
+Candidates must bring the following original documents:
+
+1. TNEA Allotment Order (Tamil Nadu Engineering Admissions)
+2. 10th Mark Sheet
+3. +1 Mark Sheet
+4. +2 Mark Sheet
+5. Transfer Certificate (TC)
+6. Conduct Certificate
+7. Community Certificate (with Gopuram seal, if applicable)
 8. Certificate of Physical Fitness
-9. Student's Particulars form
-10. Affidavit by the student (Get signature from the notary public)
-11. Affidavit by the parent/guardian (Get signature from the notary public)
-12. Joint declaration by the parent or guardian and the candidate (Form issued by CIT)
-13. Declaration by the student (Form issued by CIT)
+9. Student's Particulars Form (with photos of student, father, mother)
 
-The candidates are advised to produce five(5) attested copies of Allotment order (TNEA 2025), +2 Marksheet, +1 Mark sheet, 10th Mark sheet, Transfer Certificate & Community Certificate, First Graduate Certificate (if applicable) in addition to the above.
+Keywords: documents required CIT, original certificates admission
 
-Scholarship Forms, Fee Concession Forms can be had from the office (Scholarship Section).
+================================================================================
+SECTION: CERTIFICATE RETENTION POLICY
+================================================================================
 
-STUDENT'S PARTICULARS 2025-26 (Form Fields):
-- Student's Name, Father's Name, Mother's Name (with Photos and Signatures)
-- Aadhaar No, Date of Birth, Class & Branch, Roll No, TNEA Reg No
-- Hostel details (If Hosteller: Name of Hostel and Room No.; If not a Hosteller: staying with Parent/Relatives/Friends/Private Lodging)
-- Permanent Address with Pin Code and Mobile
-- Address of close relatives or family friends in and around Coimbatore for emergency contact
-- Nativity, Religion, Caste, Community (SC/ST/MBC/BC/Others), Mother Tongue, Blood Group
-- Scholarship details (if any)
-- Father & Mother details: Name, Residential Address, Occupation, Office Address, Mobile numbers
-- Whether Gazetted/N.G.O. (In case of Govt. employee), Annual Income
-- Educational Details: Exam last passed, Name & Place of Institution, University/Board, Month/Year of passing, Reg. No, T.M.R. Code No., No. of Attempts
-- Subject-wise marks: Maths, Physics, Chemistry (Marks out of 100, Percentage)
+Important Notice:
+- All original certificates submitted will be retained by the institute
+- Certificates will NOT be returned until course completion
+
+Recommendation:
+- Take at least 10 photocopies of:
+  - Allotment Order
+  - 10th Mark Sheet
+  - +1 Mark Sheet
+  - +2 Mark Sheet
+  - Community Certificate
+  - First Graduate Certificate
+  - Joint Declaration Form
+
+- Get all copies attested
+
+Usage:
+- Required for scholarships, loans, and other applications
+
+Keywords: certificate retention CIT, photocopies requirement, document safety
+
+================================================================================
+SECTION: IMPORTANT RULES AND PENALTIES
+================================================================================
+
+Accuracy Requirement:
+- Candidates must provide correct marks in application
+
+If Incorrect Information is Found:
+1. Admission will be cancelled at any stage
+2. Candidate will be debarred for 3 years
+3. Legal action will be taken
+
+Keywords: admission rules CIT, penalty wrong marks, disqualification rules
+
+================================================================================
+SECTION: ADMISSION CHECKLIST (I, II, III BUNCH)
+================================================================================
+
+Required Documents:
+
+1. TNEA Allotment Order
+2. Community Certificate
+3. +2 Mark Sheet
+4. +1 Mark Sheet
+5. 10th Mark Sheet
+6. Transfer Certificate
+7. Aadhaar Card (Photocopy)
+8. First Graduate Certificate (if applicable)
+9. Joint Declaration (First Graduate, signed)
+10. Physical Fitness Certificate
+11. Student Particulars Form
+12. Student Affidavit (Notary signed)
+13. Parent/Guardian Affidavit (Notary signed)
+14. Joint Declaration (Parent + Candidate, CIT format)
+15. Student Declaration (CIT format)
+
+Additional Requirement:
+- Submit 5 attested copies of:
+  - Allotment Order
+  - Mark Sheets (10th, +1, +2)
+  - Transfer Certificate
+  - Community Certificate
+  - First Graduate Certificate (if applicable)
+
+Keywords: admission checklist CIT, required forms CIT, affidavit documents
+
+================================================================================
+SECTION: SCHOLARSHIPS AND FEE CONCESSION
+================================================================================
+- Scholarship Forms available at:
+  - Scholarship Section (Office)
+
+- Fee Concession Forms available
+
+Keywords: scholarship CIT, fee concession CIT
+
+================================================================================
+SECTION: STUDENT PARTICULARS FORM DETAILS
+================================================================================
+
+Personal Information:
+- Student Name
+- Father Name
+- Mother Name
+- Photos and Signatures
+
+Identification:
+- Aadhaar Number
+- Date of Birth
+- EMIS Number
+- Email ID
+
+Academic Info:
+- Class & Branch
+- Roll Number
+- TNEA Registration Number
+
+Hostel Information:
+- Hostel Name & Room Number (if applicable)
+- Else: Staying with Parent / Relatives / Friends / Private
+
+Contact Details:
+- Permanent Address with PIN
+- Mobile Number
+- Emergency Contact (relative/friend in Coimbatore)
+
+Personal Attributes:
+- Nativity
+- Religion
+- Caste / Community (SC/ST/MBC/BC/Others)
+- Mother Tongue
+- Blood Group
+
+Scholarship Info:
+- Scholarship details (if applicable)
+
+Parent Details:
+- Father & Mother Name
+- Residential Address
+- Occupation
+- Office Address
+- Mobile Numbers
+- Government Employee Status (Gazetted/N.G.O.)
+- Annual Income
+
+Educational Details:
+- Last Exam Passed
+- Institution Name & Location
+- University / Board
+- Month & Year of Passing
+- Register Number
+- TMR Code
+- Number of Attempts
+
+Marks:
+- Mathematics (out of 100)
+- Physics (out of 100)
+- Chemistry (out of 100)
+- Percentage
+
+Other Details:
 - Extra Curricular Activities
-- Student Mobile No, EMIS No, Student E-mail ID
+
+Keywords: student particulars form CIT, personal details CIT, academic details form
+
+================================================================================
+GLOBAL KEYWORDS
+================================================================================
+
+- CIT admission process 2025
+- CIT BE BTech admission rules
+- CIT required documents list
+- CIT fees structure aided
+- CIT student particulars form
+- CIT admission checklist
+- CIT certificate retention policy
+- CIT scholarships and forms
