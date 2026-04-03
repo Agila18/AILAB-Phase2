@@ -1,66 +1,63 @@
 """
-Person 6: Confidence Score
-Responsibility: Compute a confidence score (0.0 to 1.0) for the answer.
-
-Uses a combination of:
-1. Keyword overlap between answer and context
-2. Answer length heuristic (very short = low confidence)
-3. Refusal detection (explicit "not found" = 0.0 confidence in content)
+Confidence Score — Multi-Factor Engine
+========================================
+Factors:
+  1. Keyword overlap (answer words found in context)   → up to 0.50
+  2. Answer length heuristic                           → up to 0.30
+  3. Source citation bonus                             → up to 0.20
+  4. Refusal detection (explicit "not found")          →  0.0 override
 """
 
+from __future__ import annotations
 
-def compute_confidence(answer: str, context: list[dict] | list[str]) -> float:
+
+def compute_confidence(answer: str, context) -> float:
     """
-    Computes a confidence score based on the word overlap ratio.
+    Compute a 0.0–1.0 confidence score for the generated answer.
+
+    Parameters
+    ----------
+    answer  : str
+    context : list[Document] | list[str] | list[dict]
     """
     if not answer or not context:
         return 0.0
 
-    # Build context string
-    if isinstance(context[0], str):
-        full_context = " ".join(context).lower()
-    else:
-        full_context = " ".join([c.get("text", "") for c in context]).lower()
-
-    # Calculate Jaccard-like overlap
-    answer_words = set(answer.lower().split())
-    context_words = set(full_context.split())
-
-    overlap = len(answer_words & context_words)
-    total = len(answer_words)
-
-    return overlap / total if total else 0.0
-
     answer_lower = answer.lower()
 
-    # If the model explicitly refused, confidence in "having an answer" is 0
-    # but confidence in the system working correctly is high
+    # ── Refusal detection ────────────────────────────────────────────────────
     refusal_phrases = [
         "could not find",
         "not found in the retrieved",
         "not available",
+        "please contact the college",
         "i am a cit student assistant",
     ]
     for phrase in refusal_phrases:
         if phrase in answer_lower:
-            return 0.0  # No answer found — but system behaved correctly
+            return 0.0
 
-    # Build combined context text
-    if isinstance(context[0], dict):
+    # ── Build combined context text ──────────────────────────────────────────
+    if isinstance(context[0], str):
+        context_text = " ".join(context).lower()
+    elif isinstance(context[0], dict):
         context_text = " ".join([c.get("text", "") for c in context]).lower()
     else:
+        # LangChain Document objects
         context_text = " ".join([c.page_content for c in context]).lower()
 
-    # --- Factor 1: Keyword Overlap (0.0 to 0.5) ---
-    stopwords = {
+    # ── Factor 1: Keyword Overlap (0.0 → 0.50) ──────────────────────────────
+    STOPWORDS = {
         "the", "is", "a", "an", "in", "of", "to", "and", "for", "are",
         "it", "on", "at", "by", "or", "be", "as", "this", "that", "from",
         "with", "was", "has", "have", "can", "will", "not", "but", "if",
         "you", "your", "they", "their", "we", "our", "i", "my", "do",
+        "about", "so", "would", "should", "could", "please",
     }
     answer_words = [
-        w.strip(".,;:!?\"'()") for w in answer_lower.split()
-        if len(w) > 2 and w.strip(".,;:!?\"'()") not in stopwords
+        w.strip(".,;:!?\"'()")
+        for w in answer_lower.split()
+        if len(w) > 2 and w.strip(".,;:!?\"'()") not in STOPWORDS
     ]
 
     if answer_words:
@@ -69,20 +66,20 @@ def compute_confidence(answer: str, context: list[dict] | list[str]) -> float:
     else:
         overlap = 0.0
 
-    keyword_score = min(overlap, 1.0) * 0.5  # max 0.5 from this factor
+    keyword_score = min(overlap, 1.0) * 0.50
 
-    # --- Factor 2: Answer Length (0.0 to 0.3) ---
+    # ── Factor 2: Answer Length (0.0 → 0.30) ────────────────────────────────
     word_count = len(answer.split())
     if word_count < 5:
-        length_score = 0.05  # Very short answer = low confidence
+        length_score = 0.05
     elif word_count < 20:
         length_score = 0.15
     elif word_count < 50:
         length_score = 0.25
     else:
-        length_score = 0.30  # Detailed answer = higher confidence
+        length_score = 0.30
 
-    # --- Factor 3: Source Citation Bonus (0.0 to 0.2) ---
+    # ── Factor 3: Source Citation Bonus (0.0 → 0.20) ────────────────────────
     citation_score = 0.0
     citation_markers = ["source", "according to", "as per", ".txt", "document"]
     for marker in citation_markers:
@@ -92,3 +89,25 @@ def compute_confidence(answer: str, context: list[dict] | list[str]) -> float:
 
     confidence = keyword_score + length_score + citation_score
     return round(min(confidence, 1.0), 2)
+
+
+def compute_per_source_confidence(answer: str, docs) -> list[dict]:
+    """
+    Return per-source confidence breakdown for UI display.
+
+    Returns list of {source, score} dicts sorted by score descending.
+    """
+    if not docs:
+        return []
+
+    results = []
+    for doc in docs:
+        source = (
+            doc.metadata.get("source", "unknown")
+            if hasattr(doc, "metadata")
+            else str(doc)[:40]
+        )
+        score = compute_confidence(answer, [doc])
+        results.append({"source": source, "score": score})
+
+    return sorted(results, key=lambda x: x["score"], reverse=True)

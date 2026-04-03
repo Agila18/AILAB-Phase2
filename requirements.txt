@@ -11,3 +11,4 @@ pypdf
 ollama
 rank-bm25
 sentence-transformers
+nltk

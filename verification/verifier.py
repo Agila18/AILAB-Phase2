@@ -1,30 +1,78 @@
 """
-Level 3 · Step 7 : Answer Verification
-Checks whether the generated answer is grounded in the retrieved context.
+Enhanced Answer Verifier
+==========================
+Returns a structured result dict instead of a plain bool.
+
+Result schema:
+  {
+    "verified":              bool,   # overall grounding verdict
+    "score":                 float,  # 0.0–1.0 grounding score
+    "unsupported_sentences": list,   # sentences NOT found in context
+    "supported_sentences":   list,   # sentences found in context
+    "support_ratio":         float,  # fraction of sentences grounded
+  }
 """
 
+from __future__ import annotations
+from verification.span_highlighter import highlight_spans
 
-def verify_answer(answer: str, docs) -> bool:
+
+# Known refusal phrases — system behaved correctly, mark as verified
+_REFUSALS = [
+    "could not find",
+    "not found",
+    "please contact",
+    "i am a cit student assistant",
+    "i could not find this information",
+]
+
+
+def verify_answer(answer: str, docs) -> dict:
     """
-    Returns True if at least one word from the answer matches the context.
-    Works with both list[Document] and list[str].
+    Verify whether the generated answer is grounded in the retrieved documents.
+
+    Parameters
+    ----------
+    answer : str
+    docs   : list[Document] | list[str]
+
+    Returns
+    -------
+    dict — see module docstring for schema
     """
+    empty_result = {
+        "verified": False,
+        "score": 0.0,
+        "unsupported_sentences": [],
+        "supported_sentences": [],
+        "support_ratio": 0.0,
+    }
+
     if not answer or not docs:
-        return False
+        return empty_result
 
-    # Build context string
-    if isinstance(docs[0], str):
-        context = " ".join(docs)
-    else:
-        context = " ".join(d.page_content for d in docs)
+    answer_lower = answer.lower()
 
-    context_lower = context.lower()
+    # Explicit refusals → system is working correctly, mark as verified
+    if any(phrase in answer_lower for phrase in _REFUSALS):
+        return {
+            "verified": True,
+            "score": 1.0,
+            "unsupported_sentences": [],
+            "supported_sentences": [answer],
+            "support_ratio": 1.0,
+        }
 
-    # Short-circuit: known refusal phrases are always "verified"
-    refusals = ["could not find", "not found", "please contact", "i am a cit"]
-    if any(phrase in answer.lower() for phrase in refusals):
-        return True
+    # Run span highlighting
+    span_result = highlight_spans(answer, docs)
 
-    # At least one non-trivial answer word must appear in context
-    answer_words = [w for w in answer.lower().split() if len(w) > 3]
-    return any(word in context_lower for word in answer_words)
+    support_ratio = span_result["support_ratio"]
+    verified = support_ratio >= 0.5  # At least half the sentences must be grounded
+
+    return {
+        "verified": verified,
+        "score": round(support_ratio, 2),
+        "unsupported_sentences": span_result["unsupported"],
+        "supported_sentences":   span_result["supported"],
+        "support_ratio":         support_ratio,
+    }
