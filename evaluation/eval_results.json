@@ -3,91 +3,101 @@
     "category": "Academic",
     "question": "Who is the HOD for the CSE department?",
     "expected": "Dr. A. B. Smith is the Head of Department for Computer Science and Engineering.",
-    "predicted": "\u26a0\ufe0f Answer not found in documents",
-    "faithfulness": 0.0,
-    "correct": false,
-    "latency": 50.03
+    "predicted": "Dr. Kousalya G\n",
+    "faithfulness": 1.0,
+    "context_precision": 0.95,
+    "answer_correctness": 0.0,
+    "latency": 47.76
   },
   {
     "category": "Academic",
     "question": "How many semesters are in the B.E. course?",
     "expected": "The B.E. course consists of 8 semesters over 4 years.",
-    "predicted": "\u26a0\ufe0f Answer not found in documents",
-    "faithfulness": 0.0,
-    "correct": false,
-    "latency": 40.03
+    "predicted": "Four years.",
+    "faithfulness": 1.0,
+    "context_precision": 0.0,
+    "answer_correctness": 0.0,
+    "latency": 64.57
   },
   {
     "category": "Fees",
     "question": "What is the tuition fee for the first year B.E. CSE?",
     "expected": "The tuition fee for first-year B.E. CSE is 50,000 INR.",
-    "predicted": "\u26a0\ufe0f Answer not found in documents",
-    "faithfulness": 0.0,
-    "correct": false,
-    "latency": 66.33
+    "predicted": "28,000 \u2013 Rs. 30,000 per annum",
+    "faithfulness": 0.8,
+    "context_precision": 0.0,
+    "answer_correctness": 0.2,
+    "latency": 128.46
   },
   {
     "category": "Scholarship",
     "question": "Does CIT provide any state government scholarships?",
     "expected": "Yes, CIT facilitates BC/MBC/DNC and SC/ST state government scholarships for eligible students.",
-    "predicted": "\u26a0\ufe0f Answer not found in documents",
-    "faithfulness": 0.0,
-    "correct": true,
-    "latency": 99.0
+    "predicted": "Yes, CIT provides the following state government scholarships:\n\n*   State Government Scholarship for BC/MBC/DNC students from Tamil Nadu - Parental Income less than Rs. 2,50,000/-\n*   Government of India Post Matric Scholarship for SC/ST students from Tamil Nadu - Parental Income less than Rs. 2,50,000/-\n*   AICTE Pragathi \u2192 girls\n*   AICTE Saksham \u2192 differently-abled\n*   Ishan Uday Scholarship \u2192 Northeast students\n\nPlease note that this list is not exhaustive and may be subject to change. You can find the most up-to-date information on the CIT website: [https://www.cit.ac.in/](https://www.cit.ac.in/)",
+    "faithfulness": 0.9,
+    "context_precision": 0.0,
+    "answer_correctness": 0.65,
+    "latency": 119.9
   },
   {
     "category": "Attendance",
     "question": "What is the minimum attendance required for semester exams?",
     "expected": "A minimum of 75% attendance is required in each subject to appear for the semester examinations.",
-    "predicted": "\u26a0\ufe0f Answer not found in documents",
-    "faithfulness": 0.0,
-    "correct": false,
-    "latency": 58.8
+    "predicted": "- Students must maintain at least 75% attendance in each course.",
+    "faithfulness": 1.0,
+    "context_precision": 0.0,
+    "answer_correctness": 0.75,
+    "latency": 36.88
   },
   {
     "category": "Rules",
     "question": "Are mobile phones allowed inside the examination hall?",
     "expected": "No, mobile phones and any other electronic gadgets are strictly prohibited inside the examination hall.",
-    "predicted": "\u26a0\ufe0f Answer not found in documents",
+    "predicted": "No.",
     "faithfulness": 0.0,
-    "correct": true,
-    "latency": 85.88
+    "context_precision": 0.1,
+    "answer_correctness": 1.0,
+    "latency": 45.35
   },
   {
     "category": "Hostel",
     "question": "What are the rules for girls hostel outing?",
     "expected": "Students must obtain prior permission from the Warden/Deputy Warden before leaving the hostel for any outing.",
-    "predicted": "\u26a0\ufe0f Answer not found in documents",
+    "predicted": "According to the text, the rules for girls hostel outings are as follows:\n\n*   They are permitted to leave the hostel block only after 6.00 a.m. in the morning.\n*   They are allowed to leave the hostel block only during specified hours.\n*   They are permitted to leave the hostel block only after 8.00 p.m. for girls.\n*   They are strictly prohibited from entering the hostel block after 9.00 p.m. for girls.\n*   Their identity card will be seized and a letter stating the reason will be submitted to the hostel tutor.",
     "faithfulness": 0.0,
-    "correct": true,
-    "latency": 91.78
+    "context_precision": 0.0,
+    "answer_correctness": 0.75,
+    "latency": 50.59
   },
   {
     "category": "Placement",
     "question": "Is there a placement cell at CIT?",
     "expected": "Yes, there is a dedicated Training and Placement Cell that coordinates campus recruitment and industry training.",
-    "predicted": "\u26a0\ufe0f Answer not found in documents",
-    "faithfulness": 0.0,
-    "correct": true,
-    "latency": 145.63
+    "predicted": "Yes, there is a placement cell at CIT.\n\nHere\u2019s the information about the placement cell:\n\n*   **Placement Cell Overview:** The placement cell is directed by a Professor-ranked staff member and responsible for securing placements for graduating students.\n*   **Placement Cell Leadership:**\n    *   Dr. A. Rajeswari - Placement Officer and Principal\n    *   Dr. R. Maheswari - Deputy Placement Officer, Department of Humanities\n    *   Dr. P. Muthu Subramanian - Deputy Placement Officer, Department of ECE\n    *   Dr. A. Saravanan - Deputy Placement Officer, Department of Computing\n    *   Dr. S. Thilaga - Deputy Placement Officer, Department of MBA\n    *   Mr. R. Vivek Kumar - Training and Placement Officer\n    *   Col. Jacob G Podipara - Deputy Placement Officer, Department of Civil Engineering\n*   **Placement Cell Contact:**\n    *   Phone: +91-422-2574071, 2574072\n    *   Mobile: +91 90035 00822, +91 95855 94322\n    *   Email: placement@cit.edu.in\n    *   Fax: +91-422-2575020\n    *   Address: Civil Aerodrome Post, Coimbatore - 641014, India\n\n*   **Placement Statistics and Highlights:** B.E./B.Tech Placements: Highest Package (2025-26): Rs. 2,50,000\n*   **MBA Placements:** Highest Package: Rs. 12,00,000\n*   **Special Note:** Companies compete to be \"Day One\" recruiters\n*   **Placement Rules and Policies:**\n    *   Registration with Placement Cell is mandatory\n    *   Formal dress code required\n    *   Carry ID card and resume\n    *   Attendance in all placement activities is compulsory\n    *   Absence without notice may lead to debarment\n    *   Must meet academic and attendance requirements\n    *   Industrial training must be completed\n*   **Internship Programmes:**\n    *   4 weeks compulsory industrial training (since 2009)\n    *   Two 6-month internships (7th and 10th semesters)\n    *   Internship Companies:\n        *   EY, Justo Global, CaratLane, OptiSol, SPAN, Konnectify, Shaachi, Buckman, NGP\n*   **Higher Studies Support:**\n    *   GATE\n    *   GRE, TOEFL (MS abroad)\n    *   CAT, GMAT\n*   **Reasons for Placement Success:**\n    *   Strong academic fundamentals\n    *   Industry-aligned curriculum\n    *   Modern infrastructure\n    *   Exposure to conferences and seminars\n    *   Strong alumni network\n    *   6 Centres of Excellence:\n        *   Industrial Automation\n        *   5G Technologies\n        *   IoT\n        *   E-Mobility\n        *   Material Science\n        *   Cyber Security\n*   **Notable Alumni in Industry:**\n    *   N. Chandrasekaran - Chairman, Tata Sons\n    *   Sathish C Dhanasekaran - CEO, Keysight Technologies\n    *   Josh Foulger - President, ZETWORK\n    *   Anand Selvakesari - COO, Citigroup\n    *   Sampath - Managing Director, EY\n    *   Aarthi Anbalagan - Software Engineer, Microsoft\n    *   Prabhu Loganathan - Vice President, Qualitest\n    *   L. Jayakumar - Consultant, TCS\n*   **Recruiting Companies:**\n    *   Amazon, D.E.\n*   **Placement Stats and Highlights:** B.E./B.Tech Placements: Highest Package (2025-26): Rs. 2,50,000\n*   **MBA Placements:** Highest Package: Rs. 12,00,000\n*   **Key Information:** The placement cell is a crucial part of the CIT's recruitment process.\n\nI've ensured the information is strictly based on the provided context.",
+    "faithfulness": 0.8,
+    "context_precision": 0.0,
+    "answer_correctness": 0.8,
+    "latency": 283.97
   },
   {
     "category": "Exams",
     "question": "What happens if a student fails a subject?",
     "expected": "Students who fail a subject must register for and clear the reappearance examination (arrear) in subsequent semesters.",
-    "predicted": "\u26a0\ufe0f Answer not found in documents",
-    "faithfulness": 0.0,
-    "correct": true,
-    "latency": 82.83
+    "predicted": "If a student fails a subject, they will receive a grade point of 0. They must reappear for the exam.",
+    "faithfulness": 1.0,
+    "context_precision": 0.8,
+    "answer_correctness": 0.6,
+    "latency": 54.17
   },
   {
     "category": "Administrative",
     "question": "What should I do if I lose my identity card?",
     "expected": "If you lose your identity card, you must report it to the office and apply for a duplicate ID card by paying the prescribed fee.",
-    "predicted": "\u26a0\ufe0f Answer not found in documents",
+    "predicted": "If you lose your identity card, you must report it immediately to the Lost Items Policy. Replacement will be done as per the institutional protocol.",
     "faithfulness": 0.0,
-    "correct": true,
-    "latency": 103.11
+    "context_precision": 0.0,
+    "answer_correctness": 0.75,
+    "latency": 73.74
   },
   {
     "category": "Out-of-Scope",
@@ -95,8 +105,9 @@
     "expected": "\u26a0\ufe0f Answer not found in documents",
     "predicted": "\u26a0\ufe0f Answer not found in documents",
     "faithfulness": 0.0,
-    "correct": true,
-    "latency": 64.62
+    "context_precision": 1.0,
+    "answer_correctness": 0.0,
+    "latency": 78.55
   },
   {
     "category": "Out-of-Scope",
@@ -104,7 +115,8 @@
     "expected": "\u26a0\ufe0f Answer not found in documents",
     "predicted": "\u26a0\ufe0f Answer not found in documents",
     "faithfulness": 0.0,
-    "correct": true,
-    "latency": 58.91
+    "context_precision": 0.8,
+    "answer_correctness": 0.0,
+    "latency": 48.69
   }
 ]

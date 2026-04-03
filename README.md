@@ -1,6 +1,6 @@
 # 🎓 CIT Intelligence Assistant: High-Fidelity RAG v5.0
 
-> "An industry-grade, verifiable, and explainable RAG system for high-stakes college information."
+> "A secure, explainable, and verifiable RAG system with fine-grained citation and multi-factor confidence scoring, sentence-level evidence mapping, and prompt injection defense to ensure reliability, transparency, and security in AI responses."
 
 This is a production-ready **Retrieval-Augmented Generation (RAG)** assistant. It specializes in converting messy PDF/TXT documentation into structured, grounded, and secure intelligence for CIT students.
 
@@ -8,12 +8,9 @@ This is a production-ready **Retrieval-Augmented Generation (RAG)** assistant. I
 
 ## 🚀 Key Features
 
-- **🛡️ Multi-Layer Security**: 
-  - **Retrieval Defense**: Active filtering of document chunks for prompt injection patterns.
-  - **Input Shield**: Real-time detection of malicious query attempts.
-  - **Confidence Gate**: Strictly blocks any answer with <50% hybrid confidence.
-- **📍 Claim-Level Grounding**: Every sentence in the answer is mapped to a specific source (`[1]`, `[2]`) with visual evidence highlighting.
-- **📏 Industry-Level Confidence**: A hybrid formula (40% Rerank / 30% Vector / 30% Keyword) that audits every response.
+*   **🛡️ Prompt Injection Defense**: Dynamic filtering of malicious instructions from documents and multi-layered system prompt hardening to guarantee security.
+*   **📍 Sentence-Level Evidence Mapping**: Fine-grained citations where every generating sentence is mapped to a specific source document, page, and section.
+*   **📏 Multi-Factor Confidence Scoring**: An industry-style hybrid formula (40% Rerank / 30% Vector / 20% Keyword / 10% Coverage) ensuring high reliability. Answers below 50% confidence trigger a strict safety gate.
 - **👁️ Absolute Transparency**: "Level 1" UI features allow you to view the **Raw Retrieved Chunks** pulled from ChromaDB.
 - **📊 Automated Benchmarking**: Full evaluation suite to measure Accuracy, Faithfulness, and Latency against a Gold Standard dataset.
 

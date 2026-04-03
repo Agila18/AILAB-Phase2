@@ -24,8 +24,13 @@ from langchain_community.document_loaders import (
 )
 
 
-import pytesseract
-from PIL import Image
+# OCR dependencies are loaded lazily to prevent errors on systems without Tesseract
+try:
+    import pytesseract
+    from PIL import Image
+    HAS_OCR = True
+except ImportError:
+    HAS_OCR = False
 
 SUPPORTED_EXTENSIONS = {".txt", ".pdf", ".docx", ".html", ".htm", ".png", ".jpg", ".jpeg"}
 
@@ -48,6 +53,9 @@ def _load_one_file(path: Path) -> list[dict]:
     
     # ── Image OCR (Step 14) ──────────────────────────────────────────────────
     if suffix in {".png", ".jpg", ".jpeg"}:
+        if not HAS_OCR:
+            print(f"⚠️  Skipping {path.name}: OCR dependencies (pytesseract, Pillow) not found. Run 'pip install pytesseract Pillow'.")
+            return []
         try:
             print(f"🖼️  Performing OCR on {path.name}...")
             text = pytesseract.image_to_string(Image.open(path))

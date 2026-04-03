@@ -105,6 +105,19 @@ st.markdown("""
     margin-right: 5px;
 }
 
+.citation-badge {
+    display: inline-block;
+    background: #3b82f6;
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 4px;
+    margin-left: 5px;
+    vertical-align: middle;
+    cursor: help;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -118,25 +131,18 @@ if "messages" not in st.session_state:
 
 # ── Helper Functions ──────────────────────────────────────────────────────────
 def render_verified_answer(verification: dict):
-    supported = verification.get("supported_sentences", [])
-    unsupported = verification.get("unsupported_sentences", [])
+    # The 'cited_answer' already contains [Source | Page | Section] markers
+    answer_text = verification.get("cited_answer", "")
     
-    # Merge and sort by their appearance in the original answer if possible, 
-    # but for now, we'll just show them in a logical flow.
-    html = '<div style="line-height: 1.8; color: #cbd5e1;">'
+    # regex to find [Source | pg.X | Section] and wrap in styled span
+    # Example: [CIT_Handbook.txt | pg.12 | General]
+    styled_answer = re.sub(
+        r'\[([^\]]+)\]', 
+        r'<span class="citation-badge" title="Verified Source">\1</span>', 
+        answer_text
+    )
     
-    # We display supported sentences first with their citations
-    for item in supported:
-        idx = item["doc_idx"] + 1
-        html += f'<span class="span-supported" title="Verified by Source [{idx}]">{item["text"]}</span><span class="citation">[{idx}]</span> '
-    
-    # Then we call out the unsupported ones in red
-    if unsupported:
-        html += '<br><br><span style="color: #f87171; font-weight: 700; font-size: 0.85rem; border: 1px solid #7f1d1d; padding: 2px 8px; border-radius: 4px; background: rgba(127, 29, 29, 0.1);">🛑 UNVERIFIED CLAIMS DETECTED:</span><br>'
-        for text in unsupported:
-            html += f'<span class="span-unsupported" title="No factual support found in docs">{text}</span> '
-            
-    html += "</div>"
+    html = f'<div style="line-height: 1.8; color: #cbd5e1;">{styled_answer}</div>'
     return html
 
 def highlight_evidence_in_text(full_text: str, evidence_list: list[str]) -> str:
@@ -146,14 +152,42 @@ def highlight_evidence_in_text(full_text: str, evidence_list: list[str]) -> str:
         highlighted = pattern.sub(f'<span class="evidence-highlight">{ev}</span>', highlighted)
     return highlighted
 
-# ── Sidebar ───────────────────────────────────────────────────────────────────
+# ── Sidebar & Knowledge Management ─────────────────────────────────────────────
 with st.sidebar:
     st.markdown("<h1 style='text-align: center; color: #60a5fa;'>🎓 CIT Intelligence</h1>", unsafe_allow_html=True)
+    st.divider()
+    
+    st.markdown("### 🖼️ Multi-Modal Upload (Step 14)")
+    uploaded_files = st.file_uploader(
+        "Upload Image or PDF", 
+        type=["png", "jpg", "jpeg", "pdf"], 
+        accept_multiple_files=True
+    )
+    
+    if uploaded_files:
+        if st.button("🚀 Synchronise Knowledge"):
+            with st.spinner("🧠 Re-building semantic database..."):
+                from core.config import DATA_DIR
+                os.makedirs(DATA_DIR, exist_ok=True)
+                
+                for f in uploaded_files:
+                    path = os.path.join(DATA_DIR, f.name)
+                    with open(path, "wb") as out:
+                        out.write(f.getbuffer())
+                
+                # Trigger the build process
+                from build_db import build_db
+                build_db()
+                st.success("✅ Database Synchronised!")
+                time.sleep(1)
+                st.rerun()
+
     st.divider()
     st.markdown("### 📊 System Health")
     st.metric("Reasoning Model", "Ollama / Gemma 3", delta="High Fidelity")
     st.metric("Verification Mode", "Strict (70%)", delta="Active")
     st.caption("Advanced Metrics: Faithfulness / Precision / Relevance 📈")
+    
     if st.button("🗑️ Clear History"):
         st.session_state.messages = []
         st.rerun()
@@ -183,11 +217,20 @@ for i, msg in enumerate(st.session_state.messages):
                 st.markdown(render_verified_answer(verif), unsafe_allow_html=True)
                 st.markdown('</div>', unsafe_allow_html=True)
                 
-                with st.expander("🤔 Trust Score Breakdown"):
+                with st.expander("🤔 Reasoning & Confidence Trace"):
                     conf = res.get("confidence", 0)
+                    st.write(f"**Intent Detected:** `{res.get('intent', 'Query')}`")
                     st.write(f"**Overall Hybrid Confidence: {int(conf*100)}%**")
-                    st.write("This score represents the mathematical intersection of retrieval similarity, keyword overlap, and reranker logs.")
                     st.progress(conf)
+                    
+                    st.markdown("---")
+                    st.markdown("#### 🔬 Metric Breakdown")
+                    c1, c2 = st.columns(2)
+                    c1.markdown(f"**Rerank Score (BGE):** `{metrics.get('rerank_score', 0)}`")
+                    c2.markdown(f"**Embedding Sim:** `{metrics.get('sim_score', 0)}`")
+                    
+                    if res.get("intent") in ["COMPARISON", "COMPOSITE", "AGGREGATION"]:
+                        st.success("🔄 **Multi-Hop Synthesis Active** — Reasoned across multiple thematic clusters.")
 
             with t2:
                 st.info("Direct sentence-level grounding. Yellow highlights show exact evidence found in your documents.")

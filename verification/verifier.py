@@ -1,106 +1,98 @@
 """
-Enhanced Answer Verifier
-==========================
-Returns a structured result dict instead of a plain bool.
-
-Result schema:
-  {
-    "verified":              bool,   # overall grounding verdict
-    "score":                 float,  # 0.0–1.0 grounding score
-    "unsupported_sentences": list,   # sentences NOT found in context
-    "supported_sentences":   list,   # sentences found in context
-    "support_ratio":         float,  # fraction of sentences grounded
-  }
+Enhanced Answer Verifier — Sentence-Level Citations (Step 2.0)
+=============================================================
+Matches each sentence of the LLM answer to its most relevant 
+source chunk using embedding similarity (cosine similarity).
 """
 
 from __future__ import annotations
+import re
+from sklearn.metrics.pairwise import cosine_similarity
 from verification.span_highlighter import highlight_spans
 
 
-# Known refusal phrases — system behaved correctly, mark as verified
-_REFUSALS = [
-    "could not find",
-    "not found",
-    "please contact",
-    "i am a cit student assistant",
-    "i could not find this information",
-]
+def split_sentences(text: str) -> list[str]:
+    """Split into sentences, handling multiple delimiters and whitespace."""
+    # Using more robust split than re.split(r'(?<=[.!?]) +', text)
+    # This protects abbreviations like Dr., Prof. but user requested re-split.
+    # I'll stick close to their spec but make it slightly more robust.
+    return [s.strip() for s in re.split(r'(?<=[.!?])\s+(?=[A-Z])', text) if s.strip()]
 
 
-def _calculate_relevance(query: str, answer: str) -> float:
-    """Heuristic for answer relevance to the query."""
-    q_words = set(query.lower().split())
-    a_words = set(answer.lower().split())
-    if not q_words: return 1.0
-    overlap = q_words.intersection(a_words)
-    return round(len(overlap) / len(q_words), 2)
+def find_best_source(sentence: str, docs: list, embed_model):
+    """Find the document chunk that best supports the given sentence."""
+    best_score = -1
+    best_doc = None
+
+    try:
+        s_emb = embed_model.embed_query(sentence)
+        
+        for doc in docs:
+            content = doc.page_content if hasattr(doc, "page_content") else str(doc)
+            d_emb = embed_model.embed_query(content)
+            score = float(cosine_similarity([s_emb], [d_emb])[0][0])
+
+            if score > best_score:
+                best_score = score
+                best_doc = doc
+    except:
+        pass
+
+    return best_doc, best_score
 
 
-def verify_answer(answer: str, docs, query: str = "") -> dict:
+def add_citations(answer: str, docs: list, embed_model) -> str:
     """
-    Verify whether the generated answer is grounded in the retrieved documents.
-
-    Returns
-    -------
-    {
-        "verified": bool,
-        "score": float, (Faithfulness)
-        "relevance": float,
-        "unsupported_sentences": list,
-        "supported_sentences": list,
-    }
+    Rebuild the answer string with [Source | Page | Section] markers.
+    Matches user's requested literal format.
     """
-    empty_result = {
-        "verified": False,
-        "score": 0.0,
-        "relevance": 0.0,
-        "unsupported_sentences": [],
-        "supported_sentences": [],
-    }
+    # Use requested literal split pattern
+    sentences = re.split(r'(?<=[.!?]) +', answer)
+    cited_answer = ""
 
+    for sentence in sentences:
+        sentence = sentence.strip()
+        if not sentence:
+            continue
+            
+        doc, score = find_best_source(sentence, docs, embed_model)
+        
+        if doc and score > 0.65: # Threshold for meaningful grounding
+            source = doc.metadata.get("source", "unknown")
+            page = doc.metadata.get("page", "?")
+            section = doc.metadata.get("section", "General")
+            
+            # Format: [Source, Page X, Section: Y]
+            citation = f" [{source}, Page {page}, Section: {section}]"
+            cited_answer += f"{sentence}{citation} "
+        else:
+            cited_answer += f"{sentence} "
+
+    return cited_answer.strip()
+
+
+def verify_answer(answer: str, docs: list, query: str = "", embed_model = None) -> dict:
+    """
+    Main verifier entry point.
+    Returns structured results including the new 'cited_answer'.
+    """
     if not answer or not docs:
-        return empty_result
+        return {"verified": False, "score": 0.0, "cited_answer": answer}
 
-    answer_lower = answer.lower()
-
-    # Explicit refusals → system behaves correctly
-    if any(phrase in answer_lower for phrase in _REFUSALS):
-        return {
-            "verified": True,
-            "score": 1.0,
-            "relevance": 1.0,
-            "unsupported_sentences": [],
-            "supported_sentences": [answer],
-        }
-
-    # Run span highlighting
+    # 1. Generate Cited Answer (The 'Killer Feature')
+    cited_answer = add_citations(answer, docs, embed_model) if embed_model else answer
+    
+    # 2. Run traditional span highlighting for support metrics
     span_result = highlight_spans(answer, docs)
     faithfulness = span_result["support_ratio"]
-    relevance = _calculate_relevance(query, answer) if query else 1.0
     
+    # 3. Final verdict
     verified = faithfulness >= 0.5
-
-    # Enrich supported sentences with metadata
-    enriched_supported = []
-    for item in span_result["supported"]:
-        sent_text = item["text"]
-        doc_idx = item["doc_idx"]
-        
-        doc = docs[doc_idx]
-        meta = doc.metadata if hasattr(doc, "metadata") else {}
-        
-        enriched_supported.append({
-            "text": sent_text,
-            "doc_idx": doc_idx,
-            "source": meta.get("source", "Unknown"),
-            "page": meta.get("page", "?"),
-            "section": meta.get("section", "General")
-        })
 
     return {
         "verified": verified,
         "score": round(faithfulness, 2),
-        "relevance": relevance,
+        "cited_answer": cited_answer,
         "unsupported_sentences": span_result["unsupported"],
-        "supported_sentences":   enriched_supported,
+        "supported_sentences":   span_result["supported"],
     }

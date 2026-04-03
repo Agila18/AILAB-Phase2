@@ -49,7 +49,7 @@ def build_db():
     ]
 
     # ── Step 5: Persist full-corpus BM25 snapshot ──────────────────────────────
-    # Fix: Save ALL docs to pickle so BM25 is built on the ENTIRE corpus
+    # Optimization: Save the list of Document objects for BM25 search
     print(f"💾 Saving full BM25 corpus snapshot to {BM25_CACHE}...")
     with open(BM25_CACHE, "wb") as f:
         pickle.dump(doc_objects, f)

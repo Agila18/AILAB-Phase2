@@ -112,9 +112,15 @@ def process_multi_hop(query: str, chunks: list, llm) -> str:
     
     context_text = "\n\n".join(synthesis_blocks)
     prompt = (
-        "You are a CIT student assistant. Reason across the following grouped topics to provide a comprehensive answer. "
-        "Structure your response logically based on these topics.\n\n"
-        f"Query: {query}\n\nGrouped Context:\n{context_text}\n\nAnswer:"
+        "You are an expert CIT Student Assistant. Your task is to synthesize a single, cohesive answer "
+        "by reasoning across the following thematic topics extracted from diverse documents.\n\n"
+        "GUIDELINES:\n"
+        "1. Combine information from multiple topics into a logical narrative.\n"
+        "2. If topics conflict, prioritize more recent or specific rules.\n"
+        "3. Maintain a helpful, academic, and professional tone.\n\n"
+        f"USER QUESTION: {query}\n\n"
+        f"GROUPED EVIDENCE:\n{context_text}\n\n"
+        "COMPREHENSIVE ANSWER:"
     )
     
     return llm.invoke(prompt)

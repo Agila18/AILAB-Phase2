@@ -73,8 +73,9 @@ def run_evaluation():
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2)
         
+    passed = sum(1 for r in results if r["faithfulness"] > 0.7 and r["answer_correctness"] > 0.7)
     print(f"\n✨ Evaluation Complete! Results saved to {output_path}")
-    print(f"✅ Accuracy: {passed}/{total} ({int(passed/total*100)}%)")
+    print(f"✅ Accuracy: {passed}/{total} ({int(passed/total*100) if total > 0 else 0}%)")
 
 if __name__ == "__main__":
     if not os.path.exists("evaluation"):

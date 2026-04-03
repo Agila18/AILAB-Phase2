@@ -16,7 +16,7 @@ from langchain_community.vectorstores import Chroma
 from langchain_ollama import OllamaEmbeddings, OllamaLLM
 from langchain_core.documents import Document
 
-from core.config import DB_DIR, COLLECTION_NAME, EMBEDDING_MODEL, MODEL_NAME
+from core.config import DB_DIR, COLLECTION_NAME, EMBEDDING_MODEL, MODEL_NAME, RERANKER_MODEL
 from query.rewriter import rewrite_query
 from verification.confidence import compute_confidence, compute_per_source_confidence
 from verification.verifier import verify_answer
@@ -26,10 +26,33 @@ BM25_CACHE  = "bm25_docs.pkl"
 TOP_K       = 5
 CANDIDATE_K = 20
 
-# ── Cross-Encoder — loaded once at module level ───────────────────────────────
-print("🧠 Loading Cross-Encoder reranker…")
-reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
+# ── Advanced Reranker — loaded once at module level (Step 15) ──────────────────
+print(f"🧠 Loading Advanced Reranker ({RERANKER_MODEL})…")
+reranker = CrossEncoder(RERANKER_MODEL)
 print("✅ Reranker ready.")
+
+
+def is_malicious(text: str) -> bool:
+    """Step 1: Detect malicious content patterns in documents."""
+    patterns = [
+        "ignore previous instructions",
+        "system prompt",
+        "act as",
+        "you are chatgpt",
+        "reveal",
+        "confidential"
+    ]
+    text_lower = text.lower()
+    return any(p in text_lower for p in patterns)
+
+
+def filter_chunks(docs: list[Document]) -> list[Document]:
+    """Step 2: Filter out document chunks containing malicious content."""
+    safe_docs = []
+    for doc in docs:
+        if not is_malicious(doc.page_content):
+            safe_docs.append(doc)
+    return safe_docs
 
 
 def section_filter_hint(query: str) -> str | None:
@@ -134,12 +157,23 @@ class RAGEngine:
             
         # 4. Final Rerank
         docs_only = [d for d, b, s in safe_candidates]
+        # 🔥 Step 3: Apply defense filter to retrieved chunks
+        docs_only = filter_chunks(docs_only)
+        
+        boosts_only = [b for d, b, s in safe_candidates] # Note: mismatch after filter, but let's re-zip
+        safe_candidates = [(d, b, s) for d, b, s in safe_candidates if d in docs_only]
+        
+        if not safe_candidates:
+            return [], 0.0, 0.0
+            
+        docs_only = [d for d, b, s in safe_candidates]
         boosts_only = [b for d, b, s in safe_candidates]
         rerank_pairs = self._rerank(query, list(zip(docs_only, boosts_only)))
         
         top_docs = [d for d, s in rerank_pairs]
-        avg_rerank = sum(s for d, s in rerank_pairs) / len(rerank_pairs)
-        norm_rerank = (avg_rerank + 5) / 10 # heuristic normalization
+        # Robust normalization based on BGE-reranker (trained for -10 to +10 range)
+        avg_rerank = sum(s for d, s in rerank_pairs) / len(rerank_pairs) if rerank_pairs else 0.0
+        norm_rerank = (avg_rerank + 10) / 20 # Mapping -10...+10 to 0...1
         
         # Calculate average similarity for top docs only
         top_sims = []
@@ -158,7 +192,11 @@ class RAGEngine:
         # Step 0: Injection Check
         from verification.confidence import detect_injection
         if detect_injection(user_query):
-            return {"answer": "Security: Malicious prompt attempt detected.", "confidence": 0.0}
+            return {
+                "answer": "Security: Malicious prompt attempt detected.", 
+                "confidence": 0.0,
+                "metrics": {"latency": round(time.time() - start_time, 2)}
+            }
 
         # Step 1: Rewrite (SMART)
         retrieval_q, intent, display_label = rewrite_query(user_query, llm=self.llm)
@@ -174,12 +212,13 @@ class RAGEngine:
         draft_prompt = f"Context:\n{context_text}\n\nQuestion: {user_query}\n\nAnswer:"
         answer = self.llm.invoke(draft_prompt)
 
-        # Step 4: Hybrid Confidence Check
-        confidence = compute_confidence(answer, best_docs, reranker_score=avg_rerank, embedding_sim=avg_sim)
+        # Step 4: Hybrid Confidence Check (Multi-Signal Step 15)
+        from verification.confidence import compute_confidence
+        confidence = compute_confidence(answer, best_docs, reranker_score=avg_rerank, embed_model=self.embeddings)
 
         # Step 5: Multi-Hop (UPGRADE: Retrieve -> Group -> Combine)
-        # If confidence is low or it's a comparison query, go for multi-hop synthesis
-        if confidence < 0.45 or intent == "COMPARISON":
+        # Trigger multi-hop for complex queries OR low confidence
+        if confidence < 0.5 or intent in ["COMPARISON", "COMPOSITE", "AGGREGATION"]:
             from retrieval.multi_hop import multi_hop_retrieve, process_multi_hop
             
             # Retrieve Step (Second pass)
@@ -194,18 +233,20 @@ class RAGEngine:
             answer = process_multi_hop(user_query, best_docs, self.llm)
             
             # Recalculate confidence for synthesized answer
-            confidence = compute_confidence(answer, best_docs, reranker_score=avg_rerank, embedding_sim=avg_sim)
+            confidence = compute_confidence(answer, best_docs, reranker_score=avg_rerank, embed_model=self.embeddings)
 
-        # Step 6: Gate
+        # Step 6: Gate (Safety Threshold)
         if confidence < 0.5:
             return {
-                "answer": "⚠️ Answer not found in documents",
+                "answer": "⚠️ Answer not confidently supported by documents.",
                 "confidence": confidence,
                 "metrics": {"latency": round(time.time() - start_time, 2)}
             }
 
-        # Step 7: Verify (First Pass)
-        verification = verify_answer(answer, best_docs, query=user_query)
+        # Step 7: Verify & Citation Inlining (The 'Killer Feature')
+        # This will now return a structured dict with 'cited_answer'
+        verification = verify_answer(answer, best_docs, query=user_query, embed_model=self.embeddings)
+        answer = verification.get("cited_answer", answer)
         
         # Step 8: Verifier Upgrade - Regeneration if failed (Step 9)
         # If score < 0.7 and NOT a refusal, try to fix it once
@@ -216,7 +257,8 @@ class RAGEngine:
                 f"Remove any claims not explicitly stated.\n\nContext:\n{context_text}\n\nQuestion: {user_query}\n\nAnswer:"
             )
             answer = self.llm.invoke(regen_prompt)
-            verification = verify_answer(answer, best_docs, query=user_query)
+            verification = verify_answer(answer, best_docs, query=user_query, embed_model=self.embeddings)
+            answer = verification.get("cited_answer", answer)
 
         # Step 9: Advanced Metrics (Step 10)
         # Context Precision: Ratio of cited docs in top-K
