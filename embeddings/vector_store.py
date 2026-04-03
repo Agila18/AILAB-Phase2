@@ -2,13 +2,13 @@
 Person 4: Vector Store (ChromaDB)
 Responsibility: Store chunks + metadata, and load the DB.
 
-Takes the formatted chunks (text, source, page) and stores them in ChromaDB.
-Exposes functions to create and load the DB.
+ALIGNED: Uses collection_name="student_docs" matching build_db.py and app.py.
 """
 
 import os
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
+from core.config import COLLECTION_NAME
 
 
 def store_chunks(chunks: list[dict], embedding_function, persist_directory: str = "./db"):
@@ -16,7 +16,7 @@ def store_chunks(chunks: list[dict], embedding_function, persist_directory: str 
     Creates the Chroma vector database with the given chunks.
 
     Args:
-        chunks (list[dict]): The chunked documents.
+        chunks (list[dict]): The chunked documents with text, source, page.
         embedding_function: The embedding function from embedder.py.
         persist_directory (str): Where to save the DB.
 
@@ -35,7 +35,7 @@ def store_chunks(chunks: list[dict], embedding_function, persist_directory: str 
         documents=doc_objects,
         embedding=embedding_function,
         persist_directory=persist_directory,
-        collection_name="student_docs",
+        collection_name=COLLECTION_NAME,
     )
 
     return vector_db
@@ -58,7 +58,7 @@ def load_vector_db(embedding_function, persist_directory: str = "./db"):
     vector_db = Chroma(
         persist_directory=persist_directory,
         embedding_function=embedding_function,
-        collection_name="cit_rag",
+        collection_name=COLLECTION_NAME,
     )
 
     return vector_db

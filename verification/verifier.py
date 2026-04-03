@@ -1,33 +1,30 @@
 """
-👨‍💻 Person 6: Answer Verifier (Agentic Step) (🥉 THIRD IMPORTANT)
-Responsibility: Verify if the generated answer is supported by the context.
-
-⚠️ WHY THIS IS CRITICAL:
-Adds a crucial trust layer to the system! Prevents wrong answers, hallucinations, and boosts credibility.
-
-CRITICAL REQUIREMENT:
-Input: The generated answer, the retrieved context.
-Output: Boolean (True if supported, False if unsupported/hallucinated).
-
-INNOVATION OPPORTUNITIES:
-- Use a secondary LLM call to cross-check claims against the context (Self-RAG concept).
-- Use strict string matching or semantic similarity for verification.
-- Return detailed reasons for failure alongside the boolean.
+Level 3 · Step 7 : Answer Verification
+Checks whether the generated answer is grounded in the retrieved context.
 """
 
-def verify_answer(answer: str, context: list[dict]) -> bool:
+
+def verify_answer(answer: str, docs) -> bool:
     """
-    Checks if the answer is grounded in the retrieved context.
-    
-    Args:
-        answer (str): The LLM generated answer.
-        context (list[dict]): The retrieved chunks.
-        
-    Returns:
-        bool: True if supported.
+    Returns True if at least one word from the answer matches the context.
+    Works with both list[Document] and list[str].
     """
-    
-    # TODO: Implement verification logic.
-    # Could be an LLM asking: "Is the claim in the answer supported by this context text? Yes or No"
-    
-    return True
+    if not answer or not docs:
+        return False
+
+    # Build context string
+    if isinstance(docs[0], str):
+        context = " ".join(docs)
+    else:
+        context = " ".join(d.page_content for d in docs)
+
+    context_lower = context.lower()
+
+    # Short-circuit: known refusal phrases are always "verified"
+    refusals = ["could not find", "not found", "please contact", "i am a cit"]
+    if any(phrase in answer.lower() for phrase in refusals):
+        return True
+
+    # At least one non-trivial answer word must appear in context
+    answer_words = [w for w in answer.lower().split() if len(w) > 3]
+    return any(word in context_lower for word in answer_words)

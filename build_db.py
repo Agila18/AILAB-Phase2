@@ -1,76 +1,85 @@
 import os
-import glob
-from langchain_community.document_loaders import PyPDFLoader, TextLoader
-from langchain_text_splitters import RecursiveCharacterTextSplitter
+import pickle
+import shutil
+from ingestion.loader import load_documents
+from ingestion.cleaner import clean_text
+from ingestion.chunker import split_into_chunks
 from langchain_ollama import OllamaEmbeddings
 from langchain_community.vectorstores import Chroma
-import shutil
+from langchain_core.documents import Document
+from core.config import DATA_DIR, DB_DIR, COLLECTION_NAME, EMBEDDING_MODEL, CHUNK_SIZE, CHUNK_OVERLAP
 
-DATA_DIR = "data"
-DB_DIR = "db"
-COLLECTION_NAME = "student_docs"
-CHUNK_SIZE = 1000
-CHUNK_OVERLAP = 200
-EMBEDDING_MODEL = "nomic-embed-text"
+# Where to save the BM25 corpus snapshot
+BM25_CACHE = "bm25_docs.pkl"
 
-def load_documents():
-    documents = []
-    # Load all txt files.
-    for file in glob.glob(os.path.join(DATA_DIR, "*.txt")):
-        try:
-            loader = TextLoader(file, encoding='utf-8')
-            documents.extend(loader.load())
-            print(f"Loaded {file}")
-        except Exception as e:
-            print(f"Failed to load {file}: {e}")
-            
-    # Load PDFs if any
-    for file in glob.glob(os.path.join(DATA_DIR, "*.pdf")):
-        try:
-            loader = PyPDFLoader(file)
-            documents.extend(loader.load())
-            print(f"Loaded {file}")
-        except Exception as e:
-            print(f"Failed to load PDF {file}: {e}")
-            
-    return documents
 
 def build_db():
-    print("Starting fast document ingestion...")
-    raw_docs = load_documents()
+    print("🚀 Starting Unified Ingestion Pipeline...")
+
+    # ── Step 1: Load ────────────────────────────────────────────────────────────
+    print(f"📂 Loading documents from {DATA_DIR}...")
+    raw_docs = load_documents(DATA_DIR)
     if not raw_docs:
-        print("No documents found in 'data/' folder. Please add some files.")
+        print("❌ No documents found.  Please add files to data/.")
         return
+    print(f"✅ Loaded {len(raw_docs)} raw files.")
 
-    text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=CHUNK_SIZE,
-        chunk_overlap=CHUNK_OVERLAP,
-    )
-    docs = text_splitter.split_documents(raw_docs)
-    print(f"Split into {len(docs)} chunks.")
+    # ── Step 2: Clean ───────────────────────────────────────────────────────────
+    print("🧹 Cleaning text...")
+    cleaned_docs = clean_text(raw_docs)
 
-    print(f"Initializing Ollama embeddings ({EMBEDDING_MODEL})...")
+    # ── Step 3: Chunk (metadata-aware) ──────────────────────────────────────────
+    print("✂️  Splitting into metadata-rich chunks...")
+    chunks = split_into_chunks(cleaned_docs, chunk_size=CHUNK_SIZE, chunk_overlap=CHUNK_OVERLAP)
+    print(f"✅ Created {len(chunks)} chunks.")
+
+    # ── Step 4: Build LangChain Document objects ─────────────────────────────
+    doc_objects = [
+        Document(
+            page_content=c["text"],
+            metadata={
+                "source":     c["source"],
+                "page":       c["page"],
+                "section":    c.get("section",    "General"),
+                "department": c.get("department", "CIT"),
+                "keywords":   c.get("keywords",   ""),
+            },
+        )
+        for c in chunks
+    ]
+
+    # ── Step 5: Persist full-corpus BM25 snapshot ──────────────────────────────
+    # Fix: Save ALL docs to pickle so BM25 is built on the ENTIRE corpus
+    print(f"💾 Saving full BM25 corpus snapshot to {BM25_CACHE}...")
+    with open(BM25_CACHE, "wb") as f:
+        pickle.dump(doc_objects, f)
+    print(f"✅ Saved {len(doc_objects)} docs to {BM25_CACHE}.")
+
+    # ── Step 6: Embed & store in Chroma ─────────────────────────────────────
+    print(f"🧠 Initialising Ollama embeddings ({EMBEDDING_MODEL})...")
     embeddings = OllamaEmbeddings(model=EMBEDDING_MODEL)
-    
+
     if os.path.exists(DB_DIR):
-        print(f"Found existing DB at {DB_DIR}. Clearing it for fresh index...")
+        print(f"🗑️  Clearing old DB at {DB_DIR}...")
         try:
             shutil.rmtree(DB_DIR)
         except Exception as e:
-            print("Could not delete old DB:", e)
-        
-    print(f"Creating vector store at {DB_DIR}...")
-    vectorstore = Chroma.from_documents(
-        documents=docs,
+            print(f"⚠️  Could not delete old DB: {e}")
+
+    print(f"📦 Creating Chroma vector store at {DB_DIR}...")
+    Chroma.from_documents(
+        documents=doc_objects,
         embedding=embeddings,
         persist_directory=DB_DIR,
-        collection_name=COLLECTION_NAME
+        collection_name=COLLECTION_NAME,
     )
-    print("✅ Indexing complete! Database is ready.")
+
+    print("✨ SUCCESS — database is high-accuracy ready!")
+
 
 if __name__ == "__main__":
     if not os.path.exists(DATA_DIR):
         os.makedirs(DATA_DIR)
-        print(f"Created '{DATA_DIR}'. Please add documents.")
+        print(f"Created '{DATA_DIR}'. Add your files, then run again.")
     else:
         build_db()

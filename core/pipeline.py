@@ -1,10 +1,12 @@
 """
-👑 Agila: Pipeline Master
+👑 Pipeline Master
 Responsibility: Connect all modules together.
 
 Provides two main flows:
 1. Data Ingestion Flow (Loader -> Cleaner -> Chunker -> Embedder -> Vector DB)
 2. Q&A Flow (Query -> Retriever -> Generator -> Verifier -> Confidence)
+
+ALIGNED: All modules now use Ollama (nomic-embed-text + llama3).
 """
 
 from ingestion.loader import load_documents
@@ -58,7 +60,7 @@ def run_qa_pipeline(query: str):
     
     if not context:
         return {
-            "answer": "I don't know. No relevant context was found in the documents.",
+            "answer": "I could not find this information in the retrieved documents.",
             "context": [],
             "verified": True, 
             "confidence": 0.0
