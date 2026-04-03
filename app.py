@@ -218,7 +218,7 @@ for i, msg in enumerate(st.session_state.messages):
                 st.markdown('</div>', unsafe_allow_html=True)
                 
                 with st.expander("🤔 Reasoning & Confidence Trace"):
-                    conf = res.get("confidence", 0)
+                    conf = float(res.get("confidence", 0.0))
                     st.write(f"**Intent Detected:** `{res.get('intent', 'Query')}`")
                     st.write(f"**Overall Hybrid Confidence: {int(conf*100)}%**")
                     st.progress(conf)

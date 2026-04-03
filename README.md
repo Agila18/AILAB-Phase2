@@ -57,6 +57,22 @@ Place your files in `data/` and run:
 python build_db.py
 ```
 
+### 5. Start the Application
+```bash
+streamlit run app.py
+```
+*(The UI will automatically open in your default web browser)*
+
+---
+
+## 🧪 Pipeline Verification (Testing)
+
+To quickly verify that the multi-hop logic, citations, and security filters are working correctly without starting the UI, you can run the offline test suite:
+```bash
+$env:PYTHONPATH="."
+python test_pipeline.py
+```
+
 ---
 
 ## 📊 Evaluation & Benchmarking

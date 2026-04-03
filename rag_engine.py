@@ -172,8 +172,8 @@ class RAGEngine:
         
         top_docs = [d for d, s in rerank_pairs]
         # Robust normalization based on BGE-reranker (trained for -10 to +10 range)
-        avg_rerank = sum(s for d, s in rerank_pairs) / len(rerank_pairs) if rerank_pairs else 0.0
-        norm_rerank = (avg_rerank + 10) / 20 # Mapping -10...+10 to 0...1
+        avg_rerank = float(sum(s for d, s in rerank_pairs)) / len(rerank_pairs) if rerank_pairs else 0.0
+        norm_rerank = float((avg_rerank + 10) / 20) # Mapping -10...+10 to 0...1
         
         # Calculate average similarity for top docs only
         top_sims = []
@@ -182,7 +182,7 @@ class RAGEngine:
                 if d.page_content == od.page_content:
                     top_sims.append(os)
                     break
-        avg_sim = sum(top_sims) / len(top_sims) if top_sims else 0.5
+        avg_sim = float(sum(top_sims) / len(top_sims)) if top_sims else 0.5
         
         return top_docs, norm_rerank, avg_sim
 
@@ -214,7 +214,7 @@ class RAGEngine:
 
         # Step 4: Hybrid Confidence Check (Multi-Signal Step 15)
         from verification.confidence import compute_confidence
-        confidence = compute_confidence(answer, best_docs, reranker_score=avg_rerank, embed_model=self.embeddings)
+        confidence = float(compute_confidence(answer, best_docs, reranker_score=avg_rerank, embed_model=self.embeddings))
 
         # Step 5: Multi-Hop (UPGRADE: Retrieve -> Group -> Combine)
         # Trigger multi-hop for complex queries OR low confidence

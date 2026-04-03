@@ -22,7 +22,9 @@ sentence-transformers
 nltk
 ollama
 
-# Evaluation Tools
+# Evaluation & Deep Learning Ops
 tabulate
 pandas
 scikit-learn
+torch
+torchvision
