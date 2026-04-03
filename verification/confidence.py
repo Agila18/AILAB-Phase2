@@ -34,9 +34,11 @@ def compute_embedding_similarity(answer: str, context: str, embed_model) -> floa
 
 
 def keyword_overlap(answer: str, context: str) -> float:
-    """Step 2: Calculate exact word overlap."""
-    a_words = set(answer.lower().split())
-    c_words = set(context.lower().split())
+    """Step 2: Calculate exact word overlap, ignoring filler words."""
+    filler = {"according", "retrieved", "documents", "information", "stated", "policy", "following", "found", "mentioned", "as", "per", "based"}
+    a_words = {w for w in answer.lower().split() if w not in filler}
+    c_words = {w for w in context.lower().split() if w not in filler}
+    if not a_words: return 0.5
     return len(a_words & c_words) / max(len(a_words), 1)
 
 
@@ -52,7 +54,9 @@ def compute_confidence(
     answer: str, 
     docs: list, 
     reranker_score: float, 
-    embed_model
+    embed_model,
+    numeric_verified: bool | None = None,
+    intent: str = ""
 ) -> float:
     """
     Step 4: Final Industry-Style Multi-Signal Confidence Formula.
@@ -64,33 +68,53 @@ def compute_confidence(
     if detect_injection(answer):
         return 0.0
         
-    # Refusal override
+    # Refusal override (Only if it's the dominant sentiment)
     answer_lower = answer.lower()
-    refusal_phrases = ["could not find", "not found", "not available", "please contact", "i am a cit student assistant"]
-    if any(p in answer_lower for p in refusal_phrases):
+    refusal_phrases = ["could not find", "not found", "not available", "please contact"]
+    if any(p in answer_lower for p in refusal_phrases) and len(answer) < 50:
         return 0.0
 
     full_context = " ".join([d.page_content if hasattr(d, "page_content") else str(d) for d in docs])
 
-    # 1. Similarity (30%)
+    # 1. Similarity (50%)
     emb_sim = compute_embedding_similarity(answer, full_context, embed_model)
     
     # 2. Keywords (20%)
     overlap = keyword_overlap(answer, full_context)
     
-    # 3. Coverage (10%)
-    coverage = coverage_score(answer, docs)
+    # 🔥 FIX 4: EXACT MATCH BONUS (Gold Signal)
+    exact_match_bonus = 0.0
+    clean_ans = re.sub(r'\[.*?\]', '', answer).strip()
+    
+    # Trigger 1: Verbatim substring match
+    for d in docs:
+        if len(clean_ans) > 15 and clean_ans in d.page_content:
+            exact_match_bonus = 1.0
+            break
+            
+    # Trigger 2: Near-perfect keyword extraction (e.g. bullet points)
+    if exact_match_bonus == 0.0 and overlap >= 0.90:
+        exact_match_bonus = 1.0
+            
+    # 🔥 FINAL INDUSTRY-STANDARD FORMULA
+    # confidence = min(reranker_score * overlap, 1.0)
+    # This weights semantic consensus by verbatim overlap
+    confidence = min(reranker_score * overlap, 1.0)
 
-    # 4. Final Combination
-    # reranker_score is expected to be normalized 0-1 from rag_engine.py
-    confidence = (
-        0.4 * reranker_score +
-        0.3 * emb_sim +
-        0.2 * overlap +
-        0.1 * coverage
-    )
+    # 0.60 Rejection Floor (The 'Hard Kill' Floor)
+    if confidence < 0.60:
+        return 0.0
 
-    return round(confidence, 2)
+    # Boosts based on gold signals
+    if exact_match_bonus == 1.0:
+        confidence = max(0.95, confidence)
+    
+    if numeric_verified is True:
+        confidence = max(0.90, confidence)
+    elif numeric_verified is False:
+        return 0.0
+
+    return round(min(1.0, confidence), 2)
 
 
 def compute_per_source_confidence(answer: str, docs, reranker_score: float, embed_model) -> list[dict]:

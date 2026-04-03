@@ -14,7 +14,6 @@ Address:
 Programme Type:
 - Two Year Full-Time Postgraduate Programmes (MBA & MCA)
 
-Keywords: CIT MBA MCA admission, PG courses CIT, autonomous college CIT
 
 ================================================================================
 SECTION: MBA PROGRAMME - OVERVIEW
@@ -32,7 +31,6 @@ Annual Intake:
 Objective:
 - Develop management professionals with multidisciplinary and global business skills
 
-Keywords: MBA CIT, management studies CIT, MBA intake CIT
 
 ================================================================================
 SECTION: MBA VISION AND MISSION
@@ -48,7 +46,6 @@ Vision:
 - Develop ethical, capable, and innovative leaders
 - Create positive impact in business and society
 
-Keywords: MBA mission CIT, MBA vision CIT, management education goals
 
 ================================================================================
 SECTION: MBA SPECIALIZATIONS
@@ -66,7 +63,6 @@ Integration:
 - Data Analytics
 - Artificial Intelligence
 
-Keywords: MBA specializations CIT, finance marketing HR MBA
 
 ================================================================================
 SECTION: MBA DISTINCT FEATURES
@@ -79,7 +75,6 @@ Key Features:
 - Outbound Training Programs
 - Focus on Innovation and Entrepreneurship
 
-Keywords: MBA features CIT, industry curriculum MBA
 
 ================================================================================
 SECTION: MBA NOTABLE ALUMNI
@@ -97,7 +92,6 @@ SECTION: MBA NOTABLE ALUMNI
   Role: Executive PMO MDO
   Organization: Jayem Automotives Pvt. Ltd.
 
-Keywords: MBA alumni CIT, MBA placements alumni
 
 ================================================================================
 SECTION: MCA PROGRAMME - OVERVIEW
@@ -119,7 +113,6 @@ Annual Intake:
 Objective:
 - Develop software professionals for IT industry demands
 
-Keywords: MCA CIT, computer applications CIT, MCA intake CIT
 
 ================================================================================
 SECTION: MCA VISION AND MISSION
@@ -135,7 +128,6 @@ Vision:
 - Transform students into competitive software professionals
 - Build innovative leaders for global challenges
 
-Keywords: MCA mission CIT, MCA vision CIT, software education
 
 ================================================================================
 SECTION: MCA KEY DOMAINS
@@ -149,7 +141,6 @@ Core Areas:
 - Cloud Computing
 - Cyber Security
 
-Keywords: MCA domains CIT, full stack CIT, AI MCA
 
 ================================================================================
 SECTION: MCA DISTINCT FEATURES
@@ -162,7 +153,6 @@ Key Features:
 - Emerging Technology Electives
 - Strong Alumni Support Network
 
-Keywords: MCA features CIT, industry courses MCA
 
 ================================================================================
 SECTION: MCA NOTABLE ALUMNI
@@ -180,7 +170,6 @@ SECTION: MCA NOTABLE ALUMNI
   Role: Senior Data & Analytics Consultant
   Organization: Thorogood Associates
 
-Keywords: MCA alumni CIT, software professionals CIT
 
 ================================================================================
 SECTION: PLACEMENTS AND INTERNSHIPS
@@ -228,7 +217,6 @@ MBA Recruiters:
 - WhiteOak Capital Management
 - Characterr
 
-Keywords: MBA placements CIT, MCA placements CIT, recruiters CIT
 
 ================================================================================
 SECTION: ADMISSION CONTACT DETAILS
@@ -244,17 +232,5 @@ Official Website:
 LinkedIn:
 - linkedin.com/school/coimbatore-institute-of-technology/
 
-Keywords: CIT admission contact MBA MCA, apply CIT PG
 
-================================================================================
-GLOBAL KEYWORDS
-================================================================================
 
-- CIT MBA MCA admission
-- CIT PG programmes details
-- CIT MBA specializations
-- CIT MCA domains
-- CIT placements MBA MCA
-- CIT alumni MBA MCA
-- CIT management studies department
-- CIT computer applications department

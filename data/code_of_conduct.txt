@@ -12,7 +12,6 @@ Loss Handling:
 - Lost ID cards must be reported immediately
 - Replacement must be done as per institutional protocol
 
-Keywords: ID card rules CIT, campus access CIT, student identity
 
 ================================================================================
 SECTION: DRESS CODE
@@ -29,7 +28,6 @@ Girls:
 General Rule:
 - Students must maintain neat and formal appearance
 
-Keywords: dress code CIT, uniform rules CIT, student appearance
 
 ================================================================================
 SECTION: CLASS HOURS AND SCHEDULE
@@ -43,7 +41,6 @@ Class Timings:
 Attendance Rules:
 - Late entry or early exit requires approval from class advisor/faculty
 
-Keywords: class timings CIT, schedule CIT, attendance rules
 
 ================================================================================
 SECTION: BREAK TIMINGS
@@ -57,7 +54,6 @@ II to Final Year:
 - Morning Break: 10:50 AM – 11:05 AM
 - Lunch Break: 12:55 PM – 2:00 PM
 
-Keywords: break timings CIT, lunch break CIT
 
 ================================================================================
 SECTION: ACADEMIC INTEGRITY
@@ -72,7 +68,6 @@ Rules:
 Consequences:
 - Disciplinary action including suspension or expulsion
 
-Keywords: academic integrity CIT, cheating rules, exam malpractice
 
 ================================================================================
 SECTION: PROHIBITED CONDUCT
@@ -87,7 +82,6 @@ Strictly Forbidden:
 - Physical or verbal abuse
 - Sexual harassment (handled under POSH policy)
 
-Keywords: prohibited activities CIT, ragging rules CIT, harassment policy
 
 ================================================================================
 SECTION: CAMPUS MOVEMENT
@@ -98,7 +92,6 @@ Rules:
 - Students must remain in classrooms/labs during scheduled hours
 - Leaving campus requires permission from class advisor
 
-Keywords: campus rules CIT, movement restrictions, attendance location
 
 ================================================================================
 SECTION: TRANSPORTATION AND PARKING
@@ -111,7 +104,6 @@ Rules:
 - Maximum 2 riders per bike
 - Follow campus traffic rules
 
-Keywords: parking rules CIT, transport rules, helmet rule CIT
 
 ================================================================================
 SECTION: LIBRARY RULES
@@ -124,7 +116,6 @@ Rules:
 - Late returns incur fines
 - Food and beverages not allowed
 
-Keywords: library rules CIT, library fines, book handling
 
 ================================================================================
 SECTION: CELEBRATIONS AND EVENTS
@@ -137,7 +128,6 @@ Event Rules:
 - Prior approval required for all events
 - Must end within approved time
 
-Keywords: events rules CIT, celebration rules
 
 ================================================================================
 SECTION: HOSTEL CONDUCT
@@ -150,7 +140,6 @@ Rules:
 - Visitors allowed only during specified hours
 - Avoid disturbing other residents
 
-Keywords: hostel rules CIT, hostel discipline
 
 ================================================================================
 SECTION: PROPERTY AND FACILITIES
@@ -161,7 +150,6 @@ Rules:
 - Damage or defacement leads to fines/legal action
 - Proper usage of labs, computers, furniture required
 
-Keywords: property rules CIT, lab usage rules
 
 ================================================================================
 SECTION: FACULTY AND STAFF INTERACTION
@@ -172,7 +160,6 @@ Rules:
 - Follow faculty instructions
 - No unruly or disobedient behavior
 
-Keywords: student behavior CIT, faculty interaction rules
 
 ================================================================================
 SECTION: PERSONAL BELONGINGS
@@ -183,7 +170,6 @@ Rules:
 - Avoid carrying valuables
 - Keep belongings secure
 
-Keywords: personal safety CIT, lost items policy
 
 ================================================================================
 SECTION: BUS CONDUCT
@@ -195,7 +181,6 @@ Rules:
 - Respect bus staff
 - Board/alight only at designated stops
 
-Keywords: bus rules CIT, transport discipline
 
 ================================================================================
 SECTION: ANTI-RAGGING POLICY
@@ -229,16 +214,5 @@ Punishment:
 - Immediate expulsion
 - Criminal prosecution
 
-Keywords: anti ragging CIT, ragging punishment, UGC rules CIT
 
-================================================================================
-GLOBAL KEYWORDS
-================================================================================
 
-- CIT code of conduct
-- CIT student rules
-- CIT discipline policy
-- CIT dress code rules
-- CIT ragging policy
-- CIT hostel and campus rules
-- CIT academic integrity rules

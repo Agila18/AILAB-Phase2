@@ -27,17 +27,19 @@ except ImportError:
 
 
 def extract_metadata_from_block(text: str) -> dict:
-    """Extract SECTION, Department, and Keywords from a block of text."""
+    """Extract SECTION and Dept (Atomic) from a block of text."""
     metadata = {}
     section_match = re.search(r"SECTION:\s*(.*)", text, re.IGNORECASE)
     if section_match:
         metadata["section"] = section_match.group(1).strip()
     dept_match = re.search(r"Department:\s*(.*)", text, re.IGNORECASE)
     if dept_match:
-        metadata["department"] = dept_match.group(1).strip()
-    keywords_match = re.search(r"Keywords:\s*(.*)", text, re.IGNORECASE)
-    if keywords_match:
-        metadata["keywords"] = keywords_match.group(1).strip()
+        dept = dept_match.group(1).strip()
+        if "Computer Science" in dept: dept = "CSE"
+        if "Information Technology" in dept: dept = "IT"
+        if "Artificial Intelligence" in dept: dept = "AI & DS"
+        metadata["dept"] = dept
+        metadata["type"] = "department"
     return metadata
 
 
@@ -66,7 +68,6 @@ def split_into_chunks(
     )
     
     chunks: list[dict] = []
-    block_pattern = r"(?:-{10,}|={10,})"
 
     for doc in docs:
         filename = doc.get("source", "unknown")
@@ -74,36 +75,41 @@ def split_into_chunks(
         if not full_text:
             continue
 
-        # Pass 1: Block Splitting (Dividers)
-        blocks = re.split(block_pattern, full_text)
-
-        for block in blocks:
+        # Split into logical blocks using delimiters (---, ===, or \n\n)
+        raw_blocks = re.split(r"(?:\n\s*\n|[-=]{5,})", full_text)
+        
+        for block in raw_blocks:
             block = block.strip()
             if not block:
                 continue
-
+            
+            # Detect metadata from the block itself
             meta = extract_metadata_from_block(block)
+            
+            # 🔥 SURGICAL GATE: If the block is an 'ENTITY BLOCK' (short & dense), keep it WHOLE.
+            # This ensures (Dept + HOD + Location) stays as one single retrieval unit.
+            is_entity_block = "Department:" in block or "HOD:" in block
+            
+            if is_entity_block or len(block) < chunk_size:
+                sub_blocks = [block]
+            else:
+                # For large policy paragraphs, use semantic splitting
+                try:
+                    sub_blocks = semantic_splitter.split_text(block)
+                except Exception as e:
+                    sub_blocks = [block]
 
-            # Pass 2: Semantic Sub-Chunking
-            try:
-                sub_chunks = semantic_splitter.split_text(block)
-            except Exception as e:
-                print(f"⚠️ Semantic chunking failed for {filename}, falling back to sentences: {e}")
-                sub_chunks = [block]
-
-            for sub_chunk in sub_chunks:
+            for sub_chunk in sub_blocks:
                 sub_chunk = sub_chunk.strip()
                 if not sub_chunk:
                     continue
 
-                # Prepend metadata header
+                # Prepend metadata header for better RAG context reinforcement
                 header = ""
                 if "section" in meta:
                     header += f"[SECTION: {meta['section']}] "
-                if "department" in meta:
-                    header += f"[Department: {meta['department']}] "
-                if "keywords" in meta:
-                    header += f"[Keywords: {meta['keywords']}] "
+                if "dept" in meta:
+                    header += f"[Dept: {meta['dept']}] "
 
                 enriched_text = f"{header}\n{sub_chunk}" if header else sub_chunk
 

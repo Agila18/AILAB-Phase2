@@ -4,7 +4,6 @@ LOCATION: Coimbatore, Tamil Nadu, India
 ACADEMIC_YEAR: 2026-2027
 
 SECTION: BE_BTECH_GOVERNMENT_AIDED_FEES
-KEYWORDS: CIT fees government aided, TNEA fees, BE BTech low fees
 - Admission Mode: TNEA Counselling
 - I Year: Rs. 33,464
 - I Year Lateral Entry: Rs. 33,350
@@ -14,7 +13,6 @@ KEYWORDS: CIT fees government aided, TNEA fees, BE BTech low fees
 - Applicable for government-aided seats only
 
 SECTION: BE_BTECH_SELF_FINANCED_FEES
-KEYWORDS: CIT management quota fees, self finance engineering fees
 - Admission Mode: Counselling / Management Quota
 - I Year:
   - Term I: Rs. 56,000
@@ -34,7 +32,6 @@ KEYWORDS: CIT management quota fees, self finance engineering fees
   - Total: Rs. 83,675
 
 SECTION: BTECH_AI_DS_UNAIDED_FEES
-KEYWORDS: AI DS fees CIT, AI course fees engineering
 - Programme: B.Tech Artificial Intelligence and Data Science
 - I Year:
   - Term I: Rs. 53,000
@@ -54,7 +51,6 @@ KEYWORDS: AI DS fees CIT, AI course fees engineering
   - Total: Rs. 78,675
 
 SECTION: MCA_FEES
-KEYWORDS: MCA fees CIT, PG computer applications fees
 - I Year:
   - Term I: Rs. 59,360
   - Term II: Rs. 38,240
@@ -65,7 +61,6 @@ KEYWORDS: MCA fees CIT, PG computer applications fees
   - Total: Rs. 98,605
 
 SECTION: MBA_FEES
-KEYWORDS: MBA fees CIT, management course fees
 - Semester I: Rs. 1,08,900
 - Semester II: Rs. 1,02,300
 - Semester III: Rs. 1,05,815
@@ -73,22 +68,18 @@ KEYWORDS: MBA fees CIT, management course fees
 - Total Programme Fee: Rs. 4,19,315 (approx)
 
 SECTION: MSC_INTEGRATED_FEES
-KEYWORDS: MSc integrated fees CIT, 5 year programme cost
 - Programmes: Software Systems, Data Science, DCS, AIML
 - Fee Range: Rs. 77,300 to Rs. 86,060 per semester
 - Duration: 10 semesters (5 years)
 
 SECTION: ME_FEES
-KEYWORDS: M.E fees CIT, postgraduate engineering fees
 - Semester Fee Range: Rs. 27,600 to Rs. 40,250
 - Varies by specialization and semester
 
 SECTION: PTBE_FEES
-KEYWORDS: part time BE fees CIT, evening engineering fees
 - Semester Fee Range: Rs. 10,000 to Rs. 17,900
 
 SECTION: FEE_PAYMENT_GUIDELINES
-KEYWORDS: fee payment rules, semester fee deadline
 - Fees must be paid at beginning of each semester/term
 - Late payment → penalty applicable
 - Non-payment → not allowed:
@@ -97,7 +88,6 @@ KEYWORDS: fee payment rules, semester fee deadline
 - Fee receipts must be preserved
 
 SECTION: FEE_CONCESSIONS
-KEYWORDS: fee waiver CIT, SC ST concession, BC MBC concession
 - Full fee concession:
   - SC/ST students
   - Converts to Christianity
@@ -107,15 +97,13 @@ KEYWORDS: fee waiver CIT, SC ST concession, BC MBC concession
 - Scholarships may adjust payable fees
 
 SECTION: REFUND_POLICY
-KEYWORDS: fee refund CIT, withdrawal refund rules
 - Refunds as per Anna University and AICTE norms
 - Must apply within specified timeframe
 - Requires proper documentation
 
 SECTION: ADDITIONAL_CHARGES
-KEYWORDS: extra fees CIT, hostel fees, exam fees
 - Hostel Fees: Rs. 28,000 – Rs. 30,000 per annum
-- Mess Fees: Separate (approx monthly basis)
+- Mess Fees: Rs. 35,000 - Rs. 45,000 per annum
 - Examination Fees: charged separately
 - Additional charges:
   - Laboratory fees

@@ -14,55 +14,46 @@ Falls back to rule-based expansion if the LLM rewrite fails or produces garbage.
 from __future__ import annotations
 
 
-_REWRITE_PROMPT = """You are a search query optimizer for a college student information system.
-Convert the following informal student question into a formal, specific, retrieval-optimized search query.
-
-Also, categorize the INTENT of the question into one of:
-- FACTUAL: Simple requests for specific information (e.g., "who is HOD?", "what is the fee?")
-- COMPARISON: Requests comparing two or more entities (e.g., "CSE vs ECE", "hostel vs day scholar fees")
-- PROCEDURAL: Requests about steps or processes (e.g., "how to apply for scholarship?", "steps for leave")
-
-Format your response exactly as:
-QUERY: [optimized query]
-INTENT: [FACTUAL/COMPARISON/PROCEDURAL]
+_REWRITE_PROMPT = """You are a search query optimizer and INTENT classifier for a college student assistant.
+Convert the student question into a crisp, 2-4 word KEYWORD search query. 
+Categorize the INTENT into one of:
+- POLICY: Rules/facts (e.g., "attendance", "fees").
+- SCENARIO: "What if" cases (e.g., "fail subject").
+- STRATEGY: Advice/tips (e.g., "high cgpa").
+- OPINION: Comparisons (e.g., "CIT vs PSG").
+- CASUAL: Greetings (e.g., "hello").
 
 Rules:
-- Expand abbreviations (HOD → head of department, etc.)
-- Keep query under 15 words
-- Return ONLY the two lines above.
+1. QUERY must be ONLY 2-4 keywords (e.g., "CSE HOD name").
+2. NO long sentences. NO fluff. NO polite phrases.
 
-Student question: {question}"""
-
+Format:
+QUERY: [keywords]
+INTENT: [LABEL]
+"""
 
 def rewrite_query(question: str, llm=None) -> tuple[str, str, str]:
     """
-    Rewrite a student question and detect intent in a SINGLE LLM call for speed.
-    Returns (retrieval_query, intent, display_label)
+    Rewrite and classify student intent in a single pass.
     """
     base_expanded = _rule_based_expand(question)
-    default_intent = "FACTUAL"
+    default_intent = "POLICY"
 
     if llm is None:
         return base_expanded, default_intent, _friendly_label(question)
 
-    # Quick heuristic for common keywords to skip LLM entirely if it's super obvious
+    # Quick heuristic for common keywords
     q_low = question.lower()
     if len(question) < 15 and any(w in q_low for w in ["hod", "fee", "scholarship", "attendance"]):
-        return base_expanded, default_intent, _friendly_label(question)
+        return base_expanded, "POLICY", _friendly_label(question)
 
     try:
-        # Step 1: Consolidated Rewrite + Intent detection
         prompt = (
-            "You are a search query optimizer. Rewrite the following student query for better retrieval in CIT's vector database. "
-            "Also, categorize the INTENT as FACTUAL, COMPARISON, or PROCEDURAL.\n"
-            "Format your response exactly as:\n"
-            "QUERY: [optimized query string]\n"
-            "INTENT: [INTENT_LABEL]\n\n"
-            f"Question: {question}\n"
+            f"{_REWRITE_PROMPT}\n\n"
+            f"Student Question: {question}\n"
         )
         response = llm.invoke(prompt)
         
-        # Parse the structured response
         lines = [line.strip() for line in response.split("\n") if ":" in line]
         optimized_q = base_expanded
         intent = default_intent
@@ -73,12 +64,10 @@ def rewrite_query(question: str, llm=None) -> tuple[str, str, str]:
             elif line.upper().startswith("INTENT:"):
                 intent = line.split(":", 1)[1].strip().upper()
 
-        if intent not in ["FACTUAL", "COMPARISON", "PROCEDURAL"]:
-            intent = "FACTUAL"
+        if intent not in ["POLICY", "SCENARIO", "STRATEGY", "OPINION", "CASUAL"]:
+            intent = "POLICY"
 
-        # Final display label
-        display = optimized_q if len(optimized_q) < 50 else question
-        return optimized_q, intent, display
+        return optimized_q, intent, _friendly_label(question)
 
     except Exception as e:
         print(f"⚠️  Rewriter fails: {e}")
@@ -103,25 +92,41 @@ def _friendly_label(q: str) -> str:
 
 
 def _extra_keywords(q: str) -> str:
-    """Inject domain keywords based on detected intent."""
+    """Inject domain keywords for ALL detected topics in the query."""
     q_lower = q.lower()
     extras = []
-    if any(w in q_lower for w in ["hod", "head", "faculty", "professor", "staff"]):
-        extras.append("faculty name contact location department CIT")
-    if "attendance" in q_lower:
+    
+    # Check for Placement/Job keywords
+    if any(w in q_lower for w in ["placement", "company", "opportunity", "job", "hiring", "salary", "package", "placed", "unplaced", "job offers"]):
+        extras.append("placement policy recruitment hiring procedure salary package job offers")
+        
+    # Check for Attendance/Academic keywords
+    if any(w in q_lower for w in ["attendance", "75%", "present", "absent", "percentage"]):
         extras.append("minimum 75 percent requirement shortage condonation")
+        
+    # Check for Scholarship keywords
     if "scholarship" in q_lower:
         extras.append("eligibility application renewal merit income criteria")
-    if any(w in q_lower for w in ["exam", "fail", "backlog", "arrear", "supplementary"]):
-        extras.append("reappear supplementary arrear policy exam rules")
+        
+    # Check for Exam/Arrear keywords
+    if any(w in q_lower for w in ["exam", "fail", "backlog", "arrear", "supplementary", "reappear"]):
+        extras.append("reappear supplementary arrear policy exam rules marks grades")
+        
+    # Check for Hostel keywords
     if "hostel" in q_lower:
-        extras.append("rules curfew timing visitor warden")
-    if any(w in q_lower for w in ["fee", "fees", "payment"]):
-        extras.append("amount due date penalty late payment structure")
-    if "placement" in q_lower:
-        extras.append("eligibility criteria package company arrear backlog")
+        extras.append("hostel rules curfew timing visitor warden mess facilities")
+        
+    # Check for Fee keywords
+    if any(w in q_lower for w in ["fee", "fees", "payment", "tuition"]):
+        extras.append("fee structure tuition mess exam payment due date")
+        
+    # Check for Faculty/HOD keywords
+    if any(w in q_lower for w in ["hod", "head", "faculty", "professor", "staff", "teacher"]):
+        extras.append("faculty name contact location department CIT")
+        
     if "deadline" in q_lower:
         extras.append("last date submission deadline academic calendar")
+        
     return " ".join(extras)
 
 

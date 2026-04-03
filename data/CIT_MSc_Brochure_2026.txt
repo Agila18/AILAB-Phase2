@@ -14,7 +14,6 @@ Address:
 Programme Type:
 - 5-Year Integrated M.Sc. Programmes
 
-Keywords: CIT MSc integrated, CIT computing programs, CIT courses
 
 ================================================================================
 SECTION: DEPARTMENT OF COMPUTING - OVERVIEW
@@ -33,7 +32,6 @@ Faculty Strength:
 Infrastructure:
 - State-of-the-art infrastructure for enhanced learning outcomes
 
-Keywords: department of computing CIT, faculty CIT computing, infrastructure CIT
 
 ================================================================================
 SECTION: PROGRAMME HIGHLIGHTS
@@ -67,7 +65,6 @@ Learning Approach:
 Support System:
 - Strong alumni network
 
-Keywords: CIT MSc highlights, internships CIT, semester abroad CIT
 
 ================================================================================
 SECTION: M.Sc. SOFTWARE SYSTEMS
@@ -97,7 +94,6 @@ Specializations:
 Outcome:
 - Lifelong learning and seamless progression
 
-Keywords: MSc software systems CIT, cloud computing CIT, full stack CIT
 
 ================================================================================
 SECTION: M.Sc. DATA SCIENCE
@@ -117,7 +113,6 @@ Skills:
 Outcome:
 - Industry-ready Data Scientists and Analysts
 
-Keywords: MSc data science CIT, analytics CIT, data science course
 
 ================================================================================
 SECTION: M.Sc. DECISION AND COMPUTING SCIENCES
@@ -143,7 +138,6 @@ Specializations:
 Outcome:
 - Industry-ready decision scientists
 
-Keywords: MSc decision sciences CIT, business analytics CIT
 
 ================================================================================
 SECTION: M.Sc. ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING
@@ -165,7 +159,6 @@ Skill Development:
 - Programming skills
 - Creative problem solving
 
-Keywords: MSc AI ML CIT, artificial intelligence course CIT
 
 ================================================================================
 SECTION: PLACEMENTS AND INTERNSHIPS
@@ -241,7 +234,6 @@ Notable Student Placements at KLA:
 - R. Vaisaali Priyankaa (MSc Decision and Computing Sciences, 2022 Batch)
 - V. Bhooshitha (MSc AI & ML, 2022 Batch)
 
-Keywords: MSc placements CIT, internship CIT, KLA internship CIT
 
 ================================================================================
 SECTION: ADMISSION ELIGIBILITY
@@ -289,7 +281,6 @@ Category B:
 Minimum Marks:
 - 75% aggregate (for non-SC/ST)
 
-Keywords: MSc eligibility CIT, admission criteria CIT, marks requirement CIT
 
 ================================================================================
 SECTION: ADMISSION CONTACT DETAILS
@@ -302,15 +293,5 @@ Admission Coordinator:
 Website:
 - www.cit.edu.in
 
-Keywords: CIT admission contact MSc, apply CIT integrated course
 
-================================================================================
-GLOBAL KEYWORDS
-================================================================================
 
-- CIT MSc integrated courses
-- CIT computing department
-- CIT AI ML data science programs
-- CIT placements MSc
-- CIT internships abroad
-- CIT eligibility MSc

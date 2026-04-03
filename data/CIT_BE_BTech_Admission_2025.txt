@@ -11,7 +11,6 @@ Affiliation: Anna University, Chennai
 Address:
 - Coimbatore - 641014
 
-Keywords: CIT address, CIT affiliation, Anna University CIT
 
 ================================================================================
 SECTION: ADMISSION OVERVIEW
@@ -37,7 +36,6 @@ Requirements:
 - Bring all original certificates
 - Pay fees at the time of admission
 
-Keywords: CIT admission process, BE admission CIT, reporting time CIT
 
 ================================================================================
 SECTION: FEES AND PAYMENT MODE
@@ -58,7 +56,6 @@ Payment Modes:
 Important Instruction:
 - Fees must be paid during admission
 
-Keywords: CIT fees, BE fees CIT, payment mode CIT
 
 ================================================================================
 SECTION: ADMISSION DEADLINE
@@ -69,7 +66,6 @@ SECTION: ADMISSION DEADLINE
 Important Rule:
 - No extension of time will be granted under any circumstances
 
-Keywords: admission deadline CIT, TNEA deadline, no extension rule
 
 ================================================================================
 SECTION: DOCUMENTS REQUIRED (ORIGINALS)
@@ -87,7 +83,6 @@ Candidates must bring the following original documents:
 8. Certificate of Physical Fitness
 9. Student's Particulars Form (with photos of student, father, mother)
 
-Keywords: documents required CIT, original certificates admission
 
 ================================================================================
 SECTION: CERTIFICATE RETENTION POLICY
@@ -112,7 +107,6 @@ Recommendation:
 Usage:
 - Required for scholarships, loans, and other applications
 
-Keywords: certificate retention CIT, photocopies requirement, document safety
 
 ================================================================================
 SECTION: IMPORTANT RULES AND PENALTIES
@@ -126,7 +120,6 @@ If Incorrect Information is Found:
 2. Candidate will be debarred for 3 years
 3. Legal action will be taken
 
-Keywords: admission rules CIT, penalty wrong marks, disqualification rules
 
 ================================================================================
 SECTION: ADMISSION CHECKLIST (I, II, III BUNCH)
@@ -158,7 +151,6 @@ Additional Requirement:
   - Community Certificate
   - First Graduate Certificate (if applicable)
 
-Keywords: admission checklist CIT, required forms CIT, affidavit documents
 
 ================================================================================
 SECTION: SCHOLARSHIPS AND FEE CONCESSION
@@ -168,7 +160,6 @@ SECTION: SCHOLARSHIPS AND FEE CONCESSION
 
 - Fee Concession Forms available
 
-Keywords: scholarship CIT, fee concession CIT
 
 ================================================================================
 SECTION: STUDENT PARTICULARS FORM DETAILS
@@ -237,17 +228,5 @@ Marks:
 Other Details:
 - Extra Curricular Activities
 
-Keywords: student particulars form CIT, personal details CIT, academic details form
 
-================================================================================
-GLOBAL KEYWORDS
-================================================================================
 
-- CIT admission process 2025
-- CIT BE BTech admission rules
-- CIT required documents list
-- CIT fees structure aided
-- CIT student particulars form
-- CIT admission checklist
-- CIT certificate retention policy
-- CIT scholarships and forms

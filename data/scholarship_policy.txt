@@ -3,32 +3,27 @@ INSTITUTION: Coimbatore Institute of Technology
 LOCATION: Coimbatore, Tamil Nadu, India
 
 SECTION: OVERVIEW
-KEYWORDS: scholarships CIT, financial aid, student funding, assistance schemes
 - CIT facilitates more than 24 government and private scholarship schemes
 - Objective: reduce financial burden for deserving students
 - Covers government, central, private, alumni, and institutional aid
 
 SECTION: GOVERNMENT_SCHOLARSHIPS_COMMUNITY_WELFARE
-KEYWORDS: SC ST scholarship, BC MBC scholarship, minority scholarship, farmer scheme
 - Adi Dravidar Welfare Scholarship → SC/ST students
 - Backward Class (BC) Scholarship → BC/MBC students
 - Minority Scholarship → minority community students
 - Farmer Social Security Scholarship → children of farmers
 
 SECTION: GOVERNMENT_SCHOLARSHIPS_MERIT_REGIONAL
-KEYWORDS: merit scholarship Tamil Nadu, Anna award, interstate scholarship
 - Chief Minister’s Scholarship → state-level merit
 - Arignar Anna Award → academic excellence
 - Interstate Scholarships → Pondicherry, Andaman & Nicobar, Northeast students
 
 SECTION: GOVERNMENT_SCHOLARSHIPS_SPECIAL_CATEGORY
-KEYWORDS: AICTE Pragathi, Saksham scholarship, women engineering, disability scholarship
 - AICTE Pragathi Scholarship → women in technical education
 - AICTE Saksham Scholarship → differently-abled students
 - Occupational Scholarships → children of teachers, defense personnel, ex-servicemen
 
 SECTION: FEE_CONCESSIONS
-KEYWORDS: tuition fee concession, SC ST fee waiver, BC MBC fee reduction
 - Full tuition fee concession:
   - SC / ST students
   - Converts to Christianity
@@ -37,20 +32,17 @@ KEYWORDS: tuition fee concession, SC ST fee waiver, BC MBC fee reduction
   - BC/MBC students with income below prescribed limit
 
 SECTION: CENTRAL_GOVERNMENT_SCHEMES
-KEYWORDS: central scholarship India, J&K scheme, CAPF scholarship
 - PM Special Scholarship Scheme → Jammu & Kashmir students
 - Central Armed Police Forces Scholarships
 - Railway Ministry Scholarship Schemes
 
 SECTION: NATIONAL_SCHOLARSHIP_PORTAL_SCHEMES
-KEYWORDS: NSP scholarships, income based scholarship India
 - Central Sector Scholarship → income < Rs. 8.8 lakhs
 - AICTE Pragathi → girls
 - AICTE Saksham → differently-abled
 - Ishan Uday Scholarship → Northeast students
 
 SECTION: PRIVATE_AND_ALUMNI_SCHOLARSHIPS
-KEYWORDS: CIT alumni scholarship, NGO scholarship, private funding
 - Tamil Nadu Educational Trust Scholarship
 - ONGC Scholarship
 - Siragugal Scholarship Scheme
@@ -59,12 +51,10 @@ KEYWORDS: CIT alumni scholarship, NGO scholarship, private funding
 - Industry-sponsored scholarships (via recruiters)
 
 SECTION: INCOME_LIMITS
-KEYWORDS: scholarship income eligibility, parental income criteria
 - Income limits vary: Rs. 2.5 lakhs to Rs. 8.8 lakhs per annum
 - Depends on scheme and government norms
 
 SECTION: APPLICATION_PROCESS
-KEYWORDS: how to apply scholarship CIT, deadline, submission process
 - Submit application to Principal’s Office
 - Deadline:
   - Within 30 days of reopening OR
@@ -73,14 +63,12 @@ KEYWORDS: how to apply scholarship CIT, deadline, submission process
 - Late or incomplete applications → rejected
 
 SECTION: ELIGIBILITY_CONDITIONS
-KEYWORDS: scholarship eligibility rules, attendance requirement
 - Only ONE scholarship/concession allowed at a time
 - Highest benefit scheme will be awarded
 - Minimum attendance: 75%
 - Must maintain satisfactory academic performance
 
 SECTION: DISCIPLINARY_REQUIREMENTS
-KEYWORDS: scholarship cancellation rules, misconduct impact
 - Scholarships based on trust and discipline
 - Cancellation if:
   - Ragging involvement
@@ -89,13 +77,11 @@ KEYWORDS: scholarship cancellation rules, misconduct impact
 - Students must maintain good conduct
 
 SECTION: SCHOLARSHIP_RENEWAL
-KEYWORDS: renewal process, annual scholarship continuation
 - Renewed annually based on eligibility
 - Re-application required every year
 - Performance + attendance reviewed before renewal
 
 SECTION: SUPPORT_AND_GUIDANCE
-KEYWORDS: scholarship help CIT, advisory support
 - Principal’s Office provides guidance
 - Helps match students with suitable schemes
 - Updates shared via:
@@ -103,7 +89,6 @@ KEYWORDS: scholarship help CIT, advisory support
   - College website
 
 SECTION: REQUIRED_DOCUMENTS
-KEYWORDS: scholarship documents checklist
 - Community / Caste Certificate
 - Income Certificate
 - Aadhaar Card

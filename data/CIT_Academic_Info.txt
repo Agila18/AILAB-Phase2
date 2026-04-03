@@ -9,8 +9,6 @@ Document: Board of Studies Members
 Academic Years: 2022-2023, 2023-2024
 Institution: Coimbatore Institute of Technology, Coimbatore - 641014
 
-Keywords: CSE BoS CIT, board of studies members, CIT academic committee, CSE faculty
-
 ================================================================================
 SECTION: CHAIRMAN - BOARD OF STUDIES
 ================================================================================
@@ -26,8 +24,6 @@ Contact Details:
 - Email: Kousalya.g@cit.edu.in
 - Phone: +91-9865105331
 
-Keywords: chairman BOS CSE CIT, Dr Kousalya G, HOD CSE CIT
-
 ================================================================================
 SECTION: UNIVERSITY NOMINEE
 ================================================================================
@@ -42,8 +38,6 @@ Designation:
 Contact Details:
 - Phone: +91 80563 97625
 - Email: naa.cse@psgtech.ac.in
-
-Keywords: university nominee CSE BOS, PSG Tech faculty, Arulanand CSE
 
 ================================================================================
 SECTION: SUBJECT EXPERTS
@@ -62,8 +56,6 @@ Contact Details:
 - Phone: +91 9843886035
 - Email: miraclin@gct.ac.in
 
-Keywords: subject expert CSE BOS, Miraclin Joyce Pamila, GCE Dharmapuri
-
 --------------------------------------------------
 
 Member 2:
@@ -79,8 +71,6 @@ Contact Details:
 - Email: bsbabu@rvce.edu.in
 - Phone: +91 98444 88329
 
-Keywords: subject expert AI ML BOS, RVCE Bangalore faculty
-
 ================================================================================
 SECTION: INDUSTRIAL EXPERTS
 ================================================================================
@@ -95,8 +85,6 @@ Designation:
 
 Contact Details:
 - Email: chithiraisamy@gmail.com
-
-Keywords: industrial expert CSE BOS, SLB developer, industry member
 
 --------------------------------------------------
 
@@ -114,8 +102,6 @@ Contact Details:
 - Mobile: +91 9164173007
 - Email: rameshl@cdac.in
 
-Keywords: industrial expert C-DAC, big data analytics, BOS member
-
 ================================================================================
 SECTION: ALUMNI MEMBER
 ================================================================================
@@ -129,8 +115,6 @@ Designation:
 Contact Details:
 - Phone: +91 9688805580
 - Email: mohancss007@gmail.com
-
-Keywords: alumni CSE BOS, D E Shaw India, CIT alumni member
 
 ================================================================================
 SECTION: INTERNAL MEMBERS
@@ -150,8 +134,6 @@ Members List:
 9. Ms. R. Pavithra
 10. Dr. G. Karthikeyan
 11. Dr. R. Saveeth
-
-Keywords: internal members CSE CIT, faculty list CSE CIT
 
 --------------------------------------------------
 
@@ -174,7 +156,6 @@ Member 4:
 Name: Dr. S. Sangeethamani
 Department: Mathematics
 
-Keywords: interdisciplinary faculty CIT, supporting departments CSE
 
 ================================================================================
 SECTION: GLOBAL KEYWORDS

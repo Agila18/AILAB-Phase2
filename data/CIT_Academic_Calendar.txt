@@ -53,140 +53,120 @@ SECTION: DEPARTMENT HEADS
 Department: Civil Engineering
 Head of Department (HOD): Dr. M.P. Muthuraj
 Location: M 201
-Keywords: HOD, civil engineering, head of department, faculty, CIT civil
 
 --------------------------------------------------
 
 Department: Mechanical Engineering
 Head of Department (HOD): Dr. N. Rajam Ramaswamy
 Location: M 108
-Keywords: HOD, mechanical engineering, faculty, CIT mechanical
 
 --------------------------------------------------
 
 Department: Electrical and Electronics Engineering (EEE)
 Head of Department (HOD): Dr. S. Vasantharathna
 Location: M 242
-Keywords: HOD, EEE, electrical engineering, faculty
 
 --------------------------------------------------
 
 Department: Electronics and Communication Engineering (ECE)
 Head of Department (HOD): Dr. A. Rajeswari
 Location: M 105
-Keywords: HOD, ECE, communication engineering, faculty
 
 --------------------------------------------------
 
 Department: Computer Science and Engineering (CSE)
 Head of Department (HOD): Dr. A. Kunthavai
 Location: M 101
-Keywords: HOD, CSE, computer science, faculty
 
 --------------------------------------------------
 
 Department: Chemical Engineering
 Head of Department (HOD): Dr. M. Thirumari Murugan
 Location: M 229
-Keywords: HOD, chemical engineering, faculty
 
 --------------------------------------------------
 
 Department: Information Technology (IT)
 Head of Department (HOD): Dr. N. K. Karthikeyan
 Location: M 102
-Keywords: HOD, IT, information technology, faculty
 
 --------------------------------------------------
 
 Department: Artificial Intelligence and Data Science (AI & DS)
 Head of Department (HOD): Dr. Valliappan Raman
 Location: M 249
-Keywords: HOD, AI DS, artificial intelligence, data science, faculty
 
 --------------------------------------------------
 
 Department: Mathematics
 Head of Department (HOD): Dr. R. Lavanya
 Location: M FR-11
-Keywords: HOD, mathematics, faculty
 
 --------------------------------------------------
 
 Department: Physics
 Head of Department (HOD): Dr. S. Vasantha
 Location: M 240
-Keywords: HOD, physics, faculty
 
 --------------------------------------------------
 
 Department: Chemistry
 Head of Department (HOD): Dr. K.V. Hemalatha
 Location: M 133
-Keywords: HOD, chemistry, faculty
 
 --------------------------------------------------
 
 Department: Humanities
 Head of Department (HOD): Dr. P. Santhi
 Location: M FR-3
-Keywords: HOD, humanities, faculty
 
 --------------------------------------------------
 
 Department: Master of Computer Applications (MCA)
 Head of Department (HOD): Dr. R. S. Somasundaram
 Location: IT 313
-Keywords: HOD, MCA, faculty
 
 --------------------------------------------------
 
 Department: Master of Business Administration (MBA)
 Head of Department (HOD): Dr. M. Senthil
 Location: TR 001
-Keywords: HOD, MBA, management, faculty
 
 --------------------------------------------------
 
 Department: Artificial Intelligence and Machine Learning (AI & ML)
 Head of Department (HOD): Dr. J. Shana
 Location: IT 437
-Keywords: HOD, AI ML, artificial intelligence, faculty
 
 --------------------------------------------------
 
 Department: Software Systems
 Head of Department (HOD): Dr. K. Sakthimala
 Location: MS 101
-Keywords: HOD, software systems, faculty
 
 --------------------------------------------------
 
 Department: Data Science
 Head of Department (HOD): Dr. S. Suganthi
 Location: MS 201
-Keywords: HOD, data science, faculty
 
 --------------------------------------------------
 
 Department: Decision and Computing Sciences
 Head of Department (HOD): Dr. A. Kannamal
 Location: MS 201
-Keywords: HOD, decision science, computing, faculty
 
 --------------------------------------------------
 
 Department: Physical Education
 Head of Department (HOD): Dr. R. Sampath
 Location: Physical Education Block
-Keywords: HOD, sports, physical education
 
 --------------------------------------------------
 
 Department: Library
 In-charge: Dr. M. Mandhirasalam
 Location: Central Library
-Keywords: library, faculty, resources
 
 
 ================================================================================

@@ -12,7 +12,6 @@ Types of Examinations:
 Evaluation Method:
 - Final result = Internal Assessment + End Semester Exam
 
-Keywords: exam structure CIT, internal assessment CIT, end semester exam
 
 ================================================================================
 SECTION: EXAMINATION SCHEDULE
@@ -30,7 +29,6 @@ Academic Calendar:
 Timetable:
 - Published on official CIT website before exams
 
-Keywords: exam schedule CIT, semester exam dates CIT
 
 ================================================================================
 SECTION: QUESTION PAPER SETTING
@@ -48,7 +46,6 @@ PG Programmes:
 Purpose:
 - Ensure fairness and quality
 
-Keywords: question paper setting CIT, UG PG exams CIT
 
 ================================================================================
 SECTION: VALUATION PROCESS
@@ -65,7 +62,6 @@ Transparency:
 Revaluation Option:
 - Students may apply if not satisfied
 
-Keywords: valuation CIT, answer sheet review CIT
 
 ================================================================================
 SECTION: PASSING CRITERIA
@@ -79,7 +75,6 @@ Requirements:
 Final Grade:
 - Based on combined performance
 
-Keywords: passing marks CIT, exam pass criteria
 
 ================================================================================
 SECTION: REVALUATION PROCESS
@@ -95,7 +90,6 @@ Conditions:
 Scope:
 - Applicable for end-semester answer scripts
 
-Keywords: revaluation CIT, exam rechecking CIT
 
 ================================================================================
 SECTION: SUPPLEMENTARY EXAMINATIONS
@@ -110,7 +104,6 @@ Purpose:
 Additional Rule:
 - Other students can write arrear exams in later semesters
 
-Keywords: supplementary exam CIT, arrear exam CIT
 
 ================================================================================
 SECTION: CONTINUOUS INTERNAL ASSESSMENT
@@ -129,7 +122,6 @@ Special Note:
 Contribution:
 - Internal marks combined with end semester marks
 
-Keywords: internal marks CIT, continuous assessment CIT
 
 ================================================================================
 SECTION: RESULT DECLARATION
@@ -145,7 +137,6 @@ Result Months:
 Mode:
 - Published on official CIT website
 
-Keywords: result date CIT, exam results CIT
 
 ================================================================================
 SECTION: EXAMINATION MISCONDUCT
@@ -161,7 +152,6 @@ Penalties:
 - Suspension
 - Expulsion (based on severity)
 
-Keywords: exam malpractice CIT, cheating rules CIT
 
 ================================================================================
 SECTION: ELIGIBILITY FOR EXAMINATION
@@ -173,7 +163,6 @@ Requirements:
 - Submission of assignments
 - Payment of all fees and fines
 
-Keywords: exam eligibility CIT, attendance requirement CIT
 
 ================================================================================
 SECTION: MINI PROJECT EVALUATION
@@ -191,15 +180,5 @@ Evaluation:
 Examiners:
 - Internal and external evaluators
 
-Keywords: mini project evaluation CIT, project assessment CIT
 
-================================================================================
-GLOBAL KEYWORDS
-================================================================================
 
-- CIT examination rules
-- CIT internal and external exams
-- CIT revaluation and arrear exams
-- CIT exam eligibility rules
-- CIT results and valuation
-- CIT malpractice rules

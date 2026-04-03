@@ -18,7 +18,6 @@ Reputation:
 - Industry-aligned curriculum ensuring strong career opportunities
 - Strong alumni network across global sectors
 
-Keywords: CIT overview, CIT institution details, CIT autonomous, Anna University affiliated
 
 ================================================================================
 SECTION: VISION AND MISSION
@@ -34,7 +33,6 @@ Mission:
 - Develop world-class engineers
 - Encourage innovation and problem-solving for societal benefit
 
-Keywords: CIT vision, CIT mission, engineering education goals
 
 ================================================================================
 SECTION: PROGRAMMES OVERVIEW
@@ -47,7 +45,6 @@ Program Categories:
 - 6 Centres of Excellence
 - 1 Research Innovation Centre
 
-Keywords: CIT courses list, UG PG programmes CIT, integrated MSc CIT
 
 ================================================================================
 SECTION: CENTRES OF EXCELLENCE
@@ -68,7 +65,6 @@ Associated Labs:
 - Industrial Automation Lab
 - Malaviya Mission Teacher Training Centre (MHRD Scheme)
 
-Keywords: CIT labs, centres of excellence CIT, IoT lab CIT, 5G lab
 
 ================================================================================
 SECTION: UNDERGRADUATE PROGRAMMES (UG)
@@ -109,7 +105,6 @@ B.Tech. Information Technology
 B.Tech. Artificial Intelligence and Data Science
 - Since: 2021
 
-Keywords: CIT UG courses, B.E courses CIT, B.Tech CIT, AI DS course CIT
 
 ================================================================================
 SECTION: POSTGRADUATE PROGRAMMES (PG)
@@ -125,7 +120,6 @@ Master of Computer Applications (MCA)
 Master of Business Administration (MBA)
 - Since: 2021
 
-Keywords: CIT PG courses, MCA CIT, MBA CIT, ME CIT
 
 ================================================================================
 SECTION: INTEGRATED M.Sc. PROGRAMMES (5 YEARS)
@@ -143,7 +137,6 @@ M.Sc. Decision and Computing Sciences
 M.Sc. Artificial Intelligence and Machine Learning
 - Since: 2019
 
-Keywords: integrated MSc CIT, software systems CIT, data science CIT
 
 ================================================================================
 SECTION: STUDENT CLUBS AND ACTIVITIES
@@ -182,7 +175,6 @@ Clubs:
 - Datalytics Club
 - Swachh Bharat Club
 
-Keywords: CIT clubs, student activities CIT, extracurricular CIT
 
 ================================================================================
 SECTION: PLACEMENTS AND INTERNSHIPS
@@ -295,7 +287,6 @@ Major Recruiters:
 - Energo Group
 - Quinbay
 
-Keywords: CIT placements, highest package CIT, recruiters CIT
 
 ================================================================================
 SECTION: PROFESSIONAL MEMBERSHIPS
@@ -306,7 +297,6 @@ SECTION: PROFESSIONAL MEMBERSHIPS
 - IEEE Students Chapter
 - SWAYAM-NPTEL Local Chapter
 
-Keywords: CIT memberships, IEEE CIT, professional bodies CIT
 
 ================================================================================
 SECTION: FOREIGN COLLABORATIONS
@@ -335,7 +325,6 @@ Key Collaboration Areas:
 - Certification Programs and Hackathons
 - Innovation and Global Competency Development
 
-Keywords: CIT international collaboration, foreign universities CIT
 
 ================================================================================
 SECTION: NOTABLE ALUMNI
@@ -357,7 +346,6 @@ SECTION: NOTABLE ALUMNI
 - Mr. Karupaiya Chu – Data Engineer, D.E. Shaw
 - Mr. K. Thiyanesan – Technical Lead
 
-Keywords: CIT alumni, famous alumni CIT, achievers CIT
 
 ================================================================================
 SECTION: ADMISSION CONTACT DETAILS
@@ -373,15 +361,5 @@ Official Website:
 LinkedIn:
 - linkedin.com/school/coimbatore-institute-of-technology/
 
-Keywords: CIT admission contact, apply CIT, admission coordinator CIT
 
-================================================================================
-GLOBAL KEYWORDS
-================================================================================
 
-- CIT admission brochure
-- CIT courses and placements
-- CIT UG PG programs
-- CIT clubs and labs
-- CIT recruiters list
-- CIT alumni achievements

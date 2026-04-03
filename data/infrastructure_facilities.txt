@@ -11,7 +11,6 @@ Campus Components:
 - Sports facilities
 - Support infrastructure
 
-Keywords: campus overview, CIT location, infrastructure, campus size
 
 ---
 
@@ -40,7 +39,6 @@ Laboratories:
 
 Each department has dedicated lab facilities for practical sessions and research.
 
-Keywords: labs, laboratory facilities, engineering labs, practical learning
 
 ---
 
@@ -55,7 +53,6 @@ Activities:
 - Faculty and students publish research papers
 - Participation in national and international journals and conferences
 
-Keywords: research centres, AI research, publications, innovation
 
 ---
 
@@ -83,7 +80,6 @@ Services:
 - Inter-library loan
 - Photocopying
 
-Keywords: library, books, digital library, journals
 
 ---
 
@@ -98,7 +94,6 @@ Additional Spaces:
 - Seminar halls for lectures and workshops
 - Auditoriums for cultural events, convocation, and major programs
 
-Keywords: classrooms, smart class, seminar hall, auditorium
 
 ---
 
@@ -109,7 +104,6 @@ SECTION: Computing Facilities
 - Licensed software access
 - Online learning platforms and digital resources
 
-Keywords: computing, WiFi, computer lab, internet
 
 ---
 
@@ -122,7 +116,6 @@ Access:
 - Study materials
 - Online courses
 
-Keywords: e-learning, online learning, digital education
 
 ---
 
@@ -143,7 +136,6 @@ Participation:
 - University-level competitions
 - National-level competitions
 
-Keywords: sports, playground, gym, athletics
 
 ---
 
@@ -171,7 +163,6 @@ Hostel Features:
 Fees:
 - Rs. 28,000 to Rs. 30,000 per annum
 
-Keywords: hostel, accommodation, mess, hostel facilities
 
 ---
 
@@ -186,7 +177,6 @@ SECTION: Other Campus Facilities
 - Rainwater harvesting system
 - Green campus initiatives with tree plantation
 
-Keywords: campus facilities, ATM, canteen, safety, environment
 
 ---
 
@@ -199,7 +189,6 @@ Support:
 - Mentorship for student startups
 - Encouragement for entrepreneurial activities
 
-Keywords: innovation, startup, entrepreneurship, hackathon
 
 ---
 
@@ -225,7 +214,6 @@ Areas Covered:
 Student Union:
 - Organizes cultural and technical events
 
-Keywords: clubs, IEEE, student activities, organizations
 
 ---
 
@@ -234,7 +222,6 @@ SECTION: Transport
 - Dedicated parking for two-wheelers and four-wheelers
 - Well-connected by public transport
 
-Keywords: transport, bus service, parking
 
 ---
 
@@ -249,4 +236,3 @@ Support:
 - Communication lab for aptitude and soft skills
 - Placement library with aptitude and technical materials
 
-Keywords: placements, interview rooms, GD, training infrastructure

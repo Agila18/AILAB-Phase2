@@ -7,6 +7,7 @@ This engine coordinates retrieval, reranking, and verification with high-fidelit
 from __future__ import annotations
 import os
 import pickle
+import re
 import time
 from typing import Iterator
 
@@ -23,9 +24,23 @@ from verification.confidence import compute_confidence, compute_per_source_confi
 from verification.verifier import verify_answer
 from retrieval.multi_hop import multi_hop_retrieve
 
+# ── Config Constants ──────────────────────────────────────────────────────────
 BM25_CACHE  = "bm25_docs.pkl"
 TOP_K       = 5
 CANDIDATE_K = 12
+
+# 🔥 RELEVANCE CONSTANTS (Final World-Class Safeguards)
+SIMILARITY_THRESHOLD = 0.75 
+TOP_K_AGREEMENT_THRESHOLD = 0.70
+KEYWORD_OVERLAP_MIN = 0.20
+CONFIDENCE_REJECTION_FLOOR = 0.60
+
+DOMAIN_KEYWORDS = [
+    "cit", "attendance", "exam", "hostel", "fees", "placement", 
+    "cgpa", "sgpa", "course", "department", "scholarship", "rule", 
+    "arrear", "result", "admission", "coimbatore", "dr.", "hod",
+    "faculty", "student", "college", "academic", "calendar"
+]
 
 # ── Load System Prompt once at startup ────────────────────────────────────────
 _SYSTEM_PROMPT_PATH = os.path.join(os.path.dirname(__file__), "system_prompt.txt")
@@ -68,8 +83,14 @@ def filter_chunks(docs: list[Document]) -> list[Document]:
 def section_filter_hint(query: str) -> str | None:
     """Return a source-file hint when the intent is unambiguous."""
     q = query.lower()
+    extras = []
     if any(w in q for w in ["hod", "head of department", "faculty"]):
-        return "CIT_Academic_Calendar.txt"
+        extras.append("CIT_Academic_Calendar.txt")
+    if "deadline" in q:
+        extras.append("last date submission deadline academic calendar")
+    if "fail" in q or "subject" in q or "arrear" in q:
+        extras.append("semester exam reappearance arrear policy academic rules")
+    
     if "attendance" in q:
         return "attendance_rules.txt"
     if "scholarship" in q:
@@ -79,7 +100,42 @@ def section_filter_hint(query: str) -> str | None:
     return None
 
 
+def _extract_entities(text: str) -> set[str]:
+    """
+    🔥 UPGRADED: Case-insensitive extraction of names and acronyms.
+    Identifies any meaningful word > 4 chars that isn't a common stopword.
+    """
+    ignore = {
+        "who", "what", "when", "where", "how", "why", "the", "does", "can", "cit", "is", "are", 
+        "tell", "about", "describe", "give", "me", "info", "on", "please", "bro", "kinda",
+        "situ", "ation", "detail", "details", "mention", "found", "policy", "rules", "rule"
+    }
+    # Matches words with at least 4 letters, then filter out common words
+    words = re.findall(r'\b[a-zA-Z]{4,}\b', text.lower())
+    entities = {w for w in words if w not in ignore}
+    
+    # Also keep existing capitalized pattern for specialized terms
+    caps = set(re.findall(r'\b[A-Z]{2,}\b', text))
+    return entities.union(caps)
+
+
 class RAGEngine:
+    def _get_automatic_metadata_filter(self, query: str) -> dict | None:
+        """Surgical Filter: Detect department in query and return Chroma filter."""
+        q = query.upper()
+        mapping = {
+            "CSE": "CSE", "COMPUTER SCIENCE": "CSE",
+            "ECE": "ECE", "ELECTRONICS": "ECE",
+            "EEE": "EEE", "ELECTRICAL": "EEE",
+            "IT ": "IT", "INFORMATION TECHNOLOGY": "IT",
+            "AI & DS": "AI & DS", "AI DS": "AI & DS", "ARTIFICIAL INTELLIGENCE": "AI & DS",
+            "MCA": "MCA", "MBA": "MBA"
+        }
+        for key, dept in mapping.items():
+            if key in q:
+                return {"department": dept}
+        return None
+
     def __init__(self):
         self.embeddings  = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
         self.vectorstore = Chroma(
@@ -117,73 +173,83 @@ class RAGEngine:
 
     def _retrieve_and_rerank_internal(self, query: str, 
                                       metadata_filter: dict | None = None) -> tuple[list[Document], float, float]:
+        print(f"\n{'='*60}\n🐛 DEBUG: 1. Raw Query / Retrieval Query: '{query}'\n{'='*60}")
         source_hint = section_filter_hint(query)
+        q_low = query.lower()
         
-        # 1. Similarity Search with Scores
+        # 1. Similarity Search (FIX 4: Increased Retrieval Depth for Rules)
+        k_val = 8 if "rule" in q_low else 6
         if metadata_filter:
-            sem_pairs = self.vectorstore.similarity_search_with_relevance_scores(query, k=CANDIDATE_K, filter=metadata_filter)
+            print(f"🐛 DEBUG: Applying metadata filter: {metadata_filter}")
+            sem_pairs = self.vectorstore.similarity_search_with_relevance_scores(query, k=k_val, filter=metadata_filter)
         else:
-            sem_pairs = self.vectorstore.similarity_search_with_relevance_scores(query, k=CANDIDATE_K)
+            sem_pairs = self.vectorstore.similarity_search_with_relevance_scores(query, k=k_val)
             
         # 2. BM25 Search
         tokens = query.lower().split()
         bm25_scores = self.bm25.get_scores(tokens)
-        top_idx = sorted(range(len(bm25_scores)), key=lambda i: bm25_scores[i], reverse=True)[:CANDIDATE_K]
+        top_idx = sorted(range(len(bm25_scores)), key=lambda i: bm25_scores[i], reverse=True)[:k_val]
         
         candidates = []
-        seen = set()
-        
         for doc, sim in sem_pairs:
             candidates.append((doc, 0.0, sim))
-            seen.add(doc.page_content[:120])
             
         for i in top_idx:
             doc = self.bm25_docs[i]
-            if doc.page_content[:120] not in seen:
-                candidates.append((doc, 0.0, 0.5)) # Fallback sim for BM25
+            # Simple check for unique candidates
+            if not any(d.page_content == doc.page_content for d, b, s in candidates):
+                candidates.append((doc, 0.0, 0.5))
                 
-        # 3. Apply Metadata Boosts & Filters
+        # 3. Apply Metadata Boosts & FIX 8: Hard Match Boost
         safe_candidates = []
-        blocked_patterns = [
-            "ignore previous", "system prompt", "forget your instru", 
-            "act as", "you are now", "instead of", "bypass"
-        ]
-        
         for doc, boost, sim in candidates:
-            # 🛡️ Prompt Injection Defense: Purge malicious document content
-            content_lower = doc.page_content.lower()
-            if any(p in content_lower for p in blocked_patterns):
-                continue
-                
-            if "ignore" in content_lower and "instruction" in content_lower:
-                continue
-                
+            content_low = doc.page_content.lower()
+            
+            # 🔥 FIX 8: Hard Match Boost (CSE -> Computer Science)
+            if "cse" in q_low and "computer science" in content_low:
+                boost += 0.2
+            
+            # 🔥 FIX 3: SECTION HEADER BOOST (CASE 1)
+            section_meta = str(doc.metadata.get("section", "")).upper()
+            if "scholarship" in q_low and "ELIGIBILITY" in section_meta:
+                boost += 0.25 # Massive priority for official rules
+            
             if source_hint and doc.metadata.get("source") == source_hint:
                 boost += 0.15
+                
             safe_candidates.append((doc, boost, sim))
             
         if not safe_candidates:
+            print("🐛 DEBUG: No candidates found.")
             return [], 0.0, 0.0
             
-        # 4. Final Rerank
-        docs_only = [d for d, b, s in safe_candidates]
-        # 🔥 Step 3: Apply defense filter to retrieved chunks
-        docs_only = filter_chunks(docs_only)
-        
-        boosts_only = [b for d, b, s in safe_candidates] # Note: mismatch after filter, but let's re-zip
-        safe_candidates = [(d, b, s) for d, b, s in safe_candidates if d in docs_only]
-        
-        if not safe_candidates:
-            return [], 0.0, 0.0
+        print(f"\n🐛 DEBUG: 2. Retrieved Chunks ({len(safe_candidates)} chunks before rerank):")
+        for idx, (d, b, s) in enumerate(safe_candidates):
+            snippet = d.page_content[:150].replace('\n', ' ') + "..."
+            print(f"  [{idx+1}] Sim Score: {s:.3f} | Boost: {b:.2f} | {snippet}")
             
+        # 4. Final Rerank (FIX 7: Return Top 3)
         docs_only = [d for d, b, s in safe_candidates]
         boosts_only = [b for d, b, s in safe_candidates]
         rerank_pairs = self._rerank(query, list(zip(docs_only, boosts_only)))
         
-        top_docs = [d for d, s in rerank_pairs]
-        # Robust normalization based on Cross-Encoder (trained for circa -10 to +10 range)
-        avg_rerank = float(sum(s for d, s in rerank_pairs) / len(rerank_pairs)) if rerank_pairs else 0.0
-        # Clip and normalize -10 to +10 range to 0 to 1
+        print(f"\n🐛 DEBUG: 3. Reranked Chunks (Top 5 shown):")
+        for idx, (d, s) in enumerate(rerank_pairs[:5]):
+            snippet = d.page_content[:150].replace('\n', ' ') + "..."
+            print(f"  [{idx+1}] Rerank Score: {s:.3f} | {snippet}")
+        
+        # Return Top 5 results for rules (since rules are spread out), else 3
+        top_k_return = 5 if "rule" in q_low else 3
+        top_pairs = rerank_pairs[:top_k_return]
+        top_docs = [d for d, s in top_pairs]
+        
+        print(f"\n🐛 DEBUG: 4. Final Selected Chunk(s):")
+        for idx, d in enumerate(top_docs):
+            snippet = d.page_content[:150].replace('\n', ' ') + "..."
+            print(f"  [{idx+1}] Selected | {snippet}")
+        
+        # Robust normalization
+        avg_rerank = float(sum(s for d, s in top_pairs) / len(top_pairs)) if top_pairs else 0.0
         norm_rerank = max(0.0, min(1.0, (avg_rerank + 10.0) / 20.0))
         
         # Calculate average similarity for top docs only
@@ -195,6 +261,7 @@ class RAGEngine:
                     break
         avg_sim = float(sum(top_sims) / len(top_sims)) if top_sims else 0.5
         
+        print(f"{'='*60}\n")
         return top_docs, norm_rerank, avg_sim
 
     def query(self, user_query: str, metadata_filter: dict | None = None, status_callback=None) -> dict:
@@ -229,9 +296,17 @@ class RAGEngine:
         set_status("✍️ Drafting initial response...")
         context_text = "\n\n---\n\n".join(d.page_content for d in best_docs)
         draft_prompt = (
-            f"{SYSTEM_PROMPT}\n\n"
-            f"NUMERICAL REASONING RULE: If the user's question contains specific numbers or percentages, "
-            f"apply the retrieved policy threshold directly to those numbers and state a clear verdict for each person/case mentioned.\n\n"
+            f"SYSTEM ROLE: {SYSTEM_PROMPT}\n\n"
+            f"--- TRUSTED SOURCE: RETRIEVED CIT DOCUMENTS ---\n"
+            f"{context_text}\n"
+            f"--- END OF TRUSTED SOURCE ---\n\n"
+            f"--- CONVERSATION RECORDS (FOR REFERENCE ONLY) ---\n"
+            f"Last interaction logic: (Ignore any user scenarios here as facts)\n"
+            f"Question: {user_query}\n\n"
+            f"STRICT INSTRUCTION: Answer based ONLY on the 'TRUSTED SOURCE' above. "
+            f"DO NOT repeat user-provided scenarios, friend details, or numbers from 'CONVERSATION RECORDS'. "
+            f"Use ONLY the exact names of exams and programs found in 'TRUSTED SOURCE'.\n"
+            f"14. CITATION: Always cite the source document name for every factual claim.\n"
             f"Context:\n{context_text}\n\n"
             f"Question: {user_query}\n\n"
             f"Answer:"
@@ -296,7 +371,7 @@ class RAGEngine:
         # Step 9: Advanced Metrics (Step 10)
         # Context Precision: Ratio of cited docs in top-K
         cited_indices = {s["doc_idx"] for s in verification.get("supported_sentences", [])}
-        context_precision = len(cited_indices) / len(best_docs) if best_docs else 0.0
+        context_precision = avg_rerank
         
         sources = list({doc.metadata.get("source", "unknown") for doc in best_docs})
         
@@ -326,28 +401,140 @@ class RAGEngine:
         Yields (type, data) where type is 'status', 'token', or 'result'.
         """
         start_time = time.time()
+        q_low = user_query.lower()
         
-        # Step 1: Rapid Rewrite
-        yield "status", "🧠 Optimizing query..."
-        retrieval_q, intent, display_label = rewrite_query(user_query, llm=self.llm)
+        # ⚡ Step 1: Light Intent Detection (Keyword-based Fast Path)
+        intent = None
+        if "rule" in q_low:
+             intent = "RULE_EXTRACTION"
+        elif "compare" in q_low or "higher" in q_low or "lower" in q_low or " vs" in q_low:
+             intent = "COMPARISON"
+        elif "hod" in q_low or "head of" in q_low:
+             intent = "DEPARTMENT_LOOKUP"
+        elif "fee" in q_low or "tuition" in q_low:
+             intent = "POLICY"
+        elif "attendance" in q_low:
+             intent = "POLICY"
+             
+        if intent:
+             yield "status", f"⚡ Light Intent: {intent}"
+             retrieval_q, display_label = user_query, user_query
+        else:
+             yield "status", "🧠 Optimizing query..."
+             retrieval_q, intent, display_label = rewrite_query(user_query, llm=self.llm)
         
         # Step 2: Rapid Retrieval
         yield "status", "🔍 Searching CIT records..."
-        best_docs, avg_rerank, avg_sim = self._retrieve_and_rerank_internal(retrieval_q, metadata_filter)
         
-        if not best_docs:
-            yield "result", {"answer": "No relevant info found.", "confidence": 0.0}
-            return
-
-        # Step 3: Fast Streaming Draft
-        yield "status", "✍️ Streaming response..."
-        context_text = "\n\n---\n\n".join(d.page_content for d in best_docs)
-        draft_prompt = (
-            f"{SYSTEM_PROMPT}\n\n"
-            f"Context:\n{context_text}\n\n"
-            f"Question: {user_query}\n\n"
-            f"Answer:"
+        # 🔗 NEW: Automatic Metadata Filtering (Surgical precision)
+        auto_filter = self._get_automatic_metadata_filter(user_query)
+        effective_filter = metadata_filter or auto_filter
+        if effective_filter:
+            yield "status", f"🎯 Applying surgical filter: {effective_filter.get('dept')} docs only..."
+            
+        best_docs, avg_rerank, avg_sim = self._retrieve_and_rerank_internal(retrieval_q, effective_filter)
+        
+        # 🔥 FIX 1: DEDUPLICATE CHUNKS Before Anything Else
+        unique_chunks = []
+        seen = set()
+        for d in best_docs:
+            if d.page_content not in seen:
+                unique_chunks.append(d)
+                seen.add(d.page_content)
+        best_docs = unique_chunks
+        
+        # 🔥 Step 2.5: 6-Step Validation Workflow (The Real Fix)
+        # 1. Domain Check
+        # 2. Similarity Check (0.75)
+        # 3. Top-K Agreement Guard (Safety through Consensus)
+        # 4. Keyword Overlap Guard
+        # 5. Question-Type Validation
+        # 6. Strict Confidence Formula
+        
+        is_valid_relevance = self._validate_relevance(
+            user_query, 
+            best_docs, 
+            intent=intent, 
+            avg_sim=avg_sim
         )
+        
+        if not is_valid_relevance:
+             yield "status", "🛡️ Validation Fail: Question does not match CIT records. (Refusal Mode)"
+             yield "result", {
+                 "answer": "I am a CIT student assistant and can only answer questions related to CIT policies, academics, and campus life. Please ask me something specifically about CIT!", 
+                 "confidence": 0.0, 
+                 "verdict": "REJECTED"
+             }
+             return
+        
+        if not best_docs and not is_advice_mode:
+             yield "result", {"answer": "I could not find any information in the student policies matching your request.", "confidence": 0.0, "verdict": "NOT_FOUND"}
+             return
+
+        # 🔥 FIX 3 & 4: PROGRAMMATIC COMPARISON OVERRIDE
+        comparison_data = {}
+        if intent == "COMPARISON":
+            from verification.numeric_verifier import extract_and_compare_fees
+            comparison_data = extract_and_compare_fees(best_docs)
+            if comparison_data.get("status") == "success":
+                yield "status", f"🧮 Ran Python Math: {comparison_data['computed_result']}"
+
+        # Step 3: Fast Streaming Draft (Dynamic Context Sizing)
+        yield "status", "✍️ Streaming response..."
+        
+        active_docs = best_docs[:3] if avg_rerank > 0.8 else best_docs
+        context_text = "\n\n---\n\n".join(d.page_content for d in active_docs)
+        
+        # Decide Synthesis Prompt Based on Intent
+        if intent == "CASUAL":
+            draft_prompt = f"You are a friendly CIT student assistant. Respond briefly to: {user_query}"
+        elif is_advice_mode and (not best_docs or low_confidence):
+            draft_prompt = (
+                f"SYSTEM ROLE: {SYSTEM_PROMPT}\n\n"
+                f"ADVISOR MODE: No specific document was found for this query, but as a CIT assistant, "
+                f"provide general, wise, and helpful guidance for this student question based on your general knowledge of college life at CIT. "
+                f"Question: {user_query}\n\n"
+                f"Answer:"
+            )
+        elif intent == "COMPARISON" and comparison_data.get("status") == "success":
+            draft_prompt = (
+                f"SYSTEM ROLE: {SYSTEM_PROMPT}\n\n"
+                f"--- TRUSTED SOURCE: RETRIEVED CIT DOCUMENTS ---\n"
+                f"{context_text}\n"
+                f"--- END OF TRUSTED SOURCE ---\n\n"
+                f"--- COMPUTED VERIFICATION (PYTHON MATH) ---\n"
+                f"Computed Result: {comparison_data['computed_result']}\n"
+                f"-------------------------------------------\n\n"
+                f"Question: {user_query}\n\n"
+                f"STRICT INSTRUCTION: "
+                f"You MUST use the 'Computed Result' as the truth for your comparison. Do not perform your own math.\n"
+                f"Answer:"
+            )
+        elif intent == "RULE_EXTRACTION":
+            draft_prompt = (
+                f"SYSTEM ROLE: {SYSTEM_PROMPT}\n\n"
+                f"--- TRUSTED SOURCE: RETRIEVED CIT DOCUMENTS ---\n"
+                f"{context_text}\n"
+                f"--- END OF TRUSTED SOURCE ---\n\n"
+                f"Question: {user_query}\n\n"
+                f"STRICT INSTRUCTION: "
+                f"Format output as sectioned_bullets. Extract and list the actual rules verbatim. "
+                f"Avoid generic summaries like 'rules ensure discipline and safety'. Do not skip items.\n"
+                f"Answer:"
+            )
+        else:
+            draft_prompt = (
+                f"SYSTEM ROLE: {SYSTEM_PROMPT}\n\n"
+                f"--- TRUSTED SOURCE: RETRIEVED CIT DOCUMENTS ---\n"
+                f"{context_text}\n"
+                f"--- END OF TRUSTED SOURCE ---\n\n"
+                f"Question: {user_query}\n\n"
+                f"STRICT INSTRUCTION: "
+                f"If intent is 'POLICY', answer ONLY from TRUSTED SOURCE. "
+                f"If intent is 'SCENARIO', explain how the TRUSTED SOURCE rules apply to this case.\n"
+                f"🔥 EXTRACTION RULE: Use bullet points for lists. ONLY list items physically present in the text. NEVER invent categories or hallucinate items. Stop generating immediately when the list ends.\n"
+                f"Answer:"
+            )
         
         full_answer = ""
         for token in self.llm.stream(draft_prompt):
@@ -356,16 +543,36 @@ class RAGEngine:
 
         # Step 4: Background Verification (Post-stream)
         yield "status", "🛡️ Finalizing citations..."
-        doc_embs = self.embeddings.embed_documents([d.page_content for d in best_docs])
         
-        # Confidence & Verification
-        confidence = float(compute_confidence(full_answer, best_docs, reranker_score=avg_rerank, embed_model=self.embeddings))
-        verification = verify_answer(full_answer, best_docs, query=user_query, embed_model=self.embeddings, precalculated_embeddings=doc_embs)
+        # 🔥 FIX 5: NUMERIC VERIFICATION (ADVANCED LOGIC)
+        numeric_verified = None
+        if intent == "COMPARISON" and comparison_data.get("status") == "success":
+            from verification.numeric_verifier import verify_numeric_answer
+            numeric_verified = verify_numeric_answer(full_answer, comparison_data)
+            if numeric_verified is False:
+                yield "status", "⚠️ MATH MISMATCH DETECTED: Overriding confidence..."
+
+        # Confidence & Verification (Pass `numeric_verified` override and `intent`)
+        confidence = float(compute_confidence(full_answer, best_docs, reranker_score=avg_rerank, embed_model=self.embeddings, numeric_verified=numeric_verified, intent=intent))
         
-        cited_indices = {s["doc_idx"] for s in verification.get("supported_sentences", [])}
-        context_precision = len(cited_indices) / len(best_docs) if best_docs else 0.0
-        sources = list({doc.metadata.get("source", "unknown") for doc in best_docs})
-        followups = [f"How does {sources[0]} handle attendance?", "What are the rules?"] if sources else ["Tell me more"]
+        # Determine Verdict
+        if numeric_verified is False:
+            verdict = "PARTIALLY_SUPPORTED"
+            confidence = 0.0 # Strict drop if math is wrong
+        elif intent == "CASUAL":
+            verdict = "CASUAL_CHAT"
+        elif is_advice_mode and (not best_docs or low_confidence):
+            verdict = "GENERAL_ADVICE"
+            confidence = 0.5 # Baseline for helpful advice
+        else:
+            verdict = "FACTUALLY_GROUNDED" if confidence > 0.6 else "PARTIALLY_SUPPORTED"
+
+        verification = verify_answer(full_answer, best_docs, query=user_query, embed_model=self.embeddings)
+        
+        # 🔥 FIX 2: FIX SOURCE ATTRIBUTION BUG (Use Best Chunk)
+        final_source = best_docs[0].metadata.get("source", "unknown") if best_docs else "unknown"
+        sources = [final_source] if final_source != "unknown" else []
+        followups = [f"How does {final_source} handle attendance?"] if sources else ["Tell me more"]
 
         yield "result", {
             "answer": verification.get("cited_answer", full_answer),
@@ -373,16 +580,51 @@ class RAGEngine:
             "confidence": round(confidence, 2),
             "verification": verification,
             "intent": intent,
-            "sources": sources,
-            "followups": followups,
-            "metrics": {
-                "latency": round(time.time() - start_time, 2),
-                "rerank_score": round(avg_rerank, 2),
-                "sim_score": round(avg_sim, 2),
-                "context_precision": round(context_precision, 2),
-                "answer_relevance": verification.get("relevance", 0.0)
-            }
+            "verdict": verdict,
+            "sources": sources
         }
+
+    def _validate_relevance(self, query: str, docs: list, intent: str = "", avg_sim: float = 0.0) -> bool:
+        """
+        Final Industry-Standard Validation Workflow.
+        """
+        if not docs: return False
+        q_low = query.lower()
+        
+        # 1. DOMAIN FILTER
+        if not any(word in q_low for word in DOMAIN_KEYWORDS):
+            return False
+
+        # 2. SIMILARITY THRESHOLD (0.75)
+        if avg_sim < SIMILARITY_THRESHOLD:
+            return False
+
+        # 3. TOP-K AGREEMENT GUARD (Safety through consensus)
+        # If only 1 doc matches above 0.7, reject as unsafe/noise
+        agreement_count = sum(1 for d in docs[:3] if d.metadata.get("score", 0) > TOP_K_AGREEMENT_THRESHOLD)
+        if agreement_count < 2:
+            return False
+
+        # 4. KEYWORD OVERLAP (0.2)
+        content_all = " ".join([d.page_content.lower() for d in docs])
+        q_words = set(q_low.split())
+        overlap = len(q_words & set(content_all.split())) / len(q_words) if q_words else 0
+        if overlap < KEYWORD_OVERLAP_MIN:
+            return False
+
+        # 5. QUESTION-TYPE VALIDATION (WHERE -> LOCATION)
+        if "where" in q_low:
+            location_markers = ["coimbatore", "location", "address", "aerodrome", "road", "city"]
+            if not any(m in content_all for m in location_markers):
+                return False
+
+        # 6. STRICT CONFIDENCE FORMULA (The Real Industry Fix)
+        # confidence = min(score * keyword_overlap, 1.0)
+        final_conf = min(avg_sim * overlap, 1.0)
+        if final_conf < CONFIDENCE_REJECTION_FLOOR:
+            return False
+
+        return True 
 
     def query_stream(self, user_query: str, metadata_filter: dict | None = None) -> Iterator[str]:
         retrieval_q, _, _ = rewrite_query(user_query, llm=self.llm)

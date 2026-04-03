@@ -9,7 +9,7 @@ SECTION: OVERVIEW OF ADMISSIONS
 - Programs include Undergraduate (UG), Postgraduate (PG), Integrated M.Sc., and Ph.D.
 - Admission is subject to eligibility verification and regulatory approval.
 
-Keywords: CIT admission overview, admission process CIT
+
 
 ================================================================================
 SECTION: B.E. / B.TECH ADMISSION ELIGIBILITY
@@ -37,7 +37,6 @@ OR
 Age Limit:
 - No age restriction
 
-Keywords: BE eligibility CIT, BTech eligibility CIT
 
 --------------------------------------------------------------------------------
 SECTION: CATEGORY-WISE MINIMUM MARKS
@@ -52,7 +51,6 @@ SECTION: CATEGORY-WISE MINIMUM MARKS
 - SC / ST:
   - Pass marks sufficient
 
-Keywords: category marks CIT, reservation eligibility CIT
 
 --------------------------------------------------------------------------------
 SECTION: ATTEMPT LIMITS
@@ -63,8 +61,6 @@ SECTION: ATTEMPT LIMITS
 
 - SC/ST Candidates:
   - Maximum 3 attempts
-
-Keywords: attempt limit CIT admission
 
 --------------------------------------------------------------------------------
 SECTION: ADMISSION PROCESS (B.E./B.TECH)
@@ -78,8 +74,6 @@ SECTION: ADMISSION PROCESS (B.E./B.TECH)
 Important Timeline:
 - TNEA 2026 Application expected: First week of May 2026
 
-Keywords: TNEA CIT admission, counselling process CIT
-
 ================================================================================
 SECTION: B.E. / B.TECH PROGRAMMES OFFERED
 ================================================================================
@@ -92,8 +86,6 @@ SECTION: B.E. / B.TECH PROGRAMMES OFFERED
 - Information Technology
 - Chemical Engineering
 - Artificial Intelligence and Data Science
-
-Keywords: BE courses CIT, BTech courses CIT
 
 ================================================================================
 SECTION: LATERAL ENTRY ADMISSION
@@ -109,8 +101,6 @@ Admission Process:
 
 Entry Level:
 - Direct admission to Second Year
-
-Keywords: lateral entry CIT, diploma admission CIT
 
 ================================================================================
 SECTION: M.E. (MASTER OF ENGINEERING) ADMISSION
@@ -128,8 +118,6 @@ Entrance Exams:
 Notes:
 
 - Eligibility and cut-offs vary by specialization
-
-Keywords: ME admission CIT, PG engineering admission CIT
 
 ================================================================================
 SECTION: MBA ADMISSION
@@ -149,8 +137,6 @@ Selection Process:
 - Group Discussion (GD)
 - Personal Interview (PI)
 
-Keywords: MBA admission CIT, TANCET MBA CIT
-
 ================================================================================
 SECTION: MCA ADMISSION
 ================================================================================
@@ -162,8 +148,6 @@ Eligibility:
 Admission Process:
 
 - Through TANCET counselling
-
-Keywords: MCA admission CIT, computer applications admission CIT
 
 ================================================================================
 SECTION: M.Sc. INTEGRATED PROGRAMMES ADMISSION
@@ -186,8 +170,6 @@ Application:
 
 - Available at www.cit.edu.in
 
-Keywords: MSc integrated CIT, 5 year programs CIT
-
 ================================================================================
 SECTION: Ph.D. ADMISSION
 ================================================================================
@@ -200,8 +182,6 @@ Selection Process:
 
 - Written Test
 - Interview conducted by department
-
-Keywords: PhD admission CIT, research admission CIT
 
 ================================================================================
 SECTION: DOCUMENTS REQUIRED FOR ADMISSION
@@ -218,8 +198,6 @@ SECTION: DOCUMENTS REQUIRED FOR ADMISSION
 - Medical Fitness Certificate
 - Anti-Ragging Affidavit (online submission: antiragging.in)
 
-Keywords: admission documents CIT, required certificates CIT
-
 ================================================================================
 SECTION: IMPORTANT ADMISSION NOTES
 ================================================================================
@@ -233,8 +211,6 @@ SECTION: IMPORTANT ADMISSION NOTES
   - Available for selected programmes
 - Provisional admission:
   - Allowed until document verification completion
-
-Keywords: admission rules CIT, management quota CIT
 
 ================================================================================
 SECTION: CONTACT INFORMATION
@@ -256,16 +232,4 @@ Phone:
 Website:
 - www.cit.edu.in
 
-Keywords: CIT admission contact, CIT phone number, CIT address
 
-================================================================================
-GLOBAL KEYWORDS
-================================================================================
-
-- CIT admission eligibility
-- CIT BE BTech admission
-- CIT MBA MCA admission
-- CIT MSc integrated admission
-- CIT PhD admission
-- TNEA TANCET CIT
-- documents required CIT admission

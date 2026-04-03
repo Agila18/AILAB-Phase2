@@ -16,7 +16,6 @@ Purpose:
 - Provides flexibility in course selection
 - Allows students to choose electives based on interests and career goals
 
-Keywords: CBCS CIT, credit system CIT, flexible learning CIT
 
 ================================================================================
 SECTION: COURSE CATEGORIES
@@ -48,7 +47,6 @@ SECTION: COURSE CATEGORIES
 - Mini Projects: 2 credits (V and VI semesters)
 - Final Year Projects
 
-Keywords: course types CIT, electives CIT, core subjects CIT
 
 ================================================================================
 SECTION: COURSE REGISTRATION PROCESS
@@ -64,7 +62,6 @@ Support:
 - Academic office assistance
 - Faculty advisor guidance
 
-Keywords: course registration CIT, semester registration process
 
 ================================================================================
 SECTION: ADD/DROP PERIOD
@@ -80,7 +77,6 @@ Rules:
 Exception:
 - Only with special approval from Head of Department (HOD)
 
-Keywords: add drop CIT, course change rules CIT
 
 ================================================================================
 SECTION: CREDIT LOAD
@@ -95,7 +91,6 @@ Rules:
   - Academic advisor approval
   - HOD approval
 
-Keywords: credit limit CIT, semester credits CIT
 
 ================================================================================
 SECTION: ELECTIVE COURSE SELECTION
@@ -111,7 +106,6 @@ Special Options:
 Governance:
 - Board of Studies reviews and updates electives
 
-Keywords: elective selection CIT, foreign language option CIT
 
 ================================================================================
 SECTION: INDUSTRIAL TRAINING
@@ -136,7 +130,6 @@ Credits:
 Condition:
 - Must be completed to obtain degree
 
-Keywords: industrial training CIT, internship requirement CIT
 
 ================================================================================
 SECTION: MINI PROJECT
@@ -153,7 +146,6 @@ Requirements:
 Purpose:
 - Apply theoretical knowledge to practical problems
 
-Keywords: mini project CIT, project credits CIT
 
 ================================================================================
 SECTION: COURSE WITHDRAWAL
@@ -170,7 +162,6 @@ Impact:
 - No grade penalty
 - Course must be completed later
 
-Keywords: withdrawal CIT, W grade CIT
 
 ================================================================================
 SECTION: BACKLOG / ARREAR COURSES
@@ -183,7 +174,6 @@ Rules:
 Advice:
 - Prioritize clearing arrears before taking extra electives
 
-Keywords: arrear rules CIT, backlog courses CIT
 
 ================================================================================
 SECTION: SYLLABUS REVISION
@@ -199,7 +189,6 @@ Responsible Bodies:
 Purpose:
 - Keep curriculum updated with industry trends
 
-Keywords: syllabus update CIT, curriculum revision CIT
 
 ================================================================================
 SECTION: PROGRAMME DURATION
@@ -219,16 +208,4 @@ Integrated:
 Doctoral:
 - Ph.D: Minimum 3 years
 
-Keywords: course duration CIT, semesters CIT, program length CIT
 
-================================================================================
-GLOBAL KEYWORDS
-================================================================================
-
-- CIT course registration
-- CIT CBCS system
-- CIT electives and credits
-- CIT industrial training rules
-- CIT mini project details
-- CIT arrear and withdrawal rules
-- CIT syllabus revision

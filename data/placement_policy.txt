@@ -26,8 +26,6 @@ Email: placement@cit.edu.in
 Fax: +91-422-2575020
 Address: Civil Aerodrome Post, Coimbatore - 641014, India
 
-Keywords: placement cell, CIT placements, recruitment, campus hiring
-
 ---
 
 SECTION: Placement Cell Leadership
@@ -38,8 +36,6 @@ SECTION: Placement Cell Leadership
 - Dr. S. Thilaga - Deputy Placement Officer, Department of MBA
 - Mr. R. Vivek Kumar - Training and Placement Officer
 - Col. Jacob G Podipara - Deputy Placement Officer, Department of Civil Engineering
-
-Keywords: placement officers, leadership, CIT placement team
 
 ---
 
@@ -52,8 +48,6 @@ Facilities:
 - Communication lab for skill development
 - Placement library with aptitude and technical materials
 - Display of campus recruitment information for student awareness
-
-Keywords: placement infrastructure, GD rooms, interview rooms
 
 ---
 
@@ -81,8 +75,6 @@ Entrepreneurship Support:
 - Guidance for self-employment
 - Information on government financial assistance
 
-Keywords: placement training, aptitude, interview preparation
-
 ---
 
 SECTION: Placement Process
@@ -107,8 +99,6 @@ Step 6: Offer Letter
 Special Note:
 - Companies compete to be "Day One" recruiters
 
-Keywords: placement process, PPT, GD, interview rounds
-
 ---
 
 SECTION: Placement Statistics and Highlights
@@ -132,8 +122,6 @@ MCA Placements:
 
 MBA Placements:
 - Highest Package: Rs. 12 LPA
-
-Keywords: placement stats, highest package, average salary
 
 ---
 
@@ -160,8 +148,6 @@ Oracle, Zoho, Infosys, Accenture, LSEG, EXL, Yubi, EY, NGP, Cognizant, Tata Tech
 Additional Recruiters:
 Genau Extrusions, Shaachi, Buckman, SPAN, NGP, CMS, Filesure, CUMI, RDC Concrete, Impelox, Delphi-TVS Technologies, Simpolo, Rabwin, Infinium, Timbertruss, URC Building Values, Aarbee, FedEx, Alstom
 
-Keywords: recruiters, companies, hiring partners
-
 ---
 
 SECTION: Placement Rules and Policies
@@ -172,8 +158,6 @@ SECTION: Placement Rules and Policies
 - Absence without notice may lead to debarment
 - Must meet academic and attendance requirements
 - Industrial training must be completed
-
-Keywords: placement rules, eligibility, policy
 
 ---
 
@@ -189,8 +173,6 @@ Internship Companies:
 
 International Internships:
 - UCF, ASU, UBC, NUS, Ontario Tech, Athabasca University, University of Malaya
-
-Keywords: internships, industrial training
 
 ---
 
@@ -214,8 +196,6 @@ International Collaborations:
 - Swinburne University
 - British Council
 
-Keywords: higher studies, GRE, GATE, abroad studies
-
 ---
 
 SECTION: Reasons for Placement Success
@@ -233,8 +213,6 @@ SECTION: Reasons for Placement Success
   - Material Science
   - Cyber Security
 
-Keywords: placement success, reasons, CIT strength
-
 ---
 
 SECTION: Notable Alumni in Industry
@@ -247,8 +225,6 @@ SECTION: Notable Alumni in Industry
 - Aarthi Anbalagan - Software Engineer, Microsoft
 - Prabhu Loganathan - Vice President, Qualitest
 - L. Jayakumar - Consultant, TCS
-
-Keywords: alumni, industry leaders
 
 ---
 
@@ -263,4 +239,3 @@ Email: placement@cit.edu.in
 Website: www.cit.edu.in
 LinkedIn: linkedin.com/school/coimbatore-institute-of-technology/
 
-Keywords: placement contact, phone, email

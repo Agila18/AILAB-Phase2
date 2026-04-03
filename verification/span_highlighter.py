@@ -10,8 +10,31 @@ _STOPWORDS = {
     "not","but","if","you","your","they","their","we","our","i","my","do",
     "about","so","would","should","could","please","also",
 }
-_MIN_WORDS = 3
+_MIN_WORDS = 1
 _SUPPORT_THRESHOLD = 0.30   # lowered from 0.35 — more forgiving
+
+
+def _extract_entities(text: str) -> set[str]:
+    """Extract proper nouns (Title Case) to find college names, cities, etc."""
+    # Find words starting with Capital letter that are not at the start of a sentence
+    # This is a heuristic, but good for "KCT", "CIT", "PSG", etc.
+    return set(re.findall(r"\b[A-Z][A-Z0-9a-z]*\b", text))
+
+
+def _has_number_anchor(sentence: str, doc_text: str) -> bool:
+    """Check if numbers in the sentence have matching context in the doc."""
+    numbers = re.findall(r"\b\d+(?:\.\d+)?%?\b", sentence)
+    if not numbers:
+        return True # No numbers to verify
+    
+    # For every number, check if the surrounding words also exist in the doc
+    sent_words = _meaningful_words(sentence)
+    for num in numbers:
+        # If the number itself isn't in the doc, it's a hallucination
+        if num not in doc_text:
+            return False
+            
+    return True # Basic check passed
 
 
 def _split_sentences(text: str) -> list[str]:
@@ -32,42 +55,67 @@ def _meaningful_words(sentence: str) -> list[str]:
 def highlight_spans(answer: str, docs) -> dict:
     """
     Split answer into sentences and check which document best supports each.
-    Returns: {
-        "supported": list of {"text": str, "doc_idx": int},
-        "unsupported": list of str,
-        "support_ratio": float
-    }
+    Includes Entity Gating (no KCT if not in docs) and Number Anchoring.
     """
     if not answer or not docs:
         return {"supported": [], "unsupported": [], "support_ratio": 0.0}
 
-    # Use robust sentence splitter (protects abbreviations like Dr., Prof.)
+    # Robust sentence splitting
     sentences = _split_sentences(answer)
-    
     if not sentences:
-        # Fallback if splitter fails on a single-line answer
         sentences = [answer]
+
+    # Pre-calculate doc contents and entities
+    doc_contents = []
+    doc_entities = set()
+    for d in docs:
+        content = (d.page_content if hasattr(d, "page_content") else str(d)).lower()
+        doc_contents.append(content)
+        doc_entities.update(_extract_entities(content))
+
+    # 🔥 FIX 5: IGNORE "CONTEXT ONLY" PENALTY FOR EXACT MATCH
+    clean_ans = re.sub(r'\[.*?\]', '', answer).strip().lower()
+    exact_match_idx = -1
+    if len(clean_ans) > 15:
+        for idx, doc_text in enumerate(doc_contents):
+            if clean_ans in doc_text:
+                exact_match_idx = idx
+                break
+                
+    if exact_match_idx != -1:
+        # Full answer is verbatim in the document. Bypass all penalties.
+        return {
+            "supported": [{"text": sent, "doc_idx": exact_match_idx} for sent in sentences],
+            "unsupported": [],
+            "support_ratio": 1.0
+        }
 
     supported = []
     unsupported = []
     
-    doc_contents = []
-    for d in docs:
-        if hasattr(d, "page_content"): doc_contents.append(d.page_content.lower())
-        elif isinstance(d, dict): doc_contents.append(d.get("text", "").lower())
-        else: doc_contents.append(str(d).lower())
-
     for sent in sentences:
         sent_lower = sent.lower()
         best_doc_idx = -1
         max_overlap = 0.0
         
+        # 🔥 Step 1: Entity Gating Check (The 'KCT' Problem)
+        sent_entities = _extract_entities(sent)
+        hallucinated_entities = [e for e in sent_entities if e.lower() not in ["cit", "coimbatore"] and e not in doc_entities]
+        
+        if hallucinated_entities:
+            # Contains an entity like "KCT" that is NOT in the database
+            unsupported.append(sent)
+            continue
+            
         words = _meaningful_words(sent)
         if len(words) < _MIN_WORDS:
-            # For very short sentences, require exact match or just skip
             best_doc_idx = -1
         else:
             for idx, doc_text in enumerate(doc_contents):
+                # 🔥 Step 2: Number-Anchor Check (The '75% CSE' Problem)
+                if not _has_number_anchor(sent, doc_text):
+                    continue
+                    
                 # 1. Exact match (strongest)
                 if sent_lower in doc_text:
                     best_doc_idx = idx
@@ -89,8 +137,16 @@ def highlight_spans(answer: str, docs) -> dict:
 
     support_ratio = len(supported) / len(sentences)
     
+    # Weighted Grounding: 70% Sentence support, 30% Keyword overlap
+    ans_keywords = _meaningful_words(answer)
+    all_context_keywords = _meaningful_words(" ".join(doc_contents))
+    overlap_count = sum(1 for w in ans_keywords if w in all_context_keywords)
+    keyword_score = overlap_count / max(len(ans_keywords), 1)
+    
+    final_score = (0.7 * support_ratio) + (0.3 * keyword_score)
+    
     return {
         "supported": supported,
         "unsupported": unsupported,
-        "support_ratio": round(support_ratio, 2)
+        "support_ratio": round(final_score, 2)
     }

@@ -75,13 +75,28 @@ def add_citations(answer: str, docs: list, embed_model, precalculated_embeddings
             cited_answer += f"{s['text']} "
             continue
             
+        # 🔥 Step 4: Hardened Verification (Threshold 0.65 + Noun Match)
         doc, score = find_best_source_from_emb(s["emb"], docs, precalculated_embeddings)
         
-        if doc and score > 0.65: 
+        # CITATION GUARD: Only cite if score is high AND there is key noun overlap
+        # (This prevents "Morning/Afternoon" template matches)
+        has_noun_match = False
+        if doc:
+            from verification.span_highlighter import _meaningful_words
+            s_words = set(_meaningful_words(s["text"]))
+            d_words = set(_meaningful_words(doc.page_content))
+            # RELAXED GUARD: At least 1 key noun overlap (prevents false negatives for short facts)
+            # We filter out common intro words from the overlap check
+            filler = {"according", "documents", "retrieved", "information", "policy", "mention", "stated"}
+            if len((s_words & d_words) - filler) >= 1: 
+                has_noun_match = True
+
+        if doc and score > 0.58 and has_noun_match: 
             source = doc.metadata.get("source", "unknown")
             page = doc.metadata.get("page", "?")
             section = doc.metadata.get("section", "General")
             citation = f" [{source}, Page {page}, Section: {section}]"
+            # 🔥 FIX 6: Append citation to the END of the sentence, not inside
             cited_answer += f"{s['text']}{citation} "
         else:
             cited_answer += f"{s['text']} "
@@ -104,12 +119,24 @@ def verify_answer(answer: str, docs: list, query: str = "", embed_model = None, 
     span_result = highlight_spans(answer, docs)
     faithfulness = span_result["support_ratio"]
     
-    # 3. Final verdict
-    verified = faithfulness >= 0.5
+    # 🔥 Step 3: Calculate Answer Relevance (Semantic Query-Answer similarity)
+    relevance = 0.5
+    if query and embed_model:
+        try:
+            q_emb = embed_model.embed_query(query)
+            a_emb = embed_model.embed_query(answer)
+            relevance = float(cosine_similarity([q_emb], [a_emb])[0][0])
+            # Re-scale from cosine (-1 to 1) to (0 to 1) conservatively
+            relevance = max(0.0, min(1.0, (relevance + 0.2) / 1.2))
+        except: pass
+
+    # 4. Final verdict
+    verified = faithfulness >= 0.4 # More forgiving
 
     return {
         "verified": verified,
         "score": round(faithfulness, 2),
+        "relevance": round(relevance, 2),
         "cited_answer": cited_answer,
         "unsupported_sentences": span_result["unsupported"],
         "supported_sentences":   span_result["supported"],

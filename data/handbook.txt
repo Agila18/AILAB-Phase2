@@ -32,7 +32,6 @@ Motto:
 Location:
 - Avinashi Road, Civil Aerodrome Post, Coimbatore - 641014, Tamil Nadu, India
 
-Keywords: CIT overview, CIT accreditation, CIT autonomous status
 
 ================================================================================
 SECTION: HISTORY
@@ -50,7 +49,6 @@ Affiliation Timeline:
 Milestone:
 - Autonomous status granted in 1987
 
-Keywords: CIT history, founders CIT, affiliation history
 
 ================================================================================
 SECTION: CAMPUS DETAILS
@@ -65,7 +63,6 @@ Location Advantage:
 Departments:
 - 14 academic departments
 
-Keywords: CIT campus size, CIT location, infrastructure CIT
 
 ================================================================================
 SECTION: LEADERSHIP
@@ -80,7 +77,6 @@ Principal:
 President:
 - K. Divya Mohana Rajiv
 
-Keywords: CIT leadership, principal CIT, chairman CIT
 
 ================================================================================
 SECTION: GOVERNANCE STRUCTURE
@@ -96,7 +92,6 @@ Non-Statutory Bodies:
 - Planning and Evaluation Committee
 - Curriculum Development Cell
 
-Keywords: governance CIT, committees CIT
 
 ================================================================================
 SECTION: GENERAL RULES
@@ -108,7 +103,6 @@ Rules:
 - Maintain proper dress and decorum
 - Mobile phones must be switched off during classes/labs
 
-Keywords: general rules CIT, campus discipline
 
 ================================================================================
 SECTION: CODE OF CONDUCT (SUMMARY)
@@ -120,7 +114,6 @@ Rules:
 - Academic integrity is mandatory (no cheating/plagiarism)
 - Maintain discipline during events and activities
 
-Keywords: code of conduct CIT, student discipline rules
 
 ================================================================================
 SECTION: ACADEMIC STRUCTURE
@@ -139,7 +132,6 @@ Evaluation:
 Student Responsibility:
 - Consult academic advisor before course registration
 
-Keywords: academic system CIT, CBCS CIT, semester system
 
 ================================================================================
 SECTION: DEPARTMENTS
@@ -161,7 +153,6 @@ Departments Offered:
 - English
 - Management Studies
 
-Keywords: CIT departments list, engineering departments CIT
 
 ================================================================================
 SECTION: PROGRAMMES OFFERED
@@ -179,7 +170,6 @@ Breakdown:
 Fee Range:
 - Rs. 80,410 to Rs. 7,40,000 (varies by programme)
 
-Keywords: CIT courses list, UG PG programs CIT
 
 ================================================================================
 SECTION: RANKINGS
@@ -188,7 +178,6 @@ SECTION: RANKINGS
 NIRF Ranking 2024:
 - Band: 101–150 (Engineering Category)
 
-Keywords: CIT ranking NIRF, ranking CIT
 
 ================================================================================
 SECTION: CAMPUS FACILITIES
@@ -209,7 +198,6 @@ Facilities:
 - Stationery shop
 - Gymnasium
 
-Keywords: facilities CIT, infrastructure CIT campus
 
 ================================================================================
 SECTION: STUDENT ORGANIZATIONS
@@ -229,7 +217,6 @@ Professional Chapters:
 - IEEE Student Chapter
 - Indian Institute of Chemical Engineers
 
-Keywords: student clubs CIT, organizations CIT
 
 ================================================================================
 SECTION: MAJOR EVENTS
@@ -249,7 +236,6 @@ Events:
   - National technical symposium (Computer Applications)
   - Month: January
 
-Keywords: events CIT, symposium CIT
 
 ================================================================================
 SECTION: NOTABLE ALUMNI
@@ -273,7 +259,6 @@ SECTION: NOTABLE ALUMNI
 - Venkat Panchapakesan:
   - Senior VP Engineering, YouTube/Google
 
-Keywords: alumni CIT, famous alumni CIT
 
 ================================================================================
 SECTION: ACADEMIC INNOVATIONS
@@ -284,7 +269,6 @@ Innovations:
 - Option to study German/French instead of English (2nd semester)
 - Industry-oriented electives (especially IT sector)
 
-Keywords: innovations CIT, special courses CIT
 
 ================================================================================
 SECTION: CONTACT DETAILS
@@ -301,15 +285,5 @@ Website:
 Nearby Landmark:
 - Coimbatore International Airport (~2.3 km)
 
-Keywords: contact CIT, CIT address, CIT location
 
-================================================================================
-GLOBAL KEYWORDS
-================================================================================
 
-- CIT student handbook
-- CIT campus details
-- CIT rules and facilities
-- CIT courses and departments
-- CIT events and alumni
-- CIT academic system
