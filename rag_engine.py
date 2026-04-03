@@ -13,7 +13,8 @@ from typing import Iterator
 from rank_bm25 import BM25Okapi
 from sentence_transformers import CrossEncoder
 from langchain_community.vectorstores import Chroma
-from langchain_ollama import OllamaEmbeddings, OllamaLLM
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_ollama import OllamaLLM
 from langchain_core.documents import Document
 
 from core.config import DB_DIR, COLLECTION_NAME, EMBEDDING_MODEL, MODEL_NAME, RERANKER_MODEL
@@ -24,7 +25,16 @@ from retrieval.multi_hop import multi_hop_retrieve
 
 BM25_CACHE  = "bm25_docs.pkl"
 TOP_K       = 5
-CANDIDATE_K = 20
+CANDIDATE_K = 12
+
+# ── Load System Prompt once at startup ────────────────────────────────────────
+_SYSTEM_PROMPT_PATH = os.path.join(os.path.dirname(__file__), "system_prompt.txt")
+try:
+    with open(_SYSTEM_PROMPT_PATH, "r", encoding="utf-8") as _f:
+        SYSTEM_PROMPT = _f.read().strip()
+except FileNotFoundError:
+    SYSTEM_PROMPT = "You are a helpful CIT student assistant. Answer ONLY from the provided context."
+print("✅ System prompt loaded.")
 
 # ── Advanced Reranker — loaded once at module level (Step 15) ──────────────────
 print(f"🧠 Loading Advanced Reranker ({RERANKER_MODEL})…")
@@ -71,7 +81,7 @@ def section_filter_hint(query: str) -> str | None:
 
 class RAGEngine:
     def __init__(self):
-        self.embeddings  = OllamaEmbeddings(model=EMBEDDING_MODEL)
+        self.embeddings  = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
         self.vectorstore = Chroma(
             persist_directory=DB_DIR,
             embedding_function=self.embeddings,
@@ -171,9 +181,10 @@ class RAGEngine:
         rerank_pairs = self._rerank(query, list(zip(docs_only, boosts_only)))
         
         top_docs = [d for d, s in rerank_pairs]
-        # Robust normalization based on BGE-reranker (trained for -10 to +10 range)
-        avg_rerank = float(sum(s for d, s in rerank_pairs)) / len(rerank_pairs) if rerank_pairs else 0.0
-        norm_rerank = float((avg_rerank + 10) / 20) # Mapping -10...+10 to 0...1
+        # Robust normalization based on Cross-Encoder (trained for circa -10 to +10 range)
+        avg_rerank = float(sum(s for d, s in rerank_pairs) / len(rerank_pairs)) if rerank_pairs else 0.0
+        # Clip and normalize -10 to +10 range to 0 to 1
+        norm_rerank = max(0.0, min(1.0, (avg_rerank + 10.0) / 20.0))
         
         # Calculate average similarity for top docs only
         top_sims = []
@@ -186,10 +197,15 @@ class RAGEngine:
         
         return top_docs, norm_rerank, avg_sim
 
-    def query(self, user_query: str, metadata_filter: dict | None = None) -> dict:
+    def query(self, user_query: str, metadata_filter: dict | None = None, status_callback=None) -> dict:
         start_time = time.time()
 
+        def set_status(msg):
+            if status_callback:
+                status_callback(msg)
+
         # Step 0: Injection Check
+        set_status("🛡️ Checking security...")
         from verification.confidence import detect_injection
         if detect_injection(user_query):
             return {
@@ -199,26 +215,38 @@ class RAGEngine:
             }
 
         # Step 1: Rewrite (SMART)
+        set_status("🧠 Analyzing intent & rewriting query...")
         retrieval_q, intent, display_label = rewrite_query(user_query, llm=self.llm)
 
         # Step 2: Retrieve (FIRST PASS)
+        set_status("🔍 Searching CIT knowledge base...")
         best_docs, avg_rerank, avg_sim = self._retrieve_and_rerank_internal(retrieval_q, metadata_filter)
 
         if not best_docs:
             return {"answer": "No relevant info found.", "confidence": 0.0}
 
         # Step 3: LLM Draft (FIRST PASS)
+        set_status("✍️ Drafting initial response...")
         context_text = "\n\n---\n\n".join(d.page_content for d in best_docs)
-        draft_prompt = f"Context:\n{context_text}\n\nQuestion: {user_query}\n\nAnswer:"
+        draft_prompt = (
+            f"{SYSTEM_PROMPT}\n\n"
+            f"NUMERICAL REASONING RULE: If the user's question contains specific numbers or percentages, "
+            f"apply the retrieved policy threshold directly to those numbers and state a clear verdict for each person/case mentioned.\n\n"
+            f"Context:\n{context_text}\n\n"
+            f"Question: {user_query}\n\n"
+            f"Answer:"
+        )
         answer = self.llm.invoke(draft_prompt)
 
         # Step 4: Hybrid Confidence Check (Multi-Signal Step 15)
+        set_status("🛡️ Calculating hybrid confidence scores...")
         from verification.confidence import compute_confidence
         confidence = float(compute_confidence(answer, best_docs, reranker_score=avg_rerank, embed_model=self.embeddings))
 
         # Step 5: Multi-Hop (UPGRADE: Retrieve -> Group -> Combine)
         # Trigger multi-hop for complex queries OR low confidence
         if confidence < 0.5 or intent in ["COMPARISON", "COMPOSITE", "AGGREGATION"]:
+            set_status(f"🧠 Synthesis: Reasoned across clusters ({intent})...")
             from retrieval.multi_hop import multi_hop_retrieve, process_multi_hop
             
             # Retrieve Step (Second pass)
@@ -229,7 +257,6 @@ class RAGEngine:
             )
             
             # Group & Combine Step
-            print(f"🧠 Synthesizing multi-hop answer for '{intent}' intent...")
             answer = process_multi_hop(user_query, best_docs, self.llm)
             
             # Recalculate confidence for synthesized answer
@@ -244,20 +271,26 @@ class RAGEngine:
             }
 
         # Step 7: Verify & Citation Inlining (The 'Killer Feature')
-        # This will now return a structured dict with 'cited_answer'
-        verification = verify_answer(answer, best_docs, query=user_query, embed_model=self.embeddings)
+        # 🔥 OPTIMIZATION: Pre-calculate doc embeddings once to avoid N*M re-calculation
+        set_status(f"📍 Verifying citations across {len(best_docs)} sources...")
+        doc_embs = [self.embeddings.embed_query(d.page_content) for d in best_docs]
+        
+        verification = verify_answer(answer, best_docs, query=user_query, embed_model=self.embeddings, precalculated_embeddings=doc_embs)
         answer = verification.get("cited_answer", answer)
         
         # Step 8: Verifier Upgrade - Regeneration if failed (Step 9)
-        # If score < 0.7 and NOT a refusal, try to fix it once
-        if verification.get("score", 0) < 0.7 and verification.get("score", 0) > 0:
-            print(f"⚠️ Low verification ({verification.get('score')}). Regenerating for high-fidelity...")
+        # 🔥 OPTIMIZATION: Lowered threshold to 0.4 to avoid unnecessary LLM calls
+        if verification.get("score", 0) < 0.4 and verification.get("score", 0) > 0:
+            set_status("🔄 Low fidelity detected. Regenerating for grounding...")
             regen_prompt = (
+                f"{SYSTEM_PROMPT}\n\n"
+                f"NUMERICAL REASONING RULE: If the user's question contains specific numbers or percentages, "
+                f"apply the retrieved policy threshold directly to those numbers and state a clear verdict for each person/case mentioned.\n\n"
                 f"Your previous answer was partially ungrounded. Rewrite it STRICTLY using only the provided context. "
                 f"Remove any claims not explicitly stated.\n\nContext:\n{context_text}\n\nQuestion: {user_query}\n\nAnswer:"
             )
             answer = self.llm.invoke(regen_prompt)
-            verification = verify_answer(answer, best_docs, query=user_query, embed_model=self.embeddings)
+            verification = verify_answer(answer, best_docs, query=user_query, embed_model=self.embeddings, precalculated_embeddings=doc_embs)
             answer = verification.get("cited_answer", answer)
 
         # Step 9: Advanced Metrics (Step 10)
@@ -266,7 +299,9 @@ class RAGEngine:
         context_precision = len(cited_indices) / len(best_docs) if best_docs else 0.0
         
         sources = list({doc.metadata.get("source", "unknown") for doc in best_docs})
-        followups = self._generate_followups(answer)
+        
+        # 🔥 OPTIMIZATION: Faster follow-ups (Fixed logic instead of constant LLM overhead)
+        followups = [f"How does {sources[0]} handle attendance?", "What are the scholarship rules?"] if sources else ["Tell me more", "Are there any fees?"]
         
         return {
             "answer": answer,
@@ -285,13 +320,69 @@ class RAGEngine:
             }
         }
 
-    def _generate_followups(self, answer: str) -> list[str]:
-        prompt = f"Suggest 2 brief follow-up questions for: {answer}\nReturn only the questions, one per line."
-        try:
-            response = self.llm.invoke(prompt)
-            return [l.strip() for l in response.split("\n") if len(l.strip()) > 5][:3]
-        except:
-            return ["Tell me more", "What are the rules?"]
+    def query_with_streaming(self, user_query: str, metadata_filter: dict | None = None):
+        """
+        🔥 PERFORMANCE UPGRADE: Hybrid streaming mode.
+        Yields (type, data) where type is 'status', 'token', or 'result'.
+        """
+        start_time = time.time()
+        
+        # Step 1: Rapid Rewrite
+        yield "status", "🧠 Optimizing query..."
+        retrieval_q, intent, display_label = rewrite_query(user_query, llm=self.llm)
+        
+        # Step 2: Rapid Retrieval
+        yield "status", "🔍 Searching CIT records..."
+        best_docs, avg_rerank, avg_sim = self._retrieve_and_rerank_internal(retrieval_q, metadata_filter)
+        
+        if not best_docs:
+            yield "result", {"answer": "No relevant info found.", "confidence": 0.0}
+            return
+
+        # Step 3: Fast Streaming Draft
+        yield "status", "✍️ Streaming response..."
+        context_text = "\n\n---\n\n".join(d.page_content for d in best_docs)
+        draft_prompt = (
+            f"{SYSTEM_PROMPT}\n\n"
+            f"Context:\n{context_text}\n\n"
+            f"Question: {user_query}\n\n"
+            f"Answer:"
+        )
+        
+        full_answer = ""
+        for token in self.llm.stream(draft_prompt):
+            full_answer += token
+            yield "token", token
+
+        # Step 4: Background Verification (Post-stream)
+        yield "status", "🛡️ Finalizing citations..."
+        doc_embs = self.embeddings.embed_documents([d.page_content for d in best_docs])
+        
+        # Confidence & Verification
+        confidence = float(compute_confidence(full_answer, best_docs, reranker_score=avg_rerank, embed_model=self.embeddings))
+        verification = verify_answer(full_answer, best_docs, query=user_query, embed_model=self.embeddings, precalculated_embeddings=doc_embs)
+        
+        cited_indices = {s["doc_idx"] for s in verification.get("supported_sentences", [])}
+        context_precision = len(cited_indices) / len(best_docs) if best_docs else 0.0
+        sources = list({doc.metadata.get("source", "unknown") for doc in best_docs})
+        followups = [f"How does {sources[0]} handle attendance?", "What are the rules?"] if sources else ["Tell me more"]
+
+        yield "result", {
+            "answer": verification.get("cited_answer", full_answer),
+            "docs": best_docs,
+            "confidence": round(confidence, 2),
+            "verification": verification,
+            "intent": intent,
+            "sources": sources,
+            "followups": followups,
+            "metrics": {
+                "latency": round(time.time() - start_time, 2),
+                "rerank_score": round(avg_rerank, 2),
+                "sim_score": round(avg_sim, 2),
+                "context_precision": round(context_precision, 2),
+                "answer_relevance": verification.get("relevance", 0.0)
+            }
+        }
 
     def query_stream(self, user_query: str, metadata_filter: dict | None = None) -> Iterator[str]:
         retrieval_q, _, _ = rewrite_query(user_query, llm=self.llm)

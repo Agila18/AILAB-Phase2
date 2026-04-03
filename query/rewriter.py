@@ -34,25 +34,9 @@ Rules:
 Student question: {question}"""
 
 
-def smart_rewrite(question: str, llm) -> str:
-    """A direct LLM-powered query optimization based on user request."""
-    if not llm: return question
-    try:
-        prompt = (
-            "You are a search query optimizer. Rewrite the following student query for better retrieval in a vector database. "
-            "Return ONLY the optimized search query string. Do NOT add quotes, labels, or introductory text like 'Here is'.\n\n"
-            f"Query: {question}\n"
-            f"Optimized Search String: "
-        )
-        response = llm.invoke(prompt)
-        return _clean_rewrite(response, question)
-    except:
-        return question
-
-
 def rewrite_query(question: str, llm=None) -> tuple[str, str, str]:
     """
-    Rewrite a student question and detect intent.
+    Rewrite a student question and detect intent in a SINGLE LLM call for speed.
     Returns (retrieval_query, intent, display_label)
     """
     base_expanded = _rule_based_expand(question)
@@ -61,13 +45,34 @@ def rewrite_query(question: str, llm=None) -> tuple[str, str, str]:
     if llm is None:
         return base_expanded, default_intent, _friendly_label(question)
 
+    # Quick heuristic for common keywords to skip LLM entirely if it's super obvious
+    q_low = question.lower()
+    if len(question) < 15 and any(w in q_low for w in ["hod", "fee", "scholarship", "attendance"]):
+        return base_expanded, default_intent, _friendly_label(question)
+
     try:
-        # Step 1: Optimized Rewrite for Retrieval
-        optimized_q = smart_rewrite(question, llm)
+        # Step 1: Consolidated Rewrite + Intent detection
+        prompt = (
+            "You are a search query optimizer. Rewrite the following student query for better retrieval in CIT's vector database. "
+            "Also, categorize the INTENT as FACTUAL, COMPARISON, or PROCEDURAL.\n"
+            "Format your response exactly as:\n"
+            "QUERY: [optimized query string]\n"
+            "INTENT: [INTENT_LABEL]\n\n"
+            f"Question: {question}\n"
+        )
+        response = llm.invoke(prompt)
         
-        # Step 2: Intent Detection for logic routing
-        intent_prompt = f"Categorize this intent as FACTUAL, COMPARISON, or PROCEDURAL: {question}\nIntent:"
-        intent = llm.invoke(intent_prompt).strip().upper()
+        # Parse the structured response
+        lines = [line.strip() for line in response.split("\n") if ":" in line]
+        optimized_q = base_expanded
+        intent = default_intent
+        
+        for line in lines:
+            if line.upper().startswith("QUERY:"):
+                optimized_q = line.split(":", 1)[1].strip().strip('"\'')
+            elif line.upper().startswith("INTENT:"):
+                intent = line.split(":", 1)[1].strip().upper()
+
         if intent not in ["FACTUAL", "COMPARISON", "PROCEDURAL"]:
             intent = "FACTUAL"
 

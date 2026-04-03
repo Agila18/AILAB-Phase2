@@ -4,7 +4,7 @@ import shutil
 from ingestion.loader import load_documents
 from ingestion.cleaner import clean_text
 from ingestion.chunker import split_into_chunks
-from langchain_ollama import OllamaEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
 from langchain_core.documents import Document
 from core.config import DATA_DIR, DB_DIR, COLLECTION_NAME, EMBEDDING_MODEL, CHUNK_SIZE, CHUNK_OVERLAP
@@ -56,8 +56,8 @@ def build_db():
     print(f"✅ Saved {len(doc_objects)} docs to {BM25_CACHE}.")
 
     # ── Step 6: Embed & store in Chroma ─────────────────────────────────────
-    print(f"🧠 Initialising Ollama embeddings ({EMBEDDING_MODEL})...")
-    embeddings = OllamaEmbeddings(model=EMBEDDING_MODEL)
+    print(f"🧠 Initialising CPU-local HuggingFace embeddings ({EMBEDDING_MODEL})...")
+    embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
 
     if os.path.exists(DB_DIR):
         print(f"🗑️  Clearing old DB at {DB_DIR}...")

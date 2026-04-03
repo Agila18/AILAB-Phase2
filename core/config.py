@@ -11,5 +11,6 @@ DB_DIR = "./db"
 DATA_DIR = "./data"
 COLLECTION_NAME = "student_docs"
 MODEL_NAME = "gemma3:1b"
-EMBEDDING_MODEL = "nomic-embed-text"
-RERANKER_MODEL = "BAAI/bge-reranker-v2-m3"
+# 🚀 PERFORMANCE FIX: Use local CPU embeddings to avoid Ollama model swapping
+EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+RERANKER_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
