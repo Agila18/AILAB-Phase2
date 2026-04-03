@@ -30,29 +30,67 @@ def _meaningful_words(sentence: str) -> list[str]:
 
 
 def highlight_spans(answer: str, docs) -> dict:
+    """
+    Split answer into sentences and check which document best supports each.
+    Returns: {
+        "supported": list of {"text": str, "doc_idx": int},
+        "unsupported": list of str,
+        "support_ratio": float
+    }
+    """
     if not answer or not docs:
         return {"supported": [], "unsupported": [], "support_ratio": 0.0}
 
-    if isinstance(docs[0], str):
-        context = " ".join(docs).lower()
-    else:
-        context = " ".join(d.page_content for d in docs).lower()
-
+    # Use robust sentence splitter (protects abbreviations like Dr., Prof.)
     sentences = _split_sentences(answer)
-    supported: list[str] = []
-    unsupported: list[str] = []
+    
+    if not sentences:
+        # Fallback if splitter fails on a single-line answer
+        sentences = [answer]
+
+    supported = []
+    unsupported = []
+    
+    doc_contents = []
+    for d in docs:
+        if hasattr(d, "page_content"): doc_contents.append(d.page_content.lower())
+        elif isinstance(d, dict): doc_contents.append(d.get("text", "").lower())
+        else: doc_contents.append(str(d).lower())
 
     for sent in sentences:
+        sent_lower = sent.lower()
+        best_doc_idx = -1
+        max_overlap = 0.0
+        
         words = _meaningful_words(sent)
         if len(words) < _MIN_WORDS:
-            supported.append(sent)   # trivially short → don't penalise
-            continue
-        matches = sum(1 for w in words if w in context)
-        if matches / len(words) >= _SUPPORT_THRESHOLD:
-            supported.append(sent)
+            # For very short sentences, require exact match or just skip
+            best_doc_idx = -1
+        else:
+            for idx, doc_text in enumerate(doc_contents):
+                # 1. Exact match (strongest)
+                if sent_lower in doc_text:
+                    best_doc_idx = idx
+                    max_overlap = 1.0
+                    break
+                
+                # 2. Token overlap (Jaccard-like)
+                matches = sum(1 for w in words if w in doc_text)
+                overlap = matches / len(words)
+                
+                if overlap > max_overlap and overlap >= _SUPPORT_THRESHOLD:
+                    max_overlap = overlap
+                    best_doc_idx = idx
+        
+        if best_doc_idx != -1:
+            supported.append({"text": sent, "doc_idx": best_doc_idx})
         else:
             unsupported.append(sent)
 
-    total = len(sentences)
-    ratio = round(len(supported) / total, 2) if total else 0.0
-    return {"supported": supported, "unsupported": unsupported, "support_ratio": ratio}
+    support_ratio = len(supported) / len(sentences)
+    
+    return {
+        "supported": supported,
+        "unsupported": unsupported,
+        "support_ratio": round(support_ratio, 2)
+    }

@@ -1,0 +1,110 @@
+[
+  {
+    "category": "Academic",
+    "question": "Who is the HOD for the CSE department?",
+    "expected": "Dr. A. B. Smith is the Head of Department for Computer Science and Engineering.",
+    "predicted": "\u26a0\ufe0f Answer not found in documents",
+    "faithfulness": 0.0,
+    "correct": false,
+    "latency": 50.03
+  },
+  {
+    "category": "Academic",
+    "question": "How many semesters are in the B.E. course?",
+    "expected": "The B.E. course consists of 8 semesters over 4 years.",
+    "predicted": "\u26a0\ufe0f Answer not found in documents",
+    "faithfulness": 0.0,
+    "correct": false,
+    "latency": 40.03
+  },
+  {
+    "category": "Fees",
+    "question": "What is the tuition fee for the first year B.E. CSE?",
+    "expected": "The tuition fee for first-year B.E. CSE is 50,000 INR.",
+    "predicted": "\u26a0\ufe0f Answer not found in documents",
+    "faithfulness": 0.0,
+    "correct": false,
+    "latency": 66.33
+  },
+  {
+    "category": "Scholarship",
+    "question": "Does CIT provide any state government scholarships?",
+    "expected": "Yes, CIT facilitates BC/MBC/DNC and SC/ST state government scholarships for eligible students.",
+    "predicted": "\u26a0\ufe0f Answer not found in documents",
+    "faithfulness": 0.0,
+    "correct": true,
+    "latency": 99.0
+  },
+  {
+    "category": "Attendance",
+    "question": "What is the minimum attendance required for semester exams?",
+    "expected": "A minimum of 75% attendance is required in each subject to appear for the semester examinations.",
+    "predicted": "\u26a0\ufe0f Answer not found in documents",
+    "faithfulness": 0.0,
+    "correct": false,
+    "latency": 58.8
+  },
+  {
+    "category": "Rules",
+    "question": "Are mobile phones allowed inside the examination hall?",
+    "expected": "No, mobile phones and any other electronic gadgets are strictly prohibited inside the examination hall.",
+    "predicted": "\u26a0\ufe0f Answer not found in documents",
+    "faithfulness": 0.0,
+    "correct": true,
+    "latency": 85.88
+  },
+  {
+    "category": "Hostel",
+    "question": "What are the rules for girls hostel outing?",
+    "expected": "Students must obtain prior permission from the Warden/Deputy Warden before leaving the hostel for any outing.",
+    "predicted": "\u26a0\ufe0f Answer not found in documents",
+    "faithfulness": 0.0,
+    "correct": true,
+    "latency": 91.78
+  },
+  {
+    "category": "Placement",
+    "question": "Is there a placement cell at CIT?",
+    "expected": "Yes, there is a dedicated Training and Placement Cell that coordinates campus recruitment and industry training.",
+    "predicted": "\u26a0\ufe0f Answer not found in documents",
+    "faithfulness": 0.0,
+    "correct": true,
+    "latency": 145.63
+  },
+  {
+    "category": "Exams",
+    "question": "What happens if a student fails a subject?",
+    "expected": "Students who fail a subject must register for and clear the reappearance examination (arrear) in subsequent semesters.",
+    "predicted": "\u26a0\ufe0f Answer not found in documents",
+    "faithfulness": 0.0,
+    "correct": true,
+    "latency": 82.83
+  },
+  {
+    "category": "Administrative",
+    "question": "What should I do if I lose my identity card?",
+    "expected": "If you lose your identity card, you must report it to the office and apply for a duplicate ID card by paying the prescribed fee.",
+    "predicted": "\u26a0\ufe0f Answer not found in documents",
+    "faithfulness": 0.0,
+    "correct": true,
+    "latency": 103.11
+  },
+  {
+    "category": "Out-of-Scope",
+    "question": "Who is the current Prime Minister of India?",
+    "expected": "\u26a0\ufe0f Answer not found in documents",
+    "predicted": "\u26a0\ufe0f Answer not found in documents",
+    "faithfulness": 0.0,
+    "correct": true,
+    "latency": 64.62
+  },
+  {
+    "category": "Out-of-Scope",
+    "question": "What is the weather in Coimbatore today?",
+    "expected": "\u26a0\ufe0f Answer not found in documents",
+    "predicted": "\u26a0\ufe0f Answer not found in documents",
+    "faithfulness": 0.0,
+    "correct": true,
+    "latency": 58.91
+  }
+]

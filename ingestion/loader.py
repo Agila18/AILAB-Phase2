@@ -24,7 +24,10 @@ from langchain_community.document_loaders import (
 )
 
 
-SUPPORTED_EXTENSIONS = {".txt", ".pdf", ".docx", ".html", ".htm"}
+import pytesseract
+from PIL import Image
+
+SUPPORTED_EXTENSIONS = {".txt", ".pdf", ".docx", ".html", ".htm", ".png", ".jpg", ".jpeg"}
 
 
 class _SimpleHTMLTextExtractor(HTMLParser):
@@ -42,6 +45,22 @@ class _SimpleHTMLTextExtractor(HTMLParser):
 
 def _load_one_file(path: Path) -> list[dict]:
     suffix = path.suffix.lower()
+    
+    # ── Image OCR (Step 14) ──────────────────────────────────────────────────
+    if suffix in {".png", ".jpg", ".jpeg"}:
+        try:
+            print(f"🖼️  Performing OCR on {path.name}...")
+            text = pytesseract.image_to_string(Image.open(path))
+            return [{
+                "text": text,
+                "source": path.name,
+                "page": 1,
+            }]
+        except Exception as e:
+            print(f"❌ OCR failed for {path.name}: {e}")
+            return []
+
+    # ── Standard Loaders ─────────────────────────────────────────────────────
     if suffix == ".txt":
         loader = TextLoader(str(path), encoding="utf-8")
     elif suffix == ".pdf":

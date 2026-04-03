@@ -59,56 +59,96 @@ def extract_entities(text: str, max_terms: int = 8) -> list[str]:
     return entities
 
 
+def group_chunks_by_topic(chunks: list, llm) -> dict[str, list]:
+    """
+    Step 2: Group by topic.
+    Groups retrieved chunks into logical thematic topics using the LLM.
+    Returns: { "Topic A": ["Text 1", "Text 2"], "Topic B": ["Text 3"] }
+    """
+    if not chunks or not llm:
+        return {"General": [c.page_content if hasattr(c, "page_content") else str(c) for c in chunks]}
+
+    context_summary = "\n".join([f"- {c.page_content[:200]}..." for c in chunks])
+    prompt = (
+        "Identify 2-3 specific key topics covered in these document snippets. "
+        "Return ONLY a comma-separated list of topic names.\n\n"
+        f"Snippets:\n{context_summary}\n\nTopics:"
+    )
+    
+    try:
+        topic_names = [t.strip() for t in llm.invoke(prompt).split(",")]
+        groups = {t: [] for t in topic_names}
+        groups["General"] = []
+        
+        for c in chunks:
+            content = c.page_content if hasattr(c, "page_content") else str(c)
+            assigned = False
+            for t in topic_names:
+                if t.lower() in content.lower():
+                    groups[t].append(content)
+                    assigned = True
+                    break
+            if not assigned:
+                groups["General"].append(content)
+        
+        # Clean up empty groups
+        return {k: v for k, v in groups.items() if v}
+    except:
+        return {"General": [c.page_content if hasattr(c, "page_content") else str(c) for c in chunks]}
+
+
+def process_multi_hop(query: str, chunks: list, llm) -> str:
+    """
+    Step 3: Combine answers logically.
+    Takes the grouped topics and asks the LLM to synthesize a logical, multi-source answer.
+    """
+    groups = group_chunks_by_topic(chunks, llm)
+    
+    # Build structured reasoning prompt
+    synthesis_blocks = []
+    for topic, texts in groups.items():
+        block = f"### Topic: {topic}\n" + "\n".join(texts)
+        synthesis_blocks.append(block)
+    
+    context_text = "\n\n".join(synthesis_blocks)
+    prompt = (
+        "You are a CIT student assistant. Reason across the following grouped topics to provide a comprehensive answer. "
+        "Structure your response logically based on these topics.\n\n"
+        f"Query: {query}\n\nGrouped Context:\n{context_text}\n\nAnswer:"
+    )
+    
+    return llm.invoke(prompt)
+
+
 def multi_hop_retrieve(
     original_query: str,
     draft_answer: str,
     confidence: float,
-    retrieve_fn,          # callable: (query: str) -> list[Document]
+    retrieve_fn,
     existing_docs: list,
 ) -> list:
     """
-    Optionally perform a second retrieval pass if confidence is below threshold.
-
-    Parameters
-    ----------
-    original_query : str
-    draft_answer   : str    — first-pass answer from LLM
-    confidence     : float  — confidence of the draft answer
-    retrieve_fn    : callable that takes a query string and returns list[Document]
-    existing_docs  : list[Document] — docs from the first retrieval pass
-
-    Returns
-    -------
-    list[Document] — merged, deduplicated docs (first pass + second pass)
+    Step 1: Retrieve chunks (Second pass).
+    Main entry point for multi-hop retrieval pass if confidence is low.
     """
     if confidence >= MULTI_HOP_THRESHOLD:
-        return existing_docs  # No hop needed
+        return existing_docs
 
-    print(f"🔄 Multi-hop triggered (conf={confidence:.2f}). Extracting entities…")
-
+    print(f"🔄 Multi-hop (Group & Combine) triggered.")
     entities = extract_entities(draft_answer)
     if not entities:
-        print("⚠️  No entities found for multi-hop. Keeping first-pass docs.")
         return existing_docs
 
     hop_query = original_query + " " + " ".join(entities)
-    print(f"   Hop query: '{hop_query[:80]}…'")
-
     try:
         hop_docs = retrieve_fn(hop_query)
-    except Exception as e:
-        print(f"⚠️  Multi-hop retrieval failed: {e}")
+    except:
         return existing_docs
 
     # Merge and deduplicate
     seen_keys: set[str] = {d.page_content[:120] for d in existing_docs}
     merged = list(existing_docs)
-
     for doc in hop_docs:
-        key = doc.page_content[:120]
-        if key not in seen_keys:
-            seen_keys.add(key)
+        if doc.page_content[:120] not in seen_keys:
             merged.append(doc)
-
-    print(f"✅ Multi-hop added {len(merged) - len(existing_docs)} new doc(s). Total: {len(merged)}")
     return merged

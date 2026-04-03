@@ -80,10 +80,27 @@ def verify_answer(answer: str, docs, query: str = "") -> dict:
     
     verified = faithfulness >= 0.5
 
+    # Enrich supported sentences with metadata
+    enriched_supported = []
+    for item in span_result["supported"]:
+        sent_text = item["text"]
+        doc_idx = item["doc_idx"]
+        
+        doc = docs[doc_idx]
+        meta = doc.metadata if hasattr(doc, "metadata") else {}
+        
+        enriched_supported.append({
+            "text": sent_text,
+            "doc_idx": doc_idx,
+            "source": meta.get("source", "Unknown"),
+            "page": meta.get("page", "?"),
+            "section": meta.get("section", "General")
+        })
+
     return {
         "verified": verified,
         "score": round(faithfulness, 2),
         "relevance": relevance,
         "unsupported_sentences": span_result["unsupported"],
-        "supported_sentences":   span_result["supported"],
+        "supported_sentences":   enriched_supported,
     }

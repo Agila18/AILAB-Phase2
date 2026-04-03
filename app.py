@@ -1,4 +1,5 @@
 import os
+import re
 import time
 import streamlit as st
 from rag_engine import RAGEngine
@@ -7,7 +8,7 @@ from feedback.analytics import summary as feedback_summary
 
 # ── Page Configuration ────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="CIT Intelligence Assistant 🎓",
+    page_title="CIT Verification Assistant 🎓",
     page_icon="🎓",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -32,23 +33,12 @@ st.markdown("""
     border-radius: 16px;
     border: 1px solid rgba(255,255,255,0.05);
     margin-bottom: 30px;
+    text-align: center;
 }
 .core-idea {
     font-size: 0.9rem;
     color: #94a3b8;
     margin-top: 10px;
-    font-style: italic;
-}
-
-/* Sidebar Styling */
-section[data-testid="stSidebar"] {
-    background: #1e293b;
-    border-right: 1px solid rgba(255,255,255,0.05);
-}
-
-/* Chat Input Styling */
-.stChatInputContainer {
-    padding-bottom: 20px;
 }
 
 /* Custom Answer Card */
@@ -62,49 +52,58 @@ section[data-testid="stSidebar"] {
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* Span Highlighting (Hallucination Killer) */
+/* Citation Markers */
+.citation {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #3b82f6;
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    margin-left: 4px;
+    vertical-align: super;
+}
+
+/* Span Highlighting */
 .span-supported {
-    background: rgba(52, 211, 153, 0.12);
+    background: rgba(52, 211, 153, 0.15);
     border-bottom: 2px solid #10b981;
-    padding: 2px 0;
 }
 .span-unsupported {
     background: rgba(248, 113, 113, 0.15);
     border-bottom: 2px dashed #ef4444;
-    padding: 2px 0;
 }
 
-/* Metric Cards */
-.metric-card {
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-}
-.metric-val {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #3b82f6;
-    margin-top: 5px;
-}
-.metric-label {
-    font-size: 0.75rem;
-    color: #94a3b8;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+/* Evidence Highlight in Chunk */
+.evidence-highlight {
+    background: rgba(255, 255, 0, 0.2);
+    font-weight: 600;
+    color: #f8fafc;
+    border-left: 3px solid #fbbf24;
+    padding-left: 5px;
 }
 
-/* Badge Logic */
-.badge {
-    padding: 5px 14px;
-    border-radius: 30px;
+/* Source Card */
+.source-card {
+    background: #1e293b;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+.source-tag {
     font-size: 0.7rem;
-    font-weight: 700;
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    padding: 2px 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    margin-right: 5px;
 }
-.badge-factual { background: #3b82f633; color: #60a5fa; border: 1px solid #3b82f666; }
-.badge-comparison { background: #8b5cf633; color: #a78bfa; border: 1px solid #8b5cf666; }
-.badge-procedural { background: #f59e0b33; color: #fbbf24; border: 1px solid #f59e0b66; }
 
 </style>
 """, unsafe_allow_html=True)
@@ -118,150 +117,134 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 
 # ── Helper Functions ──────────────────────────────────────────────────────────
-def render_highlighted_answer(verification: dict):
+def render_verified_answer(verification: dict):
     supported = verification.get("supported_sentences", [])
     unsupported = verification.get("unsupported_sentences", [])
-    html = '<div style="line-height: 1.9; font-size: 1rem; color: #cbd5e1;">'
-    for sent in supported:
-        html += f'<span class="span-supported">{sent}</span> '
+    
+    # Merge and sort by their appearance in the original answer if possible, 
+    # but for now, we'll just show them in a logical flow.
+    html = '<div style="line-height: 1.8; color: #cbd5e1;">'
+    
+    # We display supported sentences first with their citations
+    for item in supported:
+        idx = item["doc_idx"] + 1
+        html += f'<span class="span-supported" title="Verified by Source [{idx}]">{item["text"]}</span><span class="citation">[{idx}]</span> '
+    
+    # Then we call out the unsupported ones in red
     if unsupported:
-        html += '<br><br><span style="color: #f87171; font-weight: 600;">⚠️ Partially Grounded:</span><br>'
-        for sent in unsupported:
-            html += f'<span class="span-unsupported">{sent}</span> '
+        html += '<br><br><span style="color: #f87171; font-weight: 700; font-size: 0.85rem; border: 1px solid #7f1d1d; padding: 2px 8px; border-radius: 4px; background: rgba(127, 29, 29, 0.1);">🛑 UNVERIFIED CLAIMS DETECTED:</span><br>'
+        for text in unsupported:
+            html += f'<span class="span-unsupported" title="No factual support found in docs">{text}</span> '
+            
     html += "</div>"
     return html
 
-def get_intent_badge(intent: str):
-    intent = intent.upper()
-    cls = "badge-factual"
-    if intent == "COMPARISON": cls = "badge-comparison"
-    elif intent == "PROCEDURAL": cls = "badge-procedural"
-    return f'<span class="badge {cls}">{intent}</span>'
+def highlight_evidence_in_text(full_text: str, evidence_list: list[str]) -> str:
+    highlighted = full_text
+    for ev in evidence_list:
+        pattern = re.compile(re.escape(ev), re.IGNORECASE)
+        highlighted = pattern.sub(f'<span class="evidence-highlight">{ev}</span>', highlighted)
+    return highlighted
 
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.markdown("<h1 style='text-align: center; color: #60a5fa;'>🎓 CIT AI Assistant</h1>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center; font-size: 0.8rem; color: #94a3b8;'>Industry-Grade RAG v4.5</p>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: #60a5fa;'>🎓 CIT Intelligence</h1>", unsafe_allow_html=True)
     st.divider()
-
-    st.markdown("### 🔍 Filters")
-    filter_source = st.selectbox(
-        "Knowledge Source",
-        ["All Documents", "attendance_rules.txt", "scholarship.txt", 
-         "hostel_rules.txt", "exam_policy.txt", "placement_policy.txt", 
-         "fee_structure.txt", "CIT_Academic_Calendar.txt"]
-    )
-    
-    st.divider()
-    st.markdown("### 📊 Performance History")
-    stats = feedback_summary()
-    st.metric("Overall Accuracy", "90%", delta="+2%")
-    st.caption(f"Average Confidence: {int(stats.get('avg_confidence', 0.85)*100)}%")
-    
-    if st.button("🗑️ Clear History", use_container_width=True):
+    st.markdown("### 📊 System Health")
+    st.metric("Reasoning Model", "Ollama / Gemma 3", delta="High Fidelity")
+    st.metric("Verification Mode", "Strict (70%)", delta="Active")
+    st.caption("Advanced Metrics: Faithfulness / Precision / Relevance 📈")
+    if st.button("🗑️ Clear History"):
         st.session_state.messages = []
         st.rerun()
 
 # ── Header ───────────────────────────────────────────────────────────────────
-st.markdown(f"""
+st.markdown("""
 <div class="main-header">
-    <h1 style="margin:0; font-size: 2.2rem; background: linear-gradient(135deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-        CIT Intelligence Assistant
-    </h1>
-    <p class="core-idea">
-        "An intelligent, verifiable, and explainable RAG system that answers using real documents with proof."
-    </p>
+    <h1 style="margin:0; color:#60a5fa;">CIT Verification Assistant v5.5</h1>
+    <p class="core-idea">"Independently auditing every claim through research-grade metrics."</p>
 </div>
 """, unsafe_allow_html=True)
 
-# ── Chat Loop ─────────────────────────────────────────────────────────────────
+# ── Chat Logic ────────────────────────────────────────────────────────────────
 for i, msg in enumerate(st.session_state.messages):
     with st.chat_message(msg["role"]):
         if msg["role"] == "user":
             st.markdown(f"**{msg['content']}**")
         else:
-            result = msg.get("result", {})
-            metrics = result.get("metrics", {})
-            verif = result.get("verification", {})
+            res = msg.get("result", {})
+            verif = res.get("verification", {})
+            metrics = res.get("metrics", {})
             
-            st.markdown(f"""
-                <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 20px;">
-                    {get_intent_badge(result.get('intent', 'FACTUAL'))}
-                    <span style="color: #64748b; font-size: 0.75rem; font-family: 'JetBrains Mono';">
-                        Query Optimized: "{result.get('rewritten_query', 'N/A')}"
-                    </span>
-                </div>
-            """, unsafe_allow_html=True)
+            t1, t2, t3, t4 = st.tabs(["✨ Verified Response", "📜 Source Evidence", "📦 Retrieved Chunks", "📊 Advanced Analytics"])
             
-            tab1, tab2, tab3 = st.tabs(["✨ Verified Answer", "📄 Knowledge Sources", "📊 Advanced Analytics"])
-            
-            with tab1:
+            with t1:
                 st.markdown('<div class="answer-box">', unsafe_allow_html=True)
-                st.markdown(render_highlighted_answer(verif), unsafe_allow_html=True)
+                st.markdown(render_verified_answer(verif), unsafe_allow_html=True)
                 st.markdown('</div>', unsafe_allow_html=True)
                 
-                # Prominent Explainability
-                if result.get("explanation"):
-                    st.info(f"💡 **Why this answer?**\n{result['explanation']}")
-            
-            with tab2:
-                for idx, doc in enumerate(result.get("docs", [])):
-                    with st.expander(f"📄 Source {idx+1}: {doc.metadata.get('source', 'Unknown')}"):
-                        st.write(doc.page_content)
-                        st.caption(f"Section: {doc.metadata.get('section', 'N/A')} · Page: {doc.metadata.get('page', '?')}")
+                with st.expander("🤔 Trust Score Breakdown"):
+                    conf = res.get("confidence", 0)
+                    st.write(f"**Overall Hybrid Confidence: {int(conf*100)}%**")
+                    st.write("This score represents the mathematical intersection of retrieval similarity, keyword overlap, and reranker logs.")
+                    st.progress(conf)
 
-            with tab3:
-                c1, c2, c3 = st.columns(3)
-                with c1:
-                    st.markdown(f'<div class="metric-card"><div class="metric-label">🏎️ Latency</div><div class="metric-val">{metrics.get("latency", 0)}s</div></div>', unsafe_allow_html=True)
-                with c2:
-                    st.markdown(f'<div class="metric-card"><div class="metric-label">💎 Faithfulness</div><div class="metric-val">{int(verif.get("score", 0)*100)}%</div></div>', unsafe_allow_html=True)
-                with c3:
-                    st.markdown(f'<div class="metric-card"><div class="metric-label">🎯 Relevance</div><div class="metric-val">{int(verif.get("relevance", 0)*100)}%</div></div>', unsafe_allow_html=True)
+            with t2:
+                st.info("Direct sentence-level grounding. Yellow highlights show exact evidence found in your documents.")
+                supp_sent = verif.get("supported_sentences", [])
+                for idx, doc in enumerate(res.get("docs", [])):
+                    ev_this_doc = [s["text"] for s in supp_sent if s["doc_idx"] == idx]
+                    st.markdown(f"""
+                    <div class="source-card">
+                        <div style="margin-bottom: 8px;">
+                            <span class="source-tag">SOURCE [{idx+1}]</span>
+                            <span class="source-tag">{doc.metadata.get('source', 'Unknown')}</span>
+                            <span class="source-tag">PAGE {doc.metadata.get('page', '?')}</span>
+                        </div>
+                        <div style="font-size: 0.95rem; color: #cbd5e1;">{highlight_evidence_in_text(doc.page_content, ev_this_doc)}</div>
+                    </div>
+                    """, unsafe_allow_html=True)
+
+            with t3:
+                st.info("Raw blocks extracted from ChromaDB before LLM synthesis.")
+                for idx, doc in enumerate(res.get("docs", [])):
+                    with st.expander(f"Chunk [{idx+1}] | Source: {doc.metadata.get('source')} | Page: {doc.metadata.get('page')}"):
+                        st.code(doc.page_content, language="text")
+                        st.json(doc.metadata)
+
+            with t4:
+                st.markdown("### 📈 Verification Metrics")
+                m1, m2, m3 = st.columns(3)
+                m1.metric("Faithfulness", f"{int(verif.get('score', 0)*100)}%", help="Precision of the answer relative to the context.")
+                m2.metric("Context Precision", f"{int(metrics.get('context_precision', 0)*100)}%", help="How relevant the retrieved chunks are to the query.")
+                m3.metric("Answer Relevance", f"{int(metrics.get('answer_relevance', 0)*100)}%", help="How well the final answer addresses the user's intent.")
                 
                 st.divider()
-                st.markdown("### 📈 Evaluation Summary")
-                st.write("This response was verified against the grounding documents using **Precision RAG Routing** and **Multi-Chunk Reasoning**.")
-                st.progress(verif.get("score", 0), text=f"Grounding Score: {int(verif.get('score', 0)*100)}%")
+                st.markdown("### ⏱️ Performance")
+                st.write(f"**Total Latency:** {metrics.get('latency', 0)}s")
+                st.write(f"**Rerank Signal:** {metrics.get('rerank_score', 0)}")
 
-            # Feedback
-            st.divider()
-            f1, f2, _ = st.columns([1,1,10])
-            if f1.button("👍", key=f"up_{i}"):
-                log_feedback(msg["original_query"], msg["content"], result.get("confidence", 0), verif.get("verified", False), "up", result.get("sources", []))
-                st.toast("Verified! Thanks.")
-            if f2.button("👎", key=f"down_{i}"):
-                log_feedback(msg["original_query"], msg["content"], result.get("confidence", 0), verif.get("verified", False), "down", result.get("sources", []))
-                st.toast("Feedback recorded for optimization.")
-
-            followups = result.get("followups", [])
+            followups = res.get("followups", [])
             if followups:
                 st.write("---")
                 cols = st.columns(len(followups))
-                for idx, q in enumerate(followups):
-                    if cols[idx].button(f"🔗 {q}", key=f"fup_{i}_{idx}", use_container_width=True):
+                for j, q in enumerate(followups):
+                    if cols[j].button(q, key=f"fup_{i}_{j}", use_container_width=True):
                         st.session_state.pending_query = q
                         st.rerun()
 
-# ── Input Handling ────────────────────────────────────────────────────────────
 if "pending_query" in st.session_state:
-    prompt = st.session_state.pop("pending_query")
-    st.session_state.messages.append({"role": "user", "content": prompt})
+    p = st.session_state.pop("pending_query")
+    st.session_state.messages.append({"role": "user", "content": p})
     st.rerun()
 
-if prompt := st.chat_input("Ask about CIT rules, fees, placement..."):
+if prompt := st.chat_input("Ask about CIT rules..."):
     st.session_state.messages.append({"role": "user", "content": prompt})
-    with st.chat_message("user"):
-        st.write(prompt)
-
+    with st.chat_message("user"): st.markdown(f"**{prompt}**")
+    
     with st.chat_message("assistant"):
         engine = get_engine()
-        with st.spinner("🧠 Verifying documents and synthesizing proof..."):
-            res = engine.query(prompt, metadata_filter={"source": filter_source} if filter_source != "All Documents" else None)
-            st.session_state.messages.append({
-                "role": "assistant",
-                "content": res["answer"],
-                "result": res,
-                "original_query": prompt
-            })
+        with st.spinner("🛡️ Calculating hybrid confidence scores..."):
+            res = engine.query(prompt)
+            st.session_state.messages.append({"role": "assistant", "content": res["answer"], "result": res})
             st.rerun()

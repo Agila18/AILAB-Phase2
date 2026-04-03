@@ -1,0 +1,62 @@
+[
+  {
+    "category": "Academic",
+    "question": "Who is the HOD for the CSE department?",
+    "expected": "Dr. A. B. Smith is the Head of Department for Computer Science and Engineering."
+  },
+  {
+    "category": "Academic",
+    "question": "How many semesters are in the B.E. course?",
+    "expected": "The B.E. course consists of 8 semesters over 4 years."
+  },
+  {
+    "category": "Fees",
+    "question": "What is the tuition fee for the first year B.E. CSE?",
+    "expected": "The tuition fee for first-year B.E. CSE is 50,000 INR."
+  },
+  {
+    "category": "Scholarship",
+    "question": "Does CIT provide any state government scholarships?",
+    "expected": "Yes, CIT facilitates BC/MBC/DNC and SC/ST state government scholarships for eligible students."
+  },
+  {
+    "category": "Attendance",
+    "question": "What is the minimum attendance required for semester exams?",
+    "expected": "A minimum of 75% attendance is required in each subject to appear for the semester examinations."
+  },
+  {
+    "category": "Rules",
+    "question": "Are mobile phones allowed inside the examination hall?",
+    "expected": "No, mobile phones and any other electronic gadgets are strictly prohibited inside the examination hall."
+  },
+  {
+    "category": "Hostel",
+    "question": "What are the rules for girls hostel outing?",
+    "expected": "Students must obtain prior permission from the Warden/Deputy Warden before leaving the hostel for any outing."
+  },
+  {
+    "category": "Placement",
+    "question": "Is there a placement cell at CIT?",
+    "expected": "Yes, there is a dedicated Training and Placement Cell that coordinates campus recruitment and industry training."
+  },
+  {
+    "category": "Exams",
+    "question": "What happens if a student fails a subject?",
+    "expected": "Students who fail a subject must register for and clear the reappearance examination (arrear) in subsequent semesters."
+  },
+  {
+    "category": "Administrative",
+    "question": "What should I do if I lose my identity card?",
+    "expected": "If you lose your identity card, you must report it to the office and apply for a duplicate ID card by paying the prescribed fee."
+  },
+  {
+    "category": "Out-of-Scope",
+    "question": "Who is the current Prime Minister of India?",
+    "expected": "⚠️ Answer not found in documents"
+  },
+  {
+    "category": "Out-of-Scope",
+    "question": "What is the weather in Coimbatore today?",
+    "expected": "⚠️ Answer not found in documents"
+  }
+]

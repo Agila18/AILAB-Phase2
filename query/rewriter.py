@@ -34,13 +34,26 @@ Rules:
 Student question: {question}"""
 
 
+def smart_rewrite(question: str, llm) -> str:
+    """A direct LLM-powered query optimization based on user request."""
+    if not llm: return question
+    try:
+        prompt = (
+            "You are a search query optimizer. Rewrite the following student query for better retrieval in a vector database. "
+            "Return ONLY the optimized search query string. Do NOT add quotes, labels, or introductory text like 'Here is'.\n\n"
+            f"Query: {question}\n"
+            f"Optimized Search String: "
+        )
+        response = llm.invoke(prompt)
+        return _clean_rewrite(response, question)
+    except:
+        return question
+
+
 def rewrite_query(question: str, llm=None) -> tuple[str, str, str]:
     """
     Rewrite a student question and detect intent.
-
-    Returns
-    -------
-    (retrieval_query, intent, display_label)
+    Returns (retrieval_query, intent, display_label)
     """
     base_expanded = _rule_based_expand(question)
     default_intent = "FACTUAL"
@@ -49,29 +62,21 @@ def rewrite_query(question: str, llm=None) -> tuple[str, str, str]:
         return base_expanded, default_intent, _friendly_label(question)
 
     try:
-        prompt = _REWRITE_PROMPT.format(question=question)
-        response = llm.invoke(prompt)
+        # Step 1: Optimized Rewrite for Retrieval
+        optimized_q = smart_rewrite(question, llm)
         
-        # Parse response lines
-        lines = [line.strip() for line in response.split("\n") if line.strip()]
-        rewritten = base_expanded
-        intent = "FACTUAL"
-        
-        for line in lines:
-            if line.upper().startswith("QUERY:"):
-                rewritten = line[6:].strip().strip('"\'')
-            elif line.upper().startswith("INTENT:"):
-                intent = line[7:].strip().upper()
-        
+        # Step 2: Intent Detection for logic routing
+        intent_prompt = f"Categorize this intent as FACTUAL, COMPARISON, or PROCEDURAL: {question}\nIntent:"
+        intent = llm.invoke(intent_prompt).strip().upper()
         if intent not in ["FACTUAL", "COMPARISON", "PROCEDURAL"]:
             intent = "FACTUAL"
 
-        # Merge rewrite with rule-based keywords for extra robustness
-        merged = rewritten + " " + _extra_keywords(question)
-        return merged.strip(), intent, rewritten
+        # Final display label
+        display = optimized_q if len(optimized_q) < 50 else question
+        return optimized_q, intent, display
 
     except Exception as e:
-        print(f"⚠️  Query rewriter LLM call failed ({e}), using rule-based fallback.")
+        print(f"⚠️  Rewriter fails: {e}")
         return base_expanded, default_intent, _friendly_label(question)
 
 

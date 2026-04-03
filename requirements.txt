@@ -1,3 +1,4 @@
+# Core App & Logic
 streamlit
 langchain
 langchain-core
@@ -6,9 +7,21 @@ langchain-community
 langchain-ollama
 langchain-chroma
 chromadb
+langchain-experimental
+
+# Document Processing
 python-docx
 pypdf
-ollama
+pdfplumber
+pytesseract
+Pillow
+
+# Retrieval & Verification
 rank-bm25
 sentence-transformers
 nltk
+ollama
+
+# Evaluation Tools
+tabulate
+pandas

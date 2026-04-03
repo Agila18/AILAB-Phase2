@@ -11,89 +11,72 @@ Factors:
 from __future__ import annotations
 
 
-def compute_confidence(answer: str, context) -> float:
-    """
-    Compute a 0.0–1.0 confidence score for the generated answer.
+def detect_injection(text: str) -> bool:
+    """Basic prompt injection protection."""
+    patterns = [
+        "ignore previous",
+        "forget the above",
+        "system prompt",
+        "ignore the context",
+        "new instructions",
+        "disregard the documents",
+    ]
+    t = text.lower()
+    return any(p in t for p in patterns)
 
-    Parameters
-    ----------
-    answer  : str
-    context : list[Document] | list[str] | list[dict]
+
+def compute_confidence(
+    answer: str,
+    context,
+    reranker_score: float | None = None,
+    embedding_sim: float | None = None
+) -> float:
+    """
+    Compute an Industry-Level hybrid confidence score (0.0 to 1.0).
+    Formula: 0.4*Reranker + 0.3*Similarity + 0.3*Keywords
     """
     if not answer or not context:
+        return 0.0
+
+    if detect_injection(answer):
         return 0.0
 
     answer_lower = answer.lower()
 
     # ── Refusal detection ────────────────────────────────────────────────────
-    refusal_phrases = [
-        "could not find",
-        "not found in the retrieved",
-        "not available",
-        "please contact the college",
-        "i am a cit student assistant",
-    ]
-    for phrase in refusal_phrases:
-        if phrase in answer_lower:
-            return 0.0
+    refusal_phrases = ["could not find", "not found", "not available", "please contact", "i am a cit student assistant"]
+    if any(p in answer_lower for p in refusal_phrases):
+        return 0.0
 
-    # ── Build combined context text ──────────────────────────────────────────
+    # ── Factor 1: Keyword Overlap (30% weight) ──────────────────────────────
     texts = []
     for c in context:
-        if isinstance(c, str):
-            texts.append(c)
-        elif hasattr(c, "page_content"):
-            texts.append(c.page_content)
-        elif isinstance(c, dict):
-            texts.append(c.get("text", c.get("page_content", "")))
-        else:
-            texts.append(str(c))
+        if isinstance(c, str): texts.append(c)
+        elif hasattr(c, "page_content"): texts.append(c.page_content)
+        elif isinstance(c, dict): texts.append(c.get("text", ""))
+        else: texts.append(str(c))
     
     context_text = " ".join(texts).lower()
-
-    # ── Factor 1: Keyword Overlap (0.0 → 0.50) ──────────────────────────────
-    STOPWORDS = {
-        "the", "is", "a", "an", "in", "of", "to", "and", "for", "are",
-        "it", "on", "at", "by", "or", "be", "as", "this", "that", "from",
-        "with", "was", "has", "have", "can", "will", "not", "but", "if",
-        "you", "your", "they", "their", "we", "our", "i", "my", "do",
-        "about", "so", "would", "should", "could", "please",
-    }
-    answer_words = [
-        w.strip(".,;:!?\"'()")
-        for w in answer_lower.split()
-        if len(w) > 2 and w.strip(".,;:!?\"'()") not in STOPWORDS
-    ]
-
-    if answer_words:
-        matches = sum(1 for w in answer_words if w in context_text)
-        overlap = matches / len(answer_words)
+    STOPWORDS = {"the","is","a","an","in","of","to","and","for","are","it","on","at","by","or","be","as","this","that","from"}
+    
+    a_words = [w.strip(".,;") for w in answer_lower.split() if w not in STOPWORDS and len(w) > 2]
+    if a_words:
+        matches = sum(1 for w in a_words if w in context_text)
+        keyword_score = matches / len(a_words)
     else:
-        overlap = 0.0
+        keyword_score = 0.0
 
-    keyword_score = min(overlap, 1.0) * 0.50
+    # ── Factor 2: Reranker Priority (40% weight) ─────────────────────────────
+    # ms-marco reranker scores usually sit between 0-0.9+ for high relevance
+    r_score = reranker_score if reranker_score is not None else 0.5
 
-    # ── Factor 2: Answer Length (0.0 → 0.30) ────────────────────────────────
-    word_count = len(answer.split())
-    if word_count < 5:
-        length_score = 0.05
-    elif word_count < 20:
-        length_score = 0.15
-    elif word_count < 50:
-        length_score = 0.25
-    else:
-        length_score = 0.30
+    # ── Factor 3: Embedding Similarity (30% weight) ──────────────────────────
+    # Cosine similarity for nomic/ollama is usually 0.5 to 0.8
+    e_score = embedding_sim if embedding_sim is not None else 0.5
 
-    # ── Factor 3: Source Citation Bonus (0.0 → 0.20) ────────────────────────
-    citation_score = 0.0
-    citation_markers = ["source", "according to", "as per", ".txt", "document"]
-    for marker in citation_markers:
-        if marker in answer_lower:
-            citation_score = 0.20
-            break
-
-    confidence = keyword_score + length_score + citation_score
-    return round(min(confidence, 1.0), 2)
+    # ── Final Industry-Level Hybrid Weighting ────────────────────────────────
+    confidence = (0.4 * r_score) + (0.3 * e_score) + (0.3 * keyword_score)
+    return round(min(max(confidence, 0.0), 1.0), 2)
 
 
 def compute_per_source_confidence(answer: str, docs) -> list[dict]:
