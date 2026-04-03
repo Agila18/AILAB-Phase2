@@ -177,27 +177,31 @@ class RAGEngine:
               metadata_filter: dict | None = None) -> dict:
         """
         Run the full RAG pipeline and return a rich result dict.
-
-        Returns
-        -------
-        {
-          "answer":          str,
-          "docs":            list[Document],
-          "confidence":      float,
-          "per_src_conf":    list[{source, score}],
-          "verification":    {verified, score, supported_sentences, unsupported_sentences, support_ratio},
-          "rewritten_query": str,   # shown in UI
-          "sources":         list[str],
-        }
         """
-        # ── Step 1: Rewrite query ────────────────────────────────────────────
-        retrieval_q, display_label = rewrite_query(user_query, llm=self.llm)
+        import time
+        start_time = time.time()
 
-        # ── Step 2: First retrieval pass ─────────────────────────────────────
+        # ── Step 1: Rewrite query & Detect Intent ────────────────────────────
+        retrieval_q, intent, display_label = rewrite_query(user_query, llm=self.llm)
+
+        # ── Step 2: Retrieval Strategy based on Intent ───────────────────────
+        # For procedural/comparison, we widen the context net initially
+        current_k = TOP_K
+        if intent in ["PROCEDURAL", "COMPARISON"]:
+            current_k = TOP_K + 3 
+
         best_docs = self._retrieve_and_rerank_raw(retrieval_q, metadata_filter)
 
         # ── Step 3: Build context & draft answer ─────────────────────────────
         system_prompt = "You are a CIT student assistant."
+        if intent == "COMPARISON":
+            system_prompt += (
+                " You MUST provide a clear comparison using a Markdown table. "
+                "Each row should represent a feature (e.g., Fees, Duration, Eligibility)."
+            )
+        elif intent == "PROCEDURAL":
+            system_prompt += " Provide a clear step-by-step process using a numbered list."
+
         if os.path.exists("system_prompt.txt"):
             with open("system_prompt.txt", "r", encoding="utf-8") as f:
                 system_prompt = f.read().strip()
@@ -213,17 +217,21 @@ class RAGEngine:
 
         # ── Step 4: Confidence check → multi-hop if needed ───────────────────
         draft_conf = compute_confidence(draft_answer, best_docs)
+        
+        # Multi-hop is ALWAYS used for Comparison to ensure we didn't miss one side
+        force_hop = (intent == "COMPARISON")
+        
+        if draft_conf < 0.45 or force_hop:
+            best_docs = multi_hop_retrieve(
+                original_query=retrieval_q,
+                draft_answer=draft_answer,
+                confidence=draft_conf,
+                retrieve_fn=lambda q: self._retrieve_and_rerank_raw(q, metadata_filter),
+                existing_docs=best_docs,
+            )
 
-        best_docs = multi_hop_retrieve(
-            original_query=retrieval_q,
-            draft_answer=draft_answer,
-            confidence=draft_conf,
-            retrieve_fn=lambda q: self._retrieve_and_rerank_raw(q, metadata_filter),
-            existing_docs=best_docs,
-        )
-
-        # ── Step 5: Final answer (re-generate if multi-hop added new docs) ───
-        if draft_conf < 0.45 and len(best_docs) > TOP_K:
+        # ── Step 5: Final answer (re-generate if docs changed) ───────────────
+        if len(best_docs) > TOP_K:
             context_text = "\n\n---\n\n".join(d.page_content for d in best_docs)
             final_prompt = (
                 f"{system_prompt}\n\n"
@@ -243,45 +251,58 @@ class RAGEngine:
                 "Please contact the college office or refer to the official CIT handbook."
             )
 
-        # ── Step 7: Verification & per-source breakdown ───────────────────────
-        verification    = verify_answer(answer, best_docs)
-        per_src_conf    = compute_per_source_confidence(answer, best_docs)
-        sources         = list({
-            doc.metadata.get("source", "unknown") for doc in best_docs
-        })
+        # ── Step 7: Verification & Metadata (Advanced Metrics) ───────────────
+        verification = verify_answer(answer, best_docs, query=user_query)
+        per_src_conf = compute_per_source_confidence(answer, best_docs)
+        sources      = list({doc.metadata.get("source", "unknown") for doc in best_docs})
+        
+        # ── Step 8: Follow-up Suggestions ────────────────────────────────────
+        followups = self._generate_followups(answer)
+        
+        latency = time.time() - start_time
 
         return {
             "answer":          answer,
             "docs":            best_docs,
-            "confidence":      round(compute_confidence(answer, best_docs), 2),
+            "confidence":      round(final_conf, 2),
             "per_src_conf":    per_src_conf,
             "verification":    verification,
             "rewritten_query": display_label,
+            "intent":          intent,
             "sources":         sources,
+            "followups":       followups,
+            "metrics":         {
+                "latency": round(latency, 2),
+                "tokens":  len(answer.split()) * 1.3, # estimated
+            }
         }
 
-    # ── Streaming query (for Streamlit st.write_stream) ──────────────────────
+    def _generate_followups(self, answer: str) -> list[str]:
+        """Generate 2-3 brief follow-up questions."""
+        prompt = (
+            "You are a CIT student assistant. Based on the answer provided, suggest 2 or 3 brief follow-up questions "
+            "that the student might want to ask next. Keep them under 10 words. "
+            "Return ONLY the list of questions, one per line. No numbers.\n\n"
+            f"Answer: {answer}\n\n"
+            "Follow-up Questions:"
+        )
+        try:
+            response = self.llm.invoke(prompt)
+            return [line.strip().strip("-*") for line in response.split("\n") if len(line.strip()) > 5][:3]
+        except:
+            return ["Tell me more about this", "What are the rules?"]
+
+    # ── Streaming query ──────────────────────────────────────────────────────
     def query_stream(self, user_query: str,
                      metadata_filter: dict | None = None) -> Iterator[str]:
         """
-        Stream the answer token by token.
-
-        Yields str tokens. Caller collects them for full post-processing.
+        Stream version: Returns iterator. Note: Multi-hop not applied in stream.
         """
-        retrieval_q, _ = rewrite_query(user_query, llm=self.llm)
-        best_docs       = self._retrieve_and_rerank_raw(retrieval_q, metadata_filter)
+        retrieval_q, intent, _ = rewrite_query(user_query, llm=self.llm)
+        best_docs = self._retrieve_and_rerank_raw(retrieval_q, metadata_filter)
 
         system_prompt = "You are a CIT student assistant."
-        if os.path.exists("system_prompt.txt"):
-            with open("system_prompt.txt", "r", encoding="utf-8") as f:
-                system_prompt = f.read().strip()
-
         context_text = "\n\n---\n\n".join(d.page_content for d in best_docs)
-        prompt = (
-            f"{system_prompt}\n\n"
-            f"Context:\n{context_text}\n\n"
-            f"Question: {user_query}\n\n"
-            f"Answer:"
-        )
-
+        prompt = f"{system_prompt}\n\nContext:\n{context_text}\n\nQuestion: {user_query}\n\nAnswer:"
+        
         yield from self.llm.stream(prompt)

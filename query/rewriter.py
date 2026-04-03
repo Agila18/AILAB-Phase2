@@ -17,52 +17,62 @@ from __future__ import annotations
 _REWRITE_PROMPT = """You are a search query optimizer for a college student information system.
 Convert the following informal student question into a formal, specific, retrieval-optimized search query.
 
+Also, categorize the INTENT of the question into one of:
+- FACTUAL: Simple requests for specific information (e.g., "who is HOD?", "what is the fee?")
+- COMPARISON: Requests comparing two or more entities (e.g., "CSE vs ECE", "hostel vs day scholar fees")
+- PROCEDURAL: Requests about steps or processes (e.g., "how to apply for scholarship?", "steps for leave")
+
+Format your response exactly as:
+QUERY: [optimized query]
+INTENT: [FACTUAL/COMPARISON/PROCEDURAL]
+
 Rules:
-- Expand abbreviations (HOD → head of department, CGPA → cumulative grade point average, etc.)
-- Make the intent explicit and specific
-- Add relevant college/academic keywords
-- Keep it under 15 words
-- Return ONLY the rewritten query, nothing else. No explanation.
+- Expand abbreviations (HOD → head of department, etc.)
+- Keep query under 15 words
+- Return ONLY the two lines above.
 
-Student question: {question}
-Rewritten query:"""
+Student question: {question}"""
 
 
-def rewrite_query(question: str, llm=None) -> tuple[str, str]:
+def rewrite_query(question: str, llm=None) -> tuple[str, str, str]:
     """
-    Rewrite a student question into a retrieval-optimized query.
-
-    Parameters
-    ----------
-    question : str        — raw user input
-    llm      : OllamaLLM  — if None, falls back to rule-based expansion
+    Rewrite a student question and detect intent.
 
     Returns
     -------
-    (retrieval_query, display_label)
-      retrieval_query  — used for actual vector/BM25 search
-      display_label    — shown in the UI as "I interpreted your question as: ..."
+    (retrieval_query, intent, display_label)
     """
     base_expanded = _rule_based_expand(question)
+    default_intent = "FACTUAL"
 
     if llm is None:
-        return base_expanded, _friendly_label(question)
+        return base_expanded, default_intent, _friendly_label(question)
 
     try:
         prompt = _REWRITE_PROMPT.format(question=question)
         response = llm.invoke(prompt)
-        rewritten = _clean_rewrite(response, question)
+        
+        # Parse response lines
+        lines = [line.strip() for line in response.split("\n") if line.strip()]
+        rewritten = base_expanded
+        intent = "FACTUAL"
+        
+        for line in lines:
+            if line.upper().startswith("QUERY:"):
+                rewritten = line[6:].strip().strip('"\'')
+            elif line.upper().startswith("INTENT:"):
+                intent = line[7:].strip().upper()
+        
+        if intent not in ["FACTUAL", "COMPARISON", "PROCEDURAL"]:
+            intent = "FACTUAL"
 
-        if len(rewritten.split()) < 2 or len(rewritten) > 200:
-            return base_expanded, _friendly_label(question)
-
-        # Merge: LLM rewrite + rule-based keyword injection for robustness
+        # Merge rewrite with rule-based keywords for extra robustness
         merged = rewritten + " " + _extra_keywords(question)
-        return merged.strip(), rewritten
+        return merged.strip(), intent, rewritten
 
     except Exception as e:
         print(f"⚠️  Query rewriter LLM call failed ({e}), using rule-based fallback.")
-        return base_expanded, _friendly_label(question)
+        return base_expanded, default_intent, _friendly_label(question)
 
 
 def _clean_rewrite(response: str, original: str) -> str:

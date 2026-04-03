@@ -27,25 +27,35 @@ _REFUSALS = [
 ]
 
 
-def verify_answer(answer: str, docs) -> dict:
+def _calculate_relevance(query: str, answer: str) -> float:
+    """Heuristic for answer relevance to the query."""
+    q_words = set(query.lower().split())
+    a_words = set(answer.lower().split())
+    if not q_words: return 1.0
+    overlap = q_words.intersection(a_words)
+    return round(len(overlap) / len(q_words), 2)
+
+
+def verify_answer(answer: str, docs, query: str = "") -> dict:
     """
     Verify whether the generated answer is grounded in the retrieved documents.
 
-    Parameters
-    ----------
-    answer : str
-    docs   : list[Document] | list[str]
-
     Returns
     -------
-    dict — see module docstring for schema
+    {
+        "verified": bool,
+        "score": float, (Faithfulness)
+        "relevance": float,
+        "unsupported_sentences": list,
+        "supported_sentences": list,
+    }
     """
     empty_result = {
         "verified": False,
         "score": 0.0,
+        "relevance": 0.0,
         "unsupported_sentences": [],
         "supported_sentences": [],
-        "support_ratio": 0.0,
     }
 
     if not answer or not docs:
@@ -53,26 +63,27 @@ def verify_answer(answer: str, docs) -> dict:
 
     answer_lower = answer.lower()
 
-    # Explicit refusals → system is working correctly, mark as verified
+    # Explicit refusals → system behaves correctly
     if any(phrase in answer_lower for phrase in _REFUSALS):
         return {
             "verified": True,
             "score": 1.0,
+            "relevance": 1.0,
             "unsupported_sentences": [],
             "supported_sentences": [answer],
-            "support_ratio": 1.0,
         }
 
     # Run span highlighting
     span_result = highlight_spans(answer, docs)
-
-    support_ratio = span_result["support_ratio"]
-    verified = support_ratio >= 0.5  # At least half the sentences must be grounded
+    faithfulness = span_result["support_ratio"]
+    relevance = _calculate_relevance(query, answer) if query else 1.0
+    
+    verified = faithfulness >= 0.5
 
     return {
         "verified": verified,
-        "score": round(support_ratio, 2),
+        "score": round(faithfulness, 2),
+        "relevance": relevance,
         "unsupported_sentences": span_result["unsupported"],
         "supported_sentences":   span_result["supported"],
-        "support_ratio":         support_ratio,
     }

@@ -38,13 +38,18 @@ def compute_confidence(answer: str, context) -> float:
             return 0.0
 
     # ── Build combined context text ──────────────────────────────────────────
-    if isinstance(context[0], str):
-        context_text = " ".join(context).lower()
-    elif isinstance(context[0], dict):
-        context_text = " ".join([c.get("text", "") for c in context]).lower()
-    else:
-        # LangChain Document objects
-        context_text = " ".join([c.page_content for c in context]).lower()
+    texts = []
+    for c in context:
+        if isinstance(c, str):
+            texts.append(c)
+        elif hasattr(c, "page_content"):
+            texts.append(c.page_content)
+        elif isinstance(c, dict):
+            texts.append(c.get("text", c.get("page_content", "")))
+        else:
+            texts.append(str(c))
+    
+    context_text = " ".join(texts).lower()
 
     # ── Factor 1: Keyword Overlap (0.0 → 0.50) ──────────────────────────────
     STOPWORDS = {
